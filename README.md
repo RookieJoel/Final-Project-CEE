@@ -1,4 +1,4 @@
-# Activity 9 Backend
+# Computer Engineering Essential Final Project 
 
 This repository contains source code for backend (as well as frontend) for activity 8 in the class "Computer Engineering Essentials".
 As this activity focuses on how backend works, the backend stores data in memory, instead of in database.
