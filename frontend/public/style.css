@@ -1,139 +1,92 @@
-@import url("https://fonts.googleapis.com/css2?family=Mitr:wght@200;400;600&display=swap");
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  font-family: "Mitr", sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
 }
 
-#app-name {
-  font-size: 2em;
-  font-weight: bold;
+.navbar {
+  background-color: #212529;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
   margin: 0;
-  text-align: center;
 }
 
-section {
-  margin: 20px 0;
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
 }
 
-.section-title {
-  font-size: 1.2em;
-  font-weight: lighter;
-  margin: 0;
+.nav-link:hover {
+  color: #ffc107; /* Yellow color on hover */
 }
 
-.section-subtitle {
-  font-size: 0.8em;
-  font-weight: lighter;
-  line-height: 80%;
+.nav-link.active {
+  color: #6c757d; /* Secondary color for active link */
 }
 
-.version-title {
-  font-size: small;
-  color: grey;
+.search-form {
+  flex-grow: 1;
+  margin: 0 1rem;
 }
 
-#member-list {
-  margin: 0;
-  font-size: 0.8em;
-}
-
-#main-table {
-  padding: 0;
+.search-input {
   width: 100%;
-  background: #eee;
-  border-radius: 8px;
-  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
-  border-collapse: collapse;
-  overflow: hidden;
-}
-
-#main-table>thead {
-  background: #555;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #343a40;
   color: white;
 }
 
-#main-table>thead>tr>th {
-  font-weight: lighter;
-  text-align: left;
+.search-input::placeholder {
+  color: #ced4da;
 }
 
-#main-table td,
-#main-table th {
-  padding: 5px 10px;
-  font-weight: lighter;
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
 }
 
-#main-table input,
-#main-table select,
-#filter-name {
-  padding: 5px 10px;
-  border-radius: 8px;
-  border: 1px solid #aaa;
-}
-
-#main-table button {
-  border-radius: 8px;
-  padding: 5px 10px;
-  border: 1px solid #aaa;
-  background: white;
-  width: 60px;
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
   cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
-#main-table button:hover {
-  background: rgb(255, 200, 105);
+.login-btn {
   color: white;
+  background-color: transparent;
+  border: 1px solid #ced4da;
 }
 
-#filter-button {
-  color: black;
-  border-radius: 8px;
-  padding: 5px 10px;
-  border: 1px solid #aaa;
-  background: white;
-  width: 60px;
-  cursor: pointer;
-}
-
-#filter-button:hover {
-  color: white;
-  animation: filtering 10s infinite linear;
-}
-
-@keyframes filtering {
-  0% {
-    background: #ff0000;
-  }
-
-  12.5% {
-    background: #ffa500;
-  }
-
-  25% {
-    background: #ffff00;
-  }
-
-  37.5% {
-    background: #008000;
-  }
-
-  50% {
-    background: #0000ff;
-  }
-
-  62.5% {
-    background: #4b0082;
-  }
-
-  75% {
-    background: purple;
-  }
-
-  87.5% {
-    background: #ee82ee;
-  }
-
-  100% {
-    background: #ff0000;
-  }
+.signup-btn {
+  color: #212529;
+  background-color: #ffc107;
 }
