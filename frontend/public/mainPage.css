@@ -126,7 +126,7 @@ body {
   background-color: #343a40; /* Dark background color to match the theme */
   border: 1px solid #495057; /* Border color slightly lighter than background */
   border-radius: 8px;
-  color: #ffeb3b; /* Text color matching theme's yellow */
+  color: #ffc107; /* Text color matching theme's yellow */
 }
 
 .card strong {
@@ -138,12 +138,234 @@ body {
 }
 
 .footer a {
-  color: #ffeb3b;
+  color: #ffc107;
+}
+
+.footer a:hover {
+  color: #ffc107;
+}
+/* ////////////////////////////celedar//////////////////// */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffc107;
+}
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #343a40;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: #ffc107;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  padding-top: 10px;
+}
+
+.month .next {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #6c757d;  
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 50%;
+  color: #ffc107;
+  text-align: center;
+  font-weight: bold;
+  
+}
+
+.days {
+  padding: 10px 0;
+  background: #9ca4aa;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #ffc107;
+  color: white !important
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navbar Styles */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+.nav-link.active {
+  color: #6c757d;
+}
+
+.footer a {
+  color: #ffc107;
 }
 
 .footer a:hover {
   color: #ffc107;
 }
 
+/* Announcement Box Style */
+.card {
+  background-color: #343a40;
+  border: 1px solid #495057;
+  border-radius: 8px;
+  color: #ffc107;
+}
 
+.card strong {
+  color: #ffc107;
+}
+
+.card p {
+  color: #e9ecef;
+}
+
+/* Calendar Styles */
+/* .calendar-container {
+  background-color: #1abc9c;
+  border-radius: 8px;
+  padding:  px;
+  margin-bottom: 20px;
+  max-width: 800px;
+} */
+
+.calendar-container {
+  background-color: #343a40;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.calendar-container .month ul {
+  margin: 0;
+  padding: 0;
+  
+}
+
+.calendar-container .month li {
+  color: #ffc107;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  max-width: 800px;
+  
+}
+
+.calendar-container .prev,
+.calendar-container .next {
+  float: left;
+  padding-top: 10px;
+}
+
+.weekdays, .days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.weekdays li, .days li {
+  width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
+  text-align: center;
+  list-style-type: none;
+  padding: 8px ;
+  border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
+}
+
+.days .empty {
+  visibility: hidden;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #ffc107;
+  color: white;
+}
+
+/* Clock Styles */
+.clock-container {
+  background-color: #333333;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  color: #ffc107;
+}
+
+#clock-time {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#calendar-date {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {
+    width: 13.1%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {
+    width: 12.5%;
+  }
+  .days li .active {
+    padding: 2px;
+  }
+}
 
