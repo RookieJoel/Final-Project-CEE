@@ -1,0 +1,149 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* /////dfvnfdsjvnfjid/ */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #212529;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107; /* Yellow color on hover */
+}
+
+.nav-link.active {
+  color: #6c757d; /* Secondary color for active link */
+}
+
+.search-form {
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #343a40;
+  color: white;
+}
+
+
+
+.search-input::placeholder {
+  color: #ced4da;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.login-btn {
+  color: white;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+}
+
+.signup-btn {
+  color: #212529;
+  background-color: #ffc107;
+}
+
+/* ******************************************************* */
+
+.date-time-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 8px;
+  color: #ffeb3b;
+}
+
+.date-time-section h3 {
+  margin-bottom: 10px;
+  color: #ffeb3b;
+}
+
+.clock, .calendar {
+  text-align: center;
+}
+
+#clock-time, #calendar-date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+/* /////////////////////////// */
+
+/* Announcement Box Style */
+.card {
+  background-color: #343a40; /* Dark background color to match the theme */
+  border: 1px solid #495057; /* Border color slightly lighter than background */
+  border-radius: 8px;
+  color: #ffeb3b; /* Text color matching theme's yellow */
+}
+
+.card strong {
+  color: #ffc107; /* Accent color for strong emphasis */
+}
+
+.card p {
+  color: #e9ecef; /* Light gray text color for content readability */
+}
+
+.footer a {
+  color: #ffeb3b;
+}
+
+.footer a:hover {
+  color: #ffc107;
+}
+
+
+
