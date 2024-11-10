@@ -10,6 +10,8 @@ body {
   background-color: #f8f9fa;
 }
 
+
+
 .navbar {
   background-color: #212529;
   padding: 1rem 0;
@@ -119,31 +121,32 @@ body {
   font-weight: bold;
   color: #ffffff;
 }
-/* /////////////////////////// */
+
 
 /* Announcement Box Style */
-.card {
-  background-color: #343a40; /* Dark background color to match the theme */
-  border: 1px solid #495057; /* Border color slightly lighter than background */
-  border-radius: 8px;
-  color: #ffc107; /* Text color matching theme's yellow */
+
+.textwarn{
+  color:black;
+  font-weight: bold;
 }
 
-.card strong {
-  color: #ffc107; /* Accent color for strong emphasis */
+
+.announcement-box {
+  border: 5px solid #000000; /* เส้นขอบดำ */
+  background-color: #343a40; /* แบ็กกราวน์สีเทา */
+  color: #ffc107; /* ตัวหนังสือสีดำ */
+  font-size: 1.2rem; /* ขนาดตัวหนังสือใหญ่ขึ้น */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px; /* มุมกลมเล็กน้อย */
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-.card p {
-  color: #e9ecef; /* Light gray text color for content readability */
+.announcement-box strong {
+  font-size: 1.3rem; /* ขนาดตัวหนังสือสำหรับหัวข้อประกาศ */
 }
 
-.footer a {
-  color: #ffc107;
-}
 
-.footer a:hover {
-  color: #ffc107;
-}
 /* ////////////////////////////celedar//////////////////// */
 * {
   margin: 0;
@@ -257,21 +260,7 @@ body {
   color: #ffc107;
 }
 
-/* Announcement Box Style */
-.card {
-  background-color: #343a40;
-  border: 1px solid #495057;
-  border-radius: 8px;
-  color: #ffc107;
-}
 
-.card strong {
-  color: #ffc107;
-}
-
-.card p {
-  color: #e9ecef;
-}
 
 /* Calendar Styles */
 /* .calendar-container {
@@ -284,9 +273,9 @@ body {
 
 .calendar-container {
   background-color: #343a40;
-  border: 1px solid #ddd;
+  border: 10px solid #343a40;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 60px;
 }
 
 .calendar-container .month ul {
