@@ -54,7 +54,7 @@ body {
 
 /* Thread List Styles */
 #thread-list {
-  padding-top: 40px;
+  padding-top: 0px;
   margin-bottom: 60px;
 }
 
@@ -71,10 +71,22 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .thread-body {
-  padding-bottom: 10px;
+  padding-bottom: 0px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Thread description text should wrap long words */
+.thread-description {
+  word-wrap: break-word;  /* Older browsers */
+  overflow-wrap: break-word;  /* Modern browsers */
+  hyphens: auto;  /* Optional: automatically hyphenates when necessary */
+  white-space: normal;  /* Ensures wrapping */
 }
 
 .thread-footer {
@@ -100,7 +112,7 @@ body {
 
 /* Modal Styles */
 .modal-content {
-  background-color: #fff;
+  background-color: #0ff;
   border-radius: 8px;
 }
 
@@ -112,12 +124,104 @@ body {
 }
 
 .modal-footer .btn-primary {
-  background-color: #007bff;
+  background-color: #007bff !important;
   border: none;
+  padding-bottom: 10px;
 }
 
 .modal-footer .btn-secondary {
-  background-color: #f0f0f0;
+  background-color: #00f0f0 !important;
+}
+
+/* View Thread Section */
+#thread-view {
+  padding-top: 40px;
+  margin-bottom: 60px;
+}
+
+#thread-title-view {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;  /* Optional: Adds hyphenation if necessary */
+}
+
+#thread-description-view {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;  /* Optional: Adds hyphenation if necessary */
+}
+
+/* Comments Section */
+#thread-comments {
+  margin-top: 30px;
+}
+
+.comment {
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment strong {
+  color: #333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.comment p {
+  color: #666;
+  line-height: 1.5;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Button Styles (Submit Comment, Go Back) */
+button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#comment-input {
+  resize: vertical;
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+#comment-input:focus {
+  border-color: #007bff;
+}
+
+/* Spacing between buttons */
+button + button {
+  margin-left: 10px;
 }
 
 /* Buttons */
@@ -161,4 +265,67 @@ button {
 button:disabled {
   cursor: not-allowed;
   opacity: 0.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 0;
+  }
+
+  .thread {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+  .thread-header h3 {
+    font-size: 1rem;
+  }
+
+  .thread-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .thread-footer .btn-group {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .modal-dialog {
+    max-width: 90%;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  .navbar {
+    font-size: 0.8rem;
+  }
+
+  .search-input {
+    font-size: 0.9rem;
+  }
+
+  .thread-header h3 {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .modal-content {
+    padding: 10px;
+  }
 }

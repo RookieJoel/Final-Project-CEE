@@ -7,8 +7,8 @@ let threads = [
         likes: 0,
         dislikes: 0,
         comments: [
-            { user: 'Alice', text: 'Great tutorial! Thanks for sharing.' },
-            { user: 'Bob', text: 'Can you provide a demo?' }
+            {id: 1,user: 'Alice', text: 'Great tutorial! Thanks for sharing.',likes: 0,dislikes: 0,threadId:1},
+            {id: 2, user: 'Bob', text: 'Can you provide a demo?',likes: 0,dislikes: 0,threadId:1}
         ]
     },
     {
@@ -18,7 +18,7 @@ let threads = [
         likes: 0,
         dislikes: 0,
         comments: [
-            { user: 'Charlie', text: 'This is exactly what I needed, awesome!' }
+            {id: 1, user: 'Charlie', text: 'This is exactly what I needed, awesome!',likes: 0,dislikes: 0,threadId:2}
         ]
     }
 ];
@@ -143,6 +143,47 @@ function goToThread(threadId) {
         document.getElementById('thread-title-view').textContent = thread.title;
         document.getElementById('thread-description-view').textContent = thread.description;
         renderComments(thread.comments);
+
+        document.getElementById('thread-id').textContent = threadId;
+    }
+}
+
+// Add like/dislike functionality for comments
+function likeComment(commentId, threadId) {
+    const thread = threads.find(t => t.id === threadId);
+    const comment = thread.comments.find(c => c.id === commentId);
+
+    if (comment && comment.userVoted !== 'like') {
+        // Prevent multiple likes/dislikes
+        if (comment.userVoted === 'dislike') {
+            comment.dislikes--; // Undo the like if it was already liked
+        }  
+        comment.likes++; // Increment likes
+        comment.userVoted = 'like'; // Set the vote to 'like'
+        renderComments(thread.comments); // Re-render comments
+    }else{
+        comment.likes--;
+        comment.userVoted = 'null'; // Set the vote state to 'like'
+        renderComments(thread.comments);
+    }
+}
+
+function dislikeComment(commentId, threadId) {
+    const thread = threads.find(t => t.id === threadId);
+    const comment = thread.comments.find(c => c.id === commentId);
+
+    if (comment && comment.userVoted !== 'dislike') {
+        // Prevent multiple likes/dislikes
+        if (comment.userVoted === 'like') {
+            comment.likes--; // Undo the like if it was already liked
+        }  
+        comment.dislikes++; // Increment likes
+        comment.userVoted = 'dislike'; // Set the vote to 'like'
+        renderComments(thread.comments); // Re-render comments
+    }else{
+        comment.dislikes--;
+        comment.userVoted = 'null'; // Set the vote state to 'like'
+        renderComments(thread.comments);
     }
 }
 
@@ -151,11 +192,27 @@ function renderComments(comments) {
     const commentSection = document.getElementById('thread-comments');
     commentSection.innerHTML = ''; // Clear previous comments
 
+    comments.sort((a, b) => (b.likes - b.dislikes) - (a.likes - a.dislikes)); // Sort comments by votes
+
     comments.forEach(comment => {
         const commentElement = document.createElement('div');
         commentElement.classList.add('comment', 'mb-3');
         commentElement.innerHTML = `
             <strong>${comment.user}</strong>: <p>${comment.text}</p>
+            
+            <div class="btn-group">
+                <!-- Like Button -->
+                <button class="btn ${comment.userVoted === 'like' ? 'btn-success' : 'btn-outline-success'} btn-sm" 
+                        onclick="likeComment(${comment.id}, ${comment.threadId})">
+                    Like (${comment.likes})
+                </button>
+                
+                <!-- Dislike Button -->
+                <button class="btn ${comment.userVoted === 'dislike' ? 'btn-danger' : 'btn-outline-danger'} btn-sm" 
+                        onclick="dislikeComment(${comment.id}, ${comment.threadId})">
+                    Dislike (${comment.dislikes})
+                </button>
+            </div>
         `;
         commentSection.appendChild(commentElement);
     });
@@ -168,7 +225,16 @@ function submitComment() {
     const commentText = document.getElementById('comment-input').value;
 
     if (commentText.trim() !== '') {
-        thread.comments.push({ user: 'New User', text: commentText });
+        const newComment = {
+            id: thread.comments.length + 1,
+            user: 'New User',
+            text: commentText,
+            likes: 0,
+            dislikes: 0, // No vote by default
+            threadId: threadId // Store the threadId in the comment for later use
+        };
+
+        thread.comments.push(newComment);
         renderComments(thread.comments);
         displayThreads();
         document.getElementById('comment-input').value = '';
