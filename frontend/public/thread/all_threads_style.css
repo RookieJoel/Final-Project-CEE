@@ -224,6 +224,37 @@ button + button {
   margin-left: 10px;
 }
 
+/* Style the delete button (X) to look like the modal close button */
+.btn-delete-x {
+  background-color: #f8f9fa; /* Light gray background */
+  color: #7d766c;             /* Dark gray color for the 'X' */
+  border: none;               /* No border */
+  border-radius: 50%;         /* Circular button */
+  width: 30px;                /* Set size */
+  height: 30px;               /* Set size */
+  padding: 0;                 /* Remove padding */
+  font-size: 25px !important;            /* 'X' font size */
+  text-align: center !important;         /* Center the 'X' */
+  line-height: 0px!important;          /* Vertically center the 'X' */
+  position: absolute;         /* Position it absolutely */
+  top: 0;                     /* Top of the container */
+  right: 0;                   /* Right of the container */
+  cursor: pointer;           /* Pointer cursor on hover */
+  display: flex;              /* Flexbox for centering */
+  justify-content: center;    /* Horizontal centering */
+  align-items: center;        /* Vertical centering */
+}
+
+.btn-delete-x:hover {
+  background-color: #dc3545;  /* Red background on hover */
+  color: white;               /* White color for 'X' on hover */
+}
+
+.btn-delete-x:focus {
+  outline: none;              /* Remove focus outline */
+  box-shadow: none;           /* Remove box-shadow */
+}
+
 /* Buttons */
 .btn {
   font-size: 0.9rem;

@@ -34,7 +34,8 @@ function displayThreads() {
         const threadElement = document.createElement('div');
         threadElement.classList.add('thread', 'shadow-lg', 'mb-4', 'rounded-lg');
         threadElement.innerHTML = `
-            <div class="thread-header p-3">
+            <div class="position-relative thread-header p-3">
+                <button class="btn btn-sm btn-delete-x" onclick="deleteThread(${thread.id})">x</button>
                 <h3>
                     <a href="#" class="thread-title text-decoration-none text-dark" onclick="goToThread(${thread.id})">${thread.title}</a>
                 </h3>
@@ -44,12 +45,12 @@ function displayThreads() {
             </div>
             <div class="thread-footer d-flex justify-content-between align-items-center p-3">
                 <div class="btn-group">
-                    <!-- Like Button with dynamic color -->
+                    <!-- Like Button -->
                     <button class="btn ${thread.userVoted === 'like' ? 'btn-success' : 'btn-outline-success'} btn-sm" 
                             onclick="likeThread(${thread.id})">
                         Like (${thread.likes})
                     </button>
-                    <!-- Dislike Button with dynamic color -->
+                    <!-- Dislike Button -->
                     <button class="btn ${thread.userVoted === 'dislike' ? 'btn-danger' : 'btn-outline-danger'} btn-sm" 
                             onclick="dislikeThread(${thread.id})">
                         Dislike (${thread.dislikes})
@@ -62,6 +63,15 @@ function displayThreads() {
         threadContainer.appendChild(threadElement);
     });
 }
+
+
+// Delete thread
+function deleteThread(threadId) {
+    // Remove the thread from the array
+    threads = threads.filter(thread => thread.id !== threadId);
+    displayThreads(); // Re-render the thread list after deletion
+}
+
 
 // Like a thread
 function likeThread(threadId) {
@@ -194,24 +204,37 @@ function renderComments(comments) {
         const commentElement = document.createElement('div');
         commentElement.classList.add('comment', 'mb-3');
         commentElement.innerHTML = `
-            <strong>${comment.user}</strong>: <p>${comment.text}</p>
-            
-            <div class="btn-group">
-                <!-- Like Button -->
-                <button class="btn ${comment.userVoted === 'like' ? 'btn-success' : 'btn-outline-success'} btn-sm" 
-                        onclick="likeComment(${comment.id}, ${comment.threadId})">
-                    Like (${comment.likes})
-                </button>
+            <div class="position-relative">
+                <button class="btn btn-sm btn-delete-x" onclick="deleteComment(${comment.id}, ${comment.threadId})">x</button>
+                <strong>${comment.user}</strong>: <p>${comment.text}</p>
                 
-                <!-- Dislike Button -->
-                <button class="btn ${comment.userVoted === 'dislike' ? 'btn-danger' : 'btn-outline-danger'} btn-sm" 
-                        onclick="dislikeComment(${comment.id}, ${comment.threadId})">
-                    Dislike (${comment.dislikes})
-                </button>
+                <div class="btn-group">
+                    <!-- Like Button -->
+                    <button class="btn ${comment.userVoted === 'like' ? 'btn-success' : 'btn-outline-success'} btn-sm" 
+                            onclick="likeComment(${comment.id}, ${comment.threadId})">
+                        Like (${comment.likes})
+                    </button>
+                    
+                    <!-- Dislike Button -->
+                    <button class="btn ${comment.userVoted === 'dislike' ? 'btn-danger' : 'btn-outline-danger'} btn-sm" 
+                            onclick="dislikeComment(${comment.id}, ${comment.threadId})">
+                        Dislike (${comment.dislikes})
+                    </button>
+                </div>
             </div>
         `;
         commentSection.appendChild(commentElement);
     });
+}
+
+// Delete comment
+function deleteComment(commentId, threadId) {
+    const thread = threads.find(t => t.id === threadId);
+    if (thread) {
+        // Find and remove the comment
+        thread.comments = thread.comments.filter(comment => comment.id !== commentId);
+        renderComments(thread.comments); // Re-render the comments after deletion
+    }
 }
 
 // Submit a new comment to the thread
