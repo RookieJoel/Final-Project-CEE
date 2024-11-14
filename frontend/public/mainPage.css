@@ -1,17 +1,23 @@
-/* Basic Reset */
+/* =======================
+   Basic Reset
+======================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-/* /////dfvnfdsjvnfjid/ */
+
+/* =======================
+   Body and Global Styles
+======================== */
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
 }
 
-
-
+/* =======================
+   Navbar Styles
+======================== */
 .navbar {
   background-color: #212529;
   padding: 1rem 0;
@@ -51,6 +57,9 @@ body {
   color: #6c757d; /* Secondary color for active link */
 }
 
+/* =======================
+   Search Form Styles
+======================== */
 .search-form {
   flex-grow: 1;
   margin: 0 1rem;
@@ -65,12 +74,13 @@ body {
   color: white;
 }
 
-
-
 .search-input::placeholder {
   color: #ced4da;
 }
 
+/* =======================
+   Auth Buttons Styles
+======================== */
 .auth-buttons {
   display: flex;
   gap: 0.5rem;
@@ -95,8 +105,9 @@ body {
   background-color: #ffc107;
 }
 
-/* ******************************************************* */
-
+/* =======================
+   Date & Time Section
+======================== */
 .date-time-section {
   display: flex;
   justify-content: space-around;
@@ -112,42 +123,40 @@ body {
   color: #ffeb3b;
 }
 
-.clock, .calendar {
+.clock,
+.calendar {
   text-align: center;
 }
 
-#clock-time, #calendar-date {
+#clock-time,
+#calendar-date {
   font-size: 1.5rem;
   font-weight: bold;
   color: #ffffff;
 }
-
-
-/* Announcement Box Style */
-
-.textwarn{
-  color:black;
-  font-weight: bold;
-}
-
-
+/* =======================
+   Announcement Box Styles
+======================== */
 .announcement-box {
-  border: 5px solid #000000; /* เส้นขอบดำ */
-  background-color: #343a40; /* แบ็กกราวน์สีเทา */
-  color: #ffc107; /* ตัวหนังสือสีดำ */
-  font-size: 1.2rem; /* ขนาดตัวหนังสือใหญ่ขึ้น */
+  border: 5px solid #000000; /* Black border */
+  background-color: #343a40; /* Dark gray background */
+  color: #ffc107; /* Yellow text */
+  font-size: 1.2rem; /* Larger text size */
   padding: 15px;
   margin-bottom: 15px;
-  border-radius: 5px; /* มุมกลมเล็กน้อย */
+  border-radius: 5px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  display: none;
 }
 
 .announcement-box strong {
-  font-size: 1.3rem; /* ขนาดตัวหนังสือสำหรับหัวข้อประกาศ */
+  font-size: 1.3rem; /* Larger font for headings */
 }
 
+/* =======================
+   Calendar Styles
+======================== */
 
-/* ////////////////////////////celedar//////////////////// */
 * {
   margin: 0;
   padding: 0;
@@ -195,7 +204,9 @@ body {
 .weekdays {
   margin: 0;
   padding: 10px 0;
-  background-color: #6c757d;  
+  background-color: #6c757d;
+  border: 5px solid #000000;
+  border-radius: 10px;
 }
 
 .weekdays li {
@@ -204,10 +215,11 @@ body {
   color: #ffc107;
   text-align: center;
   font-weight: bold;
-  
 }
 
 .days {
+  border: 5px solid #000000;
+  border-radius: 10px;
   padding: 10px 0;
   background: #9ca4aa;
   margin: 0;
@@ -219,7 +231,7 @@ body {
   width: 13.6%;
   text-align: center;
   margin-bottom: 5px;
-  font-size:20px;
+  font-size: 20px;
   font-weight: bold;
   color: #000000;
 }
@@ -227,7 +239,7 @@ body {
 .days li .active {
   padding: 5px;
   background: #ffc107;
-  color: white !important
+  color: white !important;
 }
 
 .container {
@@ -260,20 +272,12 @@ body {
   color: #ffc107;
 }
 
-
-
 /* Calendar Styles */
-/* .calendar-container {
-  background-color: #1abc9c;
-  border-radius: 8px;
-  padding:  px;
-  margin-bottom: 20px;
-  max-width: 800px;
-} */
 
 .calendar-container {
   background-color: #343a40;
-  border: 10px solid #343a40;
+  border: 10px solid #000000;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
   padding: 15px;
   border-radius: 60px;
 }
@@ -281,7 +285,6 @@ body {
 .calendar-container .month ul {
   margin: 0;
   padding: 0;
-  
 }
 /* /// */
 .calendar-container .month li {
@@ -290,7 +293,6 @@ body {
   text-transform: uppercase;
   letter-spacing: 3px;
   max-width: 800px;
-  
 }
 
 .calendar-container .prev,
@@ -299,17 +301,18 @@ body {
   padding-top: 10px;
 }
 
-.weekdays, .days {
+.weekdays,
+.days {
   display: flex;
   flex-wrap: wrap;
 }
 
-
-.weekdays li, .days li {
+.weekdays li,
+.days li {
   width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
   text-align: center;
   list-style-type: none;
-  padding: 8px ;
+  padding: 8px;
   border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
 }
 
@@ -343,14 +346,16 @@ body {
 }
 
 /* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {
+@media screen and (max-width: 720px) {
+  .weekdays li,
+  .days li {
     width: 13.1%;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .weekdays li, .days li {
+  .weekdays li,
+  .days li {
     width: 12.5%;
   }
   .days li .active {
@@ -358,3 +363,96 @@ body {
   }
 }
 
+/* Styling for the todo list container */
+
+/* Styling for the todo list container */
+.todo-list-box {
+  border: 5px solid #000000;
+  background-color: #343a40 !important; /* Dark background */
+  border-radius: 8px !important;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
+  color: #ffc107 !important;
+  padding: 15px !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  height: 300px !important;
+}
+
+.todo-list-box h4 {
+  color: #ffc107;
+  margin-bottom: 8px;
+}
+
+.todo-list-box .form-control,
+.todo-list-box .form-select {
+  background-color: #555;
+  color: #ffc107;
+  border: 1px solid #444;
+  margin-right: 5px;
+}
+
+.todo-list-box .btn-warning {
+  background-color: #ffc107;
+  color: #333;
+  font-weight: bold;
+}
+
+.todo-list {
+  max-height: none; /* ลบขีดจำกัดความสูง */
+  overflow-y: visible; /* ไม่ให้มี scroll */
+}
+
+.todo-item {
+  background-color: #444;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 1px solid #555;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* ปรับสไตล์ให้ task text อยู่ด้านหน้า */
+.task-text {
+  flex-grow: 1; /* ขยายให้ข้อความยาวๆ ใช้พื้นที่ที่เหลือ */
+  overflow: hidden;
+  text-overflow: ellipsis; /* เพิ่ม "..." หากข้อความยาวเกินไป */
+  white-space: nowrap; /* ไม่ให้ข้อความถูกตัดบรรทัด */
+}
+
+/* ปรับหมวดหมู่ให้อยู่ด้านหลัง */
+.category-text {
+  margin-left: 10px;
+  text-align: right;
+}
+
+/* เพิ่ม box-sizing เพื่อให้การคำนวณขนาดกล่องแม่นยำ */
+* {
+  box-sizing: border-box;
+}
+
+.todo-filter-box {
+  background-color: #343a40;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.todo-filter-box h5 {
+  color: #ffc107;
+  margin-bottom: 10px;
+}
+
+/* ////////////////////////////////////page ///////////////////////////// */
+.pagination {
+  display: flex;
+  justify-content: center; /* Centers the pagination links horizontally */
+  gap: 10px; /* Optional, adds space between pagination links */
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.pagination .active {
+  color: #ffc107; /* เปลี่ยนเป็นสีเหลือง */
+  font-weight: bold;
+}
