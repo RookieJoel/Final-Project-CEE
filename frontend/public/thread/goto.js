@@ -119,10 +119,6 @@ function createNewThread() {
 
         threads.push(newThread);
 
-        // Close the modal
-        const modal = new bootstrap.Modal(document.getElementById('createThreadModal'));
-        modal.hide();
-
         // Clear form fields
         document.getElementById('thread-title').value = '';
         document.getElementById('thread-description').value = '';
