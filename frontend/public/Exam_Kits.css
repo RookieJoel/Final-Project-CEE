@@ -1,0 +1,380 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #e0e0e0; 
+}
+  
+/* Navbar adjustments */
+.navbar-brand {
+  font-weight: bold;
+}
+
+.p-4 {
+  padding: 2rem !important;
+}
+
+/* Footer styling */
+footer {
+  font-size: 0.9rem;
+}
+
+/* Carousel styling */
+.carousel-container {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+.carousel-img {
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 3px solid #333; 
+}
+
+.carousel-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-content img {
+  transition: transform 0.4s ease;
+}
+
+/* Hover effect to slide image */
+.carousel-content:hover img {
+  transform: translateX(20%);
+}
+
+/* Overlay text styling */
+.carousel-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 60%; 
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffd700; 
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+/* Show overlay on hover */
+.carousel-content:hover .carousel-overlay {
+  opacity: 1;
+}
+
+.carousel-overlay h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.carousel-overlay p {
+  font-size: 1rem;
+}
+
+/* Card styling */
+.card {
+  background-color: #212529; 
+  border: 1px solid #333;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add a unique class for Sam's image */
+.sam-image {
+  transition: transform 0.3s ease; /* keep the transform effect if desired */
+}
+
+/* Disable shadow on hover for Sam specifically */
+.sam-image:hover {
+  transform: scale(1.03); /* Optional: Keep or remove scale effect */
+  box-shadow: none; /* Removes the shadow */
+}
+
+
+/* Existing general card hover effect */
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+.card-text, .card-title {
+  color: #efd27d; 
+}
+
+.bai-jamjuree-bold-italic {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: xx-large;
+  color: #ffc107;
+}
+
+.stretched-link:hover {
+  text-decoration: underline;
+  color: #ffd700;
+}
+
+/* Super image sizing */
+.bright-side-super, .dark-side-super {
+  height: 427px;
+  width: 211.467px;
+  object-fit: cover; 
+  border-radius: 5px;
+}
+
+/* Featured Section */
+.bg-dark .col-md-4 img {
+  max-width: 100%;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+
+/* Card section text color */
+.card-text {
+  color: #ffd700; 
+}
+
+/* Button adjustments */
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.btn-outline-light:hover {
+  background-color: #333;
+  color: #ffd700;
+}
+
+/*Explor*/
+
+/* Card Colors */
+.bg-lightblue { background-color: #4d79ff; }
+.bg-lightorange { background-color: #ffc266; }
+.bg-lightgreen { background-color: #66cc66; }
+.bg-lightblue-dark { background-color: #5a9aff; }
+
+/* Study Section Styling */
+.study-section h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: #333;
+}
+/* Study Card Styling */
+.study-card {
+  background-color: var(--secondary-light);
+  border: 1px solid var(--primary-dark);
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.study-card h3 {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-weight: 600;
+  color: var(--primary-accent);
+  margin-bottom: 10px;
+}
+
+.study-card .content img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-accent);
+}
+
+.study-card p {
+  color: var(--text-light);
+}
+
+/* Card Hover Effect */
+.study-card:hover {
+  background-color: var(--primary-accent); /* Change background color on hover to theme yellow */
+  color: var(--primary-dark); /* Adjust text color for contrast */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.study-card:hover h3,
+.study-card:hover p {
+  color: var(--primary-dark); /* Adjust text color on hover for better readability */
+}
+
+.study-card .content img:hover {
+  border-color: var(--primary-dark); /* Change border color on image hover */
+}
+
+/* Theme Colors */
+:root {
+  --primary-dark: #333; /* สีพื้นหลังเข้ม */
+  --primary-accent: #ffc107; /* สีไฮไลต์ที่ใช้ในส่วนอื่น ๆ */
+  --secondary-light: #212529; /* สีพื้นหลังรอง */
+  --text-light: #e0e0e0; /* สีข้อความอ่อน */
+  --background-light: #aba8a8; /* สีพื้นหลังหลัก */
+}
+
+/* Study Section Styling */
+.study-section {
+  background-color: #564f4f;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
+
+.study-section h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 2rem;
+}
+
+/* Study Card Styling */
+.study-card {
+  background-color: var(--secondary-light);
+  border: 1px solid var(--primary-dark);
+  color: var(--text-light);
+  text-align: center;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.study-card h3 {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-weight: 600;
+  color: var(--primary-accent);
+  margin-bottom: 10px;
+}
+
+.study-card p {
+  color: var(--text-light);
+}
+
+/* Card Hover Effect */
+.study-card:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjusted Navigation Button Styling */
+.prev-btn, .next-btn {
+  background-color: var(--primary-accent);
+  border: none;
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10; /* Ensures buttons are on top */
+}
+
+/* Separate hover effect for buttons */
+.prev-btn:hover, .next-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Positioning for Buttons */
+.prev-btn {
+  position: absolute;
+  left: -50px; /* Move the button further to the left to avoid overlap */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.next-btn {
+  position: absolute;
+  right: -50px; /* Move the button further to the right to avoid overlap */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Optional: If you want more space around the container */
+.study-tools-container {
+  padding: 0 60px; /* Adds space around the sides for the buttons */
+  position: relative;
+}
+
+
+/* Modal Background */
+.modal-content {
+  background-color: #212529; /* สีเข้ม */
+  color: #e0e0e0; /* สีตัวอักษร */
+  border-radius: 10px;
+}
+
+/* Header และ Footer ของ Modal */
+.modal-header, .modal-footer {
+  background-color: #333;
+  border-bottom: none;
+  border-top: none;
+}
+
+.modal-header .modal-title {
+  color: #ffd700; /* สีทอง */
+}
+
+.btn-close {
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+
+/* ปุ่มที่ใช้ในฟอร์ม */
+.modal .btn-primary, .modal .btn-success {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.modal .btn-primary:hover, .modal .btn-success:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+  color: #ffffff;
+}
+
+/* สีของ Label และ Input */
+.modal-body label {
+  color: #ffd700; /* สีทอง */
+  font-weight: bold;
+}
+
+.modal-body input {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.modal-body input:focus {
+  background-color: #444;
+  border-color: #ffc107;
+  color: #ffd700;
+}
+
+/* Tabs Styling */
+.nav-tabs .nav-link {
+  background-color: #333;
+  color: #e0e0e0;
+  border: none;
+  font-weight: bold;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #212529;
+  color: #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
