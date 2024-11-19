@@ -1,7 +1,6 @@
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #aba8a8; 
+  background-color: #ffffff;
   color: #e0e0e0; 
 }
 
@@ -229,7 +228,7 @@ footer {
 
 /* Study Section Styling */
 .study-section {
-  background-color: var(--background-light);
+  background-color: #564f4f;
   padding: 2rem 1rem;
   border-radius: 10px;
 }
@@ -379,6 +378,3 @@ footer {
   color: #ffd700;
   border-bottom: 2px solid #ffd700;
 }
-
-
-

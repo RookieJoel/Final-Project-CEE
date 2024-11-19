@@ -1,34 +1,20 @@
-// index.js or app.js
+import express from "express";
+import cors from "cors";
 
-// Import necessary modules
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import ItemRoute from "/home/ubuntu/MyCourseMate/backend/src/routes/threadRoutes.js";
+import MemberRoute from "/home/ubuntu/MyCourseMate/backend/src/routes/commentRoute.js";
 
-// Initialize environment variables
-dotenv.config();
-
-console.log("MongoDB URI:", process.env.MONGO_URI); // Check if MONGO_URI is loaded correctly
-// Initialize express app
 const app = express();
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('Error connecting to MongoDB:', error));
-
-// Middleware (e.g., for parsing JSON)
+// body-parser
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Define routes
-import authRoutes from './src/routes/auth.js';
-app.use('/auth', authRoutes);
+// allow request from other origin (Frontend which is at different port)
+app.use(cors());
 
-// Set up server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+// use routes
+app.use("/items", ItemRoute);
+app.use("/members", MemberRoute);
+
+export default app;

@@ -1,430 +1,567 @@
-/* Basic Reset */
+/* =======================
+   Basic Reset
+======================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-  /* Header และ Footer ของ Modal */
-.modal-header, .modal-footer {
-    background-color: #333;
-    border-bottom: none;
-    border-top: none;
-  }
-  
-  .modal-header .modal-title {
-    color: #ffd700; /* สีทอง */
-  }
-  
-  .navbar {
-    background-color: #212529;
-    padding: 1rem 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  .navbar-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .nav {
-    display: flex;
-    list-style: none;
-    gap: 1rem;
-    margin: 0;
-  }
-  
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #ffc107; /* Yellow color on hover */
-  }
-  
-  .nav-link.active {
-    color: #6c757d; /* Secondary color for active link */
-  }
-  
-  .search-form {
-    flex-grow: 1;
-    margin: 0 1rem;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #343a40;
-    color: white;
-  }
-  
-  .search-input::placeholder {
-    color: #ced4da;
-  }
-  
-  .auth-buttons {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    color: #212529;
-  }
-  
-  .btn-outline-light:hover {
-    background-color: #333;
-    color: #ffd700;
-  }
-  
-  /* ******************************************************* */
-  
-  .date-time-section {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #333333;
-    border-radius: 8px;
-    color: #ffeb3b;
-  }
-  
-  .date-time-section h3 {
-    margin-bottom: 10px;
-    color: #ffeb3b;
-  }
-  
-  .clock, .calendar {
-    text-align: center;
-  }
-  
-  #clock-time, #calendar-date {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  
-  
-  /* Announcement Box Style */
-  
-  .textwarn{
-    color:black;
-    font-weight: bold;
-  }
-  
-  
-  .announcement-box {
-    border: 5px solid #000000; /* เส้นขอบดำ */
-    background-color: #343a40; /* แบ็กกราวน์สีเทา */
-    color: #ffc107; /* ตัวหนังสือสีดำ */
-    font-size: 1.2rem; /* ขนาดตัวหนังสือใหญ่ขึ้น */
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px; /* มุมกลมเล็กน้อย */
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-  }
-  
-  .announcement-box strong {
-    font-size: 1.3rem; /* ขนาดตัวหนังสือสำหรับหัวข้อประกาศ */
-  }
-  
-  
-  /* ////////////////////////////celedar//////////////////// */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #ffc107;
-  }
-  
-  .month {
-    padding: 70px 25px;
-    width: 100%;
-    background: #343a40;
-    text-align: center;
-  }
-  
-  .month ul {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .month ul li {
-    color: #ffc107;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-  }
-  
-  .month .prev {
-    float: left;
-    padding-top: 10px;
-  }
-  
-  .month .next {
-    float: right;
-    padding-top: 10px;
-  }
-  
-  .weekdays {
-    margin: 0;
-    padding: 10px 0;
-    background-color: #6c757d;  
-  }
-  
-  .weekdays li {
-    display: inline-block;
-    width: 50%;
-    color: #ffc107;
-    text-align: center;
-    font-weight: bold;
-    
-  }
-  
-  .days {
-    padding: 10px 0;
-    background: #9ca4aa;
-    margin: 0;
-  }
-  
-  .days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 13.6%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:20px;
-    font-weight: bold;
-    color: #000000;
-  }
-  
-  .days li .active {
-    padding: 5px;
-    background: #ffc107;
-    color: white !important
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-  
-  /* Navbar Styles */
-  .nav-link {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s;
-  }
-  
-  .nav-link:hover {
-    color: #ffc107;
-  }
-  
-  .nav-link.active {
-    color: #6c757d;
-  }
-  
-  .footer a {
-    color: #ffc107;
-  }
-  
-  .footer a:hover {
-    color: #ffc107;
-  }
-  
-  
-  
-  /* Calendar Styles */
-  /* .calendar-container {
-    background-color: #1abc9c;
-    border-radius: 8px;
-    padding:  px;
-    margin-bottom: 20px;
-    max-width: 800px;
-  } */
-  
-  .calendar-container {
-    background-color: #343a40;
-    border: 10px solid #343a40;
-    padding: 15px;
-    border-radius: 60px;
-  }
-  
-  .calendar-container .month ul {
-    margin: 0;
-    padding: 0;
-    
-  }
-  /* /// */
-  .calendar-container .month li {
-    color: #ffc107;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    max-width: 800px;
-    
-  }
-  
-  .calendar-container .prev,
-  .calendar-container .next {
-    float: left;
-    padding-top: 10px;
-  }
-  
-  .weekdays, .days {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  
-  .weekdays li, .days li {
-    width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
-    text-align: center;
-    list-style-type: none;
-    padding: 8px ;
-    border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
-  }
-  
-  .days .empty {
-    visibility: hidden;
-  }
-  
-  .days li .active {
-    padding: 5px;
-    background: #ffc107;
-    color: white;
-  }
-  
-  /* Clock Styles */
-  .clock-container {
-    background-color: #333333;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    color: #ffc107;
-  }
-  
-  #clock-time {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
-  #calendar-date {
-    font-size: 1rem;
-    color: #ffffff;
-  }
-  
-  /* Add media queries for smaller screens */
-  @media screen and (max-width:720px) {
-    .weekdays li, .days li {
-      width: 13.1%;
-    }
-  }
-  
-  @media screen and (max-width: 420px) {
-    .weekdays li, .days li {
-      width: 12.5%;
-    }
-    .days li .active {
-      padding: 2px;
-    }
-  }
-  
-  .nav-tabs .nav-link {
-    background-color: #333;
-    color: #e0e0e0;
-    border: none;
-    font-weight: bold;
-  }
-  
-  .nav-tabs .nav-link.active {
-    background-color: #212529;
-    color: #ffd700;
-    border-bottom: 2px solid #ffd700;
-  }
+/* =======================
+   Body and Global Styles
+======================== */
+body {
+  font-family: Arial, sans-serif;
+  background-color:#ffffff!important;
+}
 
-  .navbar-brand {
-    font-weight: bold;
-  }
+/* =======================
+   Navbar Styles
+======================== */
+.navbar {
+  background-color: #212529;
+  padding: 1rem 0;
+}
 
-  /* Modal Background */
-.modal-content {
-  background-color: #212529; /* สีเข้ม */
-  color: #e0e0e0; /* สีตัวอักษร */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107; /* Yellow color on hover */
+}
+
+.nav-link.active {
+  color: #6c757d; /* Secondary color for active link */
+}
+
+/* =======================
+   Search Form Styles
+======================== */
+.search-form {
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #343a40;
+  color: white;
+}
+
+.search-input::placeholder {
+  color: #ced4da;
+}
+
+/* =======================
+   Auth Buttons Styles
+======================== */
+.auth-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.login-btn {
+  color: white;
+  background-color: transparent;
+  border: 1px solid #ced4da;
+}
+
+.signup-btn {
+  color: #212529;
+  background-color: #ffc107;
+}
+
+/* =======================
+   Date & Time Section
+======================== */
+.date-time-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #333333;
+  border-radius: 8px;
+  color: #ffeb3b;
+}
+
+.date-time-section h3 {
+  margin-bottom: 10px;
+  color: #ffeb3b;
+}
+
+.clock,
+.calendar {
+  text-align: center;
+}
+
+#clock-time,
+#calendar-date {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+/* =======================
+   Announcement Box Styles
+======================== */
+.announcement-box {
+  border: 5px solid #000000; /* Black border */
+  background-color: #343a40; /* Dark gray background */
+  color: #ffc107; /* Yellow text */
+  font-size: 1.2rem; /* Larger text size */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.announcement-box strong {
+  font-size: 1.3rem; /* Larger font for headings */
+}
+
+/* =======================
+   Calendar Styles
+======================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffc107;
+}
+
+.month {
+  padding-top: 20px;
+  padding-bottom: 100px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 100%;
+  background: #343a40;
+  text-align: center;
+  max-height: 50px;
+}
+
+.month ul {
+  margin: 0;
+  padding: 10px;
+}
+
+.month ul li {
+  color: #ffc107;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-top: 10px;
+}
+
+/* Style for Prev and Next buttons */
+.prev, .next {
+  cursor: pointer;
+  font-size: 20px;
+  color: #007bff; /* Highlighted blue color */
+  padding: 5px 10px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.prev:hover, .next:hover {
+  color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* Highlight today's date */
+.today {
+  background-color: #ffcc00; /* Yellow background */
+  color: #000; /* Black text */
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.weekdays {
+  margin-bottom: 15px;
+  padding: 10px ;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #6c757d;
+  border: 5px solid #000000;
   border-radius: 10px;
 }
 
-/* Header และ Footer ของ Modal */
-.modal-header, .modal-footer {
-  background-color: #333;
-  border-bottom: none;
-  border-top: none;
-}
-
-.modal-header .modal-title {
-  color: #ffd700; /* สีทอง */
-}
-
-.btn-close {
-  background-color: #ffd700;
-  border-radius: 50%;
-}
-
-/* ปุ่มที่ใช้ในฟอร์ม */
-.modal .btn-primary, .modal .btn-success {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: #212529;
+.weekdays li {
+  display: inline-block;
+  width: 50%;
+  color: #ffc107;
+  text-align: center;
   font-weight: bold;
-  transition: background-color 0.3s ease;
+  border: 5px solid #000000;
+  border-radius: 10px;
 }
 
-.modal .btn-primary:hover, .modal .btn-success:hover {
-  background-color: #e0a800;
-  border-color: #e0a800;
+.days {
+  border: 5px solid #000000;
+  border-radius: 10px;
+  padding: 10px 10px;
+  background: #9ca4aa;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  border-radius: 10px;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #ffc107;
+  color: white !important;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Navbar Styles */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+.nav-link.active {
+  color: #6c757d;
+}
+
+.footer a {
+  color: #ffc107;
+}
+
+.footer a:hover {
+  color: #ffc107;
+}
+
+/* Calendar Styles */
+
+.calendar-container {
+  background-color: #343a40;
+  border: 10px solid #000000;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
+  padding: 15px;
+  border-radius: 60px;
+}
+
+.calendar-container .month ul {
+  margin: 0;
+  padding: 0;
+}
+/* /// */
+.calendar-container .month li {
+  color: #ffc107;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  max-width: 800px;
+}
+
+.calendar-container .next {
+  float: right;
+  padding-top: 10px;
+}
+.calendar-container .prev { 
+  float: left;
+  padding-top: 10px;
+}
+
+.weekdays,
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+
+.weekdays li,
+.days li {
+  width: calc(100% / 8); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
+  text-align: center;
+  list-style-type: none;
+  padding: 6px;
+  border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.days .empty {
+  visibility: hidden;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #ffc107;
+  color: white;
+}
+
+/* Clock Styles */
+.clock-container {
+  background-color: #343a40;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  color: #ffc107;
+}
+
+#clock-time {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+#calendar-date {
+  font-size: 1rem;
   color: #ffffff;
 }
 
-/* สีของ Label และ Input */
-.modal-body label {
-  color: #ffd700; /* สีทอง */
+/* Add media queries for smaller screens */
+@media screen and (max-width: 720px) {
+  .weekdays li,
+  .days li {
+    width: 13.1%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li,
+  .days li {
+    width: 12.5%;
+  }
+  .days li .active {
+    padding: 2px;
+  }
+}
+
+/* Highlight today's date */
+.today {
+  background-color: #ffdd76; /* Yellow background */
+  color: #000; /* Black text */
+  border-radius: 0; /* Circle highlight */
+  padding: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
+}
+
+
+
+
+/* Styling for the todo list container */
+
+/* Styling for the todo list container */
+.todo-list-box {
+  border: 5px solid #000000;
+  background-color: #343a40 !important; /* Dark background */
+  border-radius: 8px !important;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
+  color: #ffc107 !important;
+  padding: 15px !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+  height: 300px !important;
+}
+
+.todo-list-box h4 {
+  color: #ffc107;
+  margin-bottom: 8px;
+}
+
+.todo-list-box .form-control,
+.todo-list-box .form-select {
+  background-color: #555;
+  color: #ffc107;
+  border: 1px solid #444;
+  margin-right: 5px;
+}
+
+.todo-list-box .btn-warning {
+  background-color: #ffc107;
+  color: #333;
   font-weight: bold;
 }
 
-.modal-body input {
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #555;
+.todo-list {
+  max-height: none; /* ลบขีดจำกัดความสูง */
+  overflow-y: visible; /* ไม่ให้มี scroll */
+  padding-left: 1rem;
 }
 
-.modal-body input:focus {
+.todo-item {
   background-color: #444;
-  border-color: #ffc107;
-  color: #ffd700;
+  color: #fff;
+  padding: 5px;
+  border-bottom: 1px solid #555;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* ปรับสไตล์ให้ task text อยู่ด้านหน้า */
+.task-text {
+  flex-grow: 1; /* ขยายให้ข้อความยาวๆ ใช้พื้นที่ที่เหลือ */
+  overflow: hidden;
+  text-overflow: ellipsis; /* เพิ่ม "..." หากข้อความยาวเกินไป */
+  white-space: nowrap; /* ไม่ให้ข้อความถูกตัดบรรทัด */
+  padding: 10px;
+}
+
+.task-details {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  background-color: #555;
+  max-width: 633.983px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.task-text {
+  margin-right: 10px; /* Optional: space between text and category */
+  word-wrap: break-word; /* Wraps long words to the next line */
+  white-space: normal; 
+}
+
+.category-text {
+  font-style: italic; /* Optional: add styling to category */
+  text-align: center;
+  vertical-align: middle;
+  
+  
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ปรับหมวดหมู่ให้อยู่ด้านหลัง */
+.category-text {
+  margin-left: 10px;
+  margin-right: 10px;  
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* Custom style for the delete button */
+.btn-danger {
+  background-color: #dc3545; /* Red color */
+  border-color: #dc3545; /* Matching red border */
+  color: white; /* White text */
+  padding: 5px 10px; /* Adjust padding */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 14px; /* Slightly smaller font size */
+  transition: background-color 0.3s, transform 0.2s ease; /* Smooth hover effects */
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 16px;
+  margin-right: 4px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333; /* Darker red on hover */
+  border-color: #bd2130; /* Darker red border on hover */
+  cursor: pointer; /* Pointer cursor on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Add spacing between button and task text */
+.ms-3 {
+  margin-left: 1rem; /* Bootstrap's margin-left */
+}
+
+
+/* เพิ่ม box-sizing เพื่อให้การคำนวณขนาดกล่องแม่นยำ */
+* {
+  box-sizing: border-box;
+}
+/* /////////////////////////////////////////////ดรสะำพ ///////////////////////////// */
+.todo-filter-box {
+  background-color: #343a40;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.todo-filter-box h5 {
+  color: #ffc107;
+  margin-bottom: 10px;
+}
+
+/* ////////////////////////////////////page ///////////////////////////// */
+.pagination {
+  display: flex;
+  justify-content: center; /* Centers the pagination links horizontally */
+  gap: 10px; /* Optional, adds space between pagination links */
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+}
+
+.pagination .active {
+  color: #ffc107; /* เปลี่ยนเป็นสีเหลือง */
+  font-weight: bold;
 }

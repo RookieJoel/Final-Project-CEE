@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // เสิร์ฟหน้าแรก (home.html) เมื่อเข้าถึงรูท '/'
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'Exam_Kits.html'));
+  res.sendFile(path.join(__dirname, 'public', 'home.html'));
 });
 
 // เริ่มต้นเซิร์ฟเวอร์
