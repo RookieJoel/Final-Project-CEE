@@ -1,0 +1,430 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  /* Header และ Footer ของ Modal */
+.modal-header, .modal-footer {
+    background-color: #333;
+    border-bottom: none;
+    border-top: none;
+  }
+  
+  .modal-header .modal-title {
+    color: #ffd700; /* สีทอง */
+  }
+  
+  .navbar {
+    background-color: #212529;
+    padding: 1rem 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .nav {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffc107; /* Yellow color on hover */
+  }
+  
+  .nav-link.active {
+    color: #6c757d; /* Secondary color for active link */
+  }
+  
+  .search-form {
+    flex-grow: 1;
+    margin: 0 1rem;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #343a40;
+    color: white;
+  }
+  
+  .search-input::placeholder {
+    color: #ced4da;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+    color: #212529;
+  }
+  
+  .btn-outline-light:hover {
+    background-color: #333;
+    color: #ffd700;
+  }
+  
+  /* ******************************************************* */
+  
+  .date-time-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 8px;
+    color: #ffeb3b;
+  }
+  
+  .date-time-section h3 {
+    margin-bottom: 10px;
+    color: #ffeb3b;
+  }
+  
+  .clock, .calendar {
+    text-align: center;
+  }
+  
+  #clock-time, #calendar-date {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  
+  /* Announcement Box Style */
+  
+  .textwarn{
+    color:black;
+    font-weight: bold;
+  }
+  
+  
+  .announcement-box {
+    border: 5px solid #000000; /* เส้นขอบดำ */
+    background-color: #343a40; /* แบ็กกราวน์สีเทา */
+    color: #ffc107; /* ตัวหนังสือสีดำ */
+    font-size: 1.2rem; /* ขนาดตัวหนังสือใหญ่ขึ้น */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px; /* มุมกลมเล็กน้อย */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .announcement-box strong {
+    font-size: 1.3rem; /* ขนาดตัวหนังสือสำหรับหัวข้อประกาศ */
+  }
+  
+  
+  /* ////////////////////////////celedar//////////////////// */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #ffc107;
+  }
+  
+  .month {
+    padding: 70px 25px;
+    width: 100%;
+    background: #343a40;
+    text-align: center;
+  }
+  
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .month ul li {
+    color: #ffc107;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+  
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+  
+  .weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #6c757d;  
+  }
+  
+  .weekdays li {
+    display: inline-block;
+    width: 50%;
+    color: #ffc107;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+  
+  .days {
+    padding: 10px 0;
+    background: #9ca4aa;
+    margin: 0;
+  }
+  
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:20px;
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #ffc107;
+    color: white !important
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Navbar Styles */
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffc107;
+  }
+  
+  .nav-link.active {
+    color: #6c757d;
+  }
+  
+  .footer a {
+    color: #ffc107;
+  }
+  
+  .footer a:hover {
+    color: #ffc107;
+  }
+  
+  
+  
+  /* Calendar Styles */
+  /* .calendar-container {
+    background-color: #1abc9c;
+    border-radius: 8px;
+    padding:  px;
+    margin-bottom: 20px;
+    max-width: 800px;
+  } */
+  
+  .calendar-container {
+    background-color: #343a40;
+    border: 10px solid #343a40;
+    padding: 15px;
+    border-radius: 60px;
+  }
+  
+  .calendar-container .month ul {
+    margin: 0;
+    padding: 0;
+    
+  }
+  /* /// */
+  .calendar-container .month li {
+    color: #ffc107;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    max-width: 800px;
+    
+  }
+  
+  .calendar-container .prev,
+  .calendar-container .next {
+    float: left;
+    padding-top: 10px;
+  }
+  
+  .weekdays, .days {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  
+  .weekdays li, .days li {
+    width: calc(100% / 7); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
+    text-align: center;
+    list-style-type: none;
+    padding: 8px ;
+    border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
+  }
+  
+  .days .empty {
+    visibility: hidden;
+  }
+  
+  .days li .active {
+    padding: 5px;
+    background: #ffc107;
+    color: white;
+  }
+  
+  /* Clock Styles */
+  .clock-container {
+    background-color: #333333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    color: #ffc107;
+  }
+  
+  #clock-time {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  #calendar-date {
+    font-size: 1rem;
+    color: #ffffff;
+  }
+  
+  /* Add media queries for smaller screens */
+  @media screen and (max-width:720px) {
+    .weekdays li, .days li {
+      width: 13.1%;
+    }
+  }
+  
+  @media screen and (max-width: 420px) {
+    .weekdays li, .days li {
+      width: 12.5%;
+    }
+    .days li .active {
+      padding: 2px;
+    }
+  }
+  
+  .nav-tabs .nav-link {
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    font-weight: bold;
+  }
+  
+  .nav-tabs .nav-link.active {
+    background-color: #212529;
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+
+  /* Modal Background */
+.modal-content {
+  background-color: #212529; /* สีเข้ม */
+  color: #e0e0e0; /* สีตัวอักษร */
+  border-radius: 10px;
+}
+
+/* Header และ Footer ของ Modal */
+.modal-header, .modal-footer {
+  background-color: #333;
+  border-bottom: none;
+  border-top: none;
+}
+
+.modal-header .modal-title {
+  color: #ffd700; /* สีทอง */
+}
+
+.btn-close {
+  background-color: #ffd700;
+  border-radius: 50%;
+}
+
+/* ปุ่มที่ใช้ในฟอร์ม */
+.modal .btn-primary, .modal .btn-success {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.modal .btn-primary:hover, .modal .btn-success:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+  color: #ffffff;
+}
+
+/* สีของ Label และ Input */
+.modal-body label {
+  color: #ffd700; /* สีทอง */
+  font-weight: bold;
+}
+
+.modal-body input {
+  background-color: #333;
+  color: #e0e0e0;
+  border: 1px solid #555;
+}
+
+.modal-body input:focus {
+  background-color: #444;
+  border-color: #ffc107;
+  color: #ffd700;
+}
