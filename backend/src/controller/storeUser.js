@@ -1,59 +1,44 @@
-import bcrypt from 'bcryptjs';
 import User from '../models/user.js';
 
-// SIGN UP
+// Sign Up
 export const signUp = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { username } = req.body;
 
   try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser)
-      return res.status(400).json({ message: 'User already exists!' });
+    // ตรวจสอบว่ามี username ซ้ำหรือไม่
+    const existingUser = await User.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Username already exists' });
+    }
 
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword,
-    });
-
+    // สร้างผู้ใช้ใหม่
+    const newUser = new User({ username });
     await newUser.save();
 
-    res.status(201).json({ message: 'User created successfully' });
-  } catch (error) {
-    res.status(500).json({ message: 'Something went wrong!' });
+    res.status(201).json({ message: 'User created successfully!' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: 'Error creating user', error: err.message });
   }
 };
 
-// LOGIN
-export const login = async (req, res) => {
-  const { email, password } = req.body;
+// Log In
+export const logIn = async (req, res) => {
+  const { username } = req.body;
 
   try {
-    const user = await User.findOne({ email });
-    if (!user)
-      return res.status(404).json({ message: 'User not found!' });
+    const user = await User.findOne({ username });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
 
-    const isPasswordCorrect = await bcrypt.compare(password, user.password);
-    if (!isPasswordCorrect)
-      return res.status(400).json({ message: 'Invalid credentials!' });
-
-    // Save user ID to session
+    // บันทึก ID ผู้ใช้ใน session
     req.session.userId = user._id;
 
     res.status(200).json({ message: 'Login successful', user });
-  } catch (error) {
-    res.status(500).json({ message: 'Something went wrong!' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ message: 'Error logging in', error: err.message });
   }
 };
 
-// LOGOUT
-export const logout = (req, res) => {
-  req.session.destroy((err) => {
-    if (err) return res.status(500).json({ message: 'Failed to log out' });
-
-    res.clearCookie('connect.sid'); // Clear session cookie
-    res.status(200).json({ message: 'Logout successful' });
-  });
-};

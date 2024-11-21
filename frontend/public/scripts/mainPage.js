@@ -116,6 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
 /**
  * Function to create a new item in the to-do list
  */
+
+// old
 function handleCreateItem() {
   const taskInput = document.getElementById("taskInput").value;
   const categorySelect = document.getElementById("categorySelect").value;
@@ -161,6 +163,91 @@ function handleCreateItem() {
   }
 }
 
+
+
+// async function handleCreateItem() {
+//   const taskInput = document.getElementById("taskInput").value;
+//   const categorySelect = document.getElementById("categorySelect").value;
+
+//   // Validate if taskInput is not empty
+//   if (taskInput.trim() !== "") {
+//     try {
+//       // ส่งข้อมูลไปยัง backend API
+//       const response = await fetch('http://3.211.14.24:3222/api/todos', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify({
+//           task: taskInput,
+//           topic: categorySelect, // ใช้ topic แทน category
+//         }),
+//       });
+
+//       if (response.ok) {
+//         const savedTodo = await response.json();
+
+//         // แสดงผลใน UI
+//         const taskList = document.getElementById("taskList");
+
+//         // Create a new list item for the task
+//         const listItem = document.createElement("li");
+//         listItem.classList.add(
+//           "list-group-item",
+//           "d-flex",
+//           "justify-content-between",
+//           "align-items-center"
+//         );
+
+//         // Create the delete button
+//         const deleteButton = document.createElement("button");
+//         deleteButton.textContent = "Delete";
+//         deleteButton.classList.add("btn", "btn-danger", "ms-3");
+        
+//         // ลบรายการจาก UI และส่งคำขอลบไปที่ Backend
+//         deleteButton.addEventListener("click", async () => {
+//           try {
+//             const deleteResponse = await fetch(`http://3.211.14.24:3222/api/todos/${savedTodo._id}`, {
+//               method: 'DELETE',
+//             });
+
+//             if (deleteResponse.ok) {
+//               taskList.removeChild(listItem); // Remove the task from the list
+//             } else {
+//               console.error('Failed to delete todo');
+//             }
+//           } catch (error) {
+//             console.error('Error:', error);
+//           }
+//         });
+
+//         // Create a span for task text and category
+//         const taskDetails = document.createElement("span");
+//         taskDetails.classList.add("task-details");
+//         taskDetails.innerHTML = `
+//           <span class="task-text">${savedTodo.task}</span>
+//           <span class="category-text"><strong>${savedTodo.topic}</strong></span>
+//         `;
+
+//         // Add the task details and delete button to the list item
+//         listItem.appendChild(taskDetails);
+//         listItem.appendChild(deleteButton);
+
+//         // Add the new task to the list
+//         taskList.appendChild(listItem);
+
+//         // Clear the input field
+//         document.getElementById("taskInput").value = "";
+//       } else {
+//         console.error('Failed to save todo');
+//       }
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   }
+// }
+
+  
 function addTask(task, category) {
   const maxLength = 100; // จำนวนตัวอักษรสูงสุด
   if (task.length > maxLength) {
@@ -261,5 +348,6 @@ function highlightToday() {
 
 // Highlight today when the page loads
 document.addEventListener('DOMContentLoaded', highlightToday);
+
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log In</title>
+</head>
+<body>
+  <h1>Log In</h1>
+  <form id="login-form">
+    <input type="text" id="username" placeholder="Username" required />
+    <button type="submit">Log In</button>
+  </form>
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username }),
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        alert('Login successful!');
+        window.location.href = '/home'; // เปลี่ยนไปที่หน้า home.html
+      } else {
+        const data = await response.json();
+        alert(data.message || 'Error logging in');
+      }
+    });
+  </script>
+</body>
+</html>
