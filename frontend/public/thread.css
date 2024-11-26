@@ -1,0 +1,116 @@
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+body {
+  font-family: Arial, sans-serif !important;
+  background-color: #f8f9fa !important;
+}
+
+/* Modal Background */
+.modal-content {
+  background-color: #212529 !important;
+  color: #e0e0e0 !important;
+  border-radius: 10px !important;
+}
+
+/* Header และ Footer ของ Modal */
+.modal-footer {
+  background-color: #333 !important;
+  border-bottom: none !important;
+  border-top: none !important;
+}
+
+.modal-header .modal-title {
+  color: #ffd700 !important;
+}
+
+.btn-close {
+  background-color: #ffd700 !important;
+  border-radius: 50% !important;
+}
+
+/* ปุ่มที่ใช้ในฟอร์ม */
+.modal .btn-primary,
+.modal .btn-success {
+  background-color: #ffc107 !important;
+  border-color: #ffc107 !important;
+  color: #212529 !important;
+  font-weight: bold !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.modal .btn-primary:hover,
+.modal .btn-success:hover {
+  background-color: #e0a800 !important;
+  border-color: #e0a800 !important;
+  color: #ffffff !important;
+}
+
+/* สีของ Label และ Input */
+.modal-body label {
+  color: #ffd700 !important;
+  font-weight: bold !important;
+}
+
+.modal-body input {
+  background-color: #333 !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+}
+
+.modal-body input:focus {
+  background-color: #444 !important;
+  border-color: #ffc107 !important;
+  color: #ffd700 !important;
+}
+
+/* Tabs Styling */
+.nav-tabs .nav-link {
+  background-color: #333 !important;
+  color: #e0e0e0 !important;
+  border: none !important;
+  font-weight: bold !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #212529 !important;
+  color: #ffd700 !important;
+  border-bottom: 2px solid #ffd700 !important;
+}
+
+/* Thread Styling */
+#threads-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.thread-box {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 0.3s, box-shadow 0.3s !important;
+}
+
+.thread-box h4 {
+  color: #ffc107 !important;
+  font-size: 1.5rem !important;
+}
+
+.thread-box p {
+  font-size: 1rem !important;
+  color: #adb5bd !important;
+}
+
+.thread-box:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Remaining Styles */
+/* Apply !important in similar fashion */

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - MyCourseMate</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="p-3 text-bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="home.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-database-fill-gear" viewBox="0 0 16 16">
+            <path d="M8 1c-1.573 0-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4s.875 1.755 1.904 2.223C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777C13.125 5.755 14 5.007 14 4s-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1"/>
+            <path d="M2 7v-.839c.457.432 1.004.751 1.49.972C4.722 7.693 6.318 8 8 8s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V7c0 .424-.155.802-.411 1.133a4.51 4.51 0 0 0-4.815 1.843A12 12 0 0 1 8 10c-1.573 0-3.022-.289-4.096-.777C2.875 8.755 2 8.007 2 7m6.257 3.998L8 11c-1.682 0-3.278-.307-4.51-.867-.486-.22-1.033-.54-1.49-.972V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13h.027a4.55 4.55 0 0 1 .23-2.002m-.002 3L8 14c-1.682 0-3.278-.307-4.51-.867-.486-.22-1.033-.54-1.49-.972V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.5 4.5 0 0 1-1.3-1.905m3.631-4.538c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382zM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+          </svg>
+          <span class="ms-2">MyCourseMate</span>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="home.html" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="thread.html" class="nav-link px-2 text-white">Threads Discussion</a></li>
+          <li><a href="Exam_Kits.html" class="nav-link px-2 text-white">Exam Kits</a></li>
+        </ul>
+
+        <div class="text-end ms-auto">
+          <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal">Sign-up</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mt-5">
+
+
+    <!-- Announcements Section -->
+    <div class="row">
+      <div class="col-md-8">
+        <!-- ส่วนของประกาศที่ต้องการเปลี่ยน -->
+        <!-- ///////////////////////////1st page///////////////////// -->
+        <div class="announcement-box p-3 mb-3" id="announcement1">
+          <strong>การอบรมเกี่ยวกับเทคโนโลยี AI</strong>
+          <p>
+            "ขอเชิญนักศึกษา Computer Engineering
+            ทุกท่านเข้าร่วมการอบรมเกี่ยวกับเทคโนโลยี AI
+            ซึ่งจะช่วยเสริมทักษะด้านปัญญาประดิษฐ์ และการใช้งานเครื่องมือใหม่ๆ
+            ในการพัฒนาโปรแกรมและแอปพลิเคชัน"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement2">
+          <strong>ประกาศกิจกรรม Hackathon</strong>
+          <p>
+            "เตรียมตัวให้พร้อมสำหรับ Hackathon สุดมันส์!
+            กิจกรรมนี้จะเป็นโอกาสที่ดีในการทดสอบทักษะการเขียนโปรแกรมของคุณและสร้างนวัตกรรมใหม่ๆ
+            ร่วมกับเพื่อนๆ นักศึกษาในสาขา Computer Engineering"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement3">
+          <strong>การสัมมนาเกี่ยวกับ Blockchain</strong>
+          <p>
+            "อย่าพลาด! เข้าร่วมการสัมมนาเกี่ยวกับ Blockchain โดยผู้เชี่ยวชาญ
+            เพื่อเรียนรู้เกี่ยวกับการใช้งานและศักยภาพของเทคโนโลยีนี้ในอุตสาหกรรมต่างๆ"
+          </p>
+        </div>
+        <!-- ///////////////////////////2nd page///////////////////// -->
+        <div class="announcement-box p-3 mb-3" id="announcement4">
+          <strong>การทดสอบโครงการวิจัยด้าน IoT</strong>
+          <p>
+            "นักศึกษาที่สนใจเทคโนโลยี IoT (Internet of Things)
+            สามารถสมัครเข้าร่วมโครงการวิจัยเพื่อพัฒนาอุปกรณ์ IoT
+            ในโปรเจกต์ของตนเอง"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement5">
+          <strong>ค่ายฝึกอบรม C++ และ Python</strong>
+          <p>
+            "นักศึกษาที่สนใจในการพัฒนาทักษะการเขียนโปรแกรม
+            ขอเชิญเข้าร่วมค่ายฝึกอบรม C++ และ Python
+            ซึ่งจะช่วยให้คุณพัฒนาทักษะการเขียนโปรแกรมระดับมืออาชีพ"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement6">
+          <strong>โครงการฝึกงานภาคฤดูร้อน</strong>
+          <p>
+            "นักศึกษาที่ต้องการฝึกงานในบริษัทเทคโนโลยีชั้นนำสามารถสมัครเข้าร่วมโครงการฝึกงานภาคฤดูร้อน
+            เพื่อเสริมสร้างประสบการณ์จริงในสายงาน"
+          </p>
+        </div>
+        <!-- ///////////////////////////3rd page///////////////////// -->
+        <div class="announcement-box p-3 mb-3" id="announcement7">
+          <strong>การแข่งขันออกแบบแอปพลิเคชัน</strong>
+          <p>
+            "นักศึกษาทุกท่านสามารถเข้าร่วมการแข่งขันออกแบบแอปพลิเคชันที่มีเงินรางวัลรวมถึงทุนการศึกษารออยู่
+            อย่าพลาดโอกาสในการสร้างแอปที่ดีที่สุด!"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement8">
+          <strong>การบรรยายพิเศษเกี่ยวกับ Cloud Computing</strong>
+          <p>
+            "ขอเชิญเข้าร่วมการบรรยายพิเศษเกี่ยวกับ Cloud Computing
+            โดยผู้เชี่ยวชาญจาก Google Cloud
+            ที่จะมาพูดถึงการใช้คลาวด์ในการพัฒนาระบบที่มีประสิทธิภาพสูง"
+          </p>
+        </div>
+        <div class="announcement-box p-3 mb-3" id="announcement9">
+          <strong>ประกาศสำหรับการสมัครเข้าร่วมโครงการ Startup</strong>
+          <p>
+            "นักศึกษาที่มีไอเดียสร้างสรรค์และต้องการเริ่มต้นธุรกิจด้านเทคโนโลยี
+            สามารถสมัครเข้าร่วมโครงการสนับสนุน Startup ของมหาวิทยาลัย
+            เพื่อพัฒนาผลิตภัณฑ์และแผนธุรกิจของตน"
+          </p>
+        </div>
+
+        <!-- More announcements can be added similarly -->
+        <div class="pagination">
+          <a href="#" class="text-warning" data-page="1">1</a>
+          <a href="#" class="text-warning active" data-page="2">2</a>
+          <a href="#" class="text-warning" data-page="3">3</a>
+        </div>
+
+        <!-- To-Do List Box -->
+        <div class="todo-list-box p-3 mb-3">
+          <h4 class="textwarn">Todo List</h4>
+          <div class="d-flex align-items-center">
+            <input
+              type="text"
+              class="form-control me-2"
+              id="taskInput"
+              placeholder="Enter a task..."
+            />
+            <select class="form-select me-2" id="categorySelect">
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+            <button type="button" class="btn btn-warning" id="add-newrow">
+              ADD
+            </button>
+          </div>
+          <ul id="taskList" class="todo-list mt-3"></ul>
+          <!-- Filter Section -->
+          
+          <div class="todo-filter-box p-3 mb-3">
+            <!-- <h5>Filter Tasks</h5>
+            <div class="d-flex gap-3">
+              <select id="categoryFilterSelect" class="form-select">
+                <option value="">All Categories</option>
+                <option value="Work">Work</option>
+                <option value="Personal">Personal</option>
+                <option value="Urgent">Urgent</option>
+              </select>
+              <button
+                type="button"
+                class="btn btn-warning"
+                id="filter-button"
+              >
+                Filter
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <!-- Calendar and Clock -->
+        <div class="calendar-container">
+          <div class="month">
+            <ul>
+              <li class="prev" onclick="navigateMonth(-1)">&#10094;</li>
+              <li class="next" onclick="navigateMonth(1)">&#10095;</li>
+              <li>August<br><span style="font-size: 18px">2024</span></li>
+            </ul>
+          </div>
+          <ul class="weekdays">
+            <li>Mo</li>
+            <li>Tu</li>
+            <li>We</li>
+            <li>Th</li>
+            <li>Fr</li>
+            <li>Sa</li>
+            <li>Su</li>
+          </ul>
+          <ul class="days">
+            <li>1</li>
+            <li>2</li>
+            <!-- More days -->
+            <li>31</li>
+          </ul>
+        </div>
+        <div class="clock-container mt-3">
+          <h3 id="clock">12:00:00</h3>
+          <p id="date">10/11/2024</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-3 bg-dark text-white">
+    <p>&copy; 2024 MyCourseMate. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for Log In / Sign Up -->
+  <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="authModalLabel">Log In / Sign Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="nav nav-tabs" id="authTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Log In</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Sign Up</button>
+            </li>
+          </ul>
+          <div class="tab-content p-3" id="authTabContent">
+            <!-- Log In Form -->
+            <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+              <form>
+                <div class="mb-3">
+                  <label for="loginEmail" class="form-label">Username</label>
+                  <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="loginPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Log In</button>
+              </form>
+            </div>
+            <!-- Sign Up Form -->
+            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+              <form>
+                <div class="mb-3">
+                  <label for="signupEmail" class="form-label">Username</label>
+                  <input type="email" class="form-control" id="signupEmail" required>
+                </div>
+                <div class="mb-3">
+                  <label for="signupPassword" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="signupPassword" required>
+                </div>
+                <div class="mb-3">
+                  <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control" id="signupConfirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="scripts\mainPage.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

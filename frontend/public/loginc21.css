@@ -1,0 +1,80 @@
+/* styles/login.css */
+
+/* ตั้งค่าพื้นฐาน */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd700, #000) no-repeat;
+    color: #fff;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* กล่องฟอร์มล้อกอิน */
+#loginForm {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 300px;
+}
+
+/* หัวข้อ */
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 20px;
+}
+
+/* ป้ายกำกับและช่องป้อนข้อมูล */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ffd700;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffd700;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* ปุ่มล้อกอิน */
+button {
+    background: #ffd700;
+    color: #000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e6c300;
+}
+
+/* ข้อความสมัครสมาชิก */
+p {
+    margin-top: 15px;
+}
+
+p a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
