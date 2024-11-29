@@ -187,6 +187,23 @@ async function updateLikes(threadId, action) {
 
     // Refresh the specific thread UI
     displayThreads(false);
+
+    const threadElement = document.querySelector(`[data-thread-id="${threadId}"]`);
+    const likeButton = threadElement.querySelector('.btn-like');
+    const dislikeButton = threadElement.querySelector('.btn-dislike');
+
+    likeButton.classList.toggle('btn-liked', updatedThread.likes.includes(userId));
+    dislikeButton.classList.toggle('btn-disliked', updatedThread.dislikes.includes(userId));
+
+    // If the user likes, ensure the dislike button is not in the disliked state
+    if (action === 'like') {
+      dislikeButton.classList.remove('btn-disliked');
+    }
+
+    // If the user dislikes, ensure the like button is not in the liked state
+    if (action === 'dislike') {
+      likeButton.classList.remove('btn-liked');
+    }
   } catch (err) {
     console.error('Error updating likes/dislikes:', err);
   }

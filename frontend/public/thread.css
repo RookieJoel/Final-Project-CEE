@@ -7,34 +7,46 @@ body {
   padding: 0;
 }
 
-/* Navbar Styling */
-header {
-  
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+/* =======================
+   Navbar Styles
+======================== */
+.navbar {
+  background-color: #212529;
+  padding: 1rem 0;
 }
 
-header .nav-link {
-  color: #ffffff;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
   transition: color 0.3s;
 }
 
-header .nav-link:hover {
-  color: #ffd700;
+.nav-link:hover {
+  color: #ffc107; /* Yellow color on hover */
 }
 
-header .btn-warning {
-  background-color: #ffc107;
-  border: none;
-}
-
-header .btn-warning:hover {
-  background-color: #e0a800;
-}
-
-header .btn-outline-light:hover {
-  background-color: #333;
-  color: #ffd700;
+.nav-link.active {
+  color: #6c757d; /* Secondary color for active link */
 }
 
 /* Thread List Section */
@@ -389,6 +401,20 @@ textarea:focus {
   height: 70px;
   left: 70%;
   animation-delay: 6s;
+}
+
+/* Like button - green when liked */
+.btn-liked {
+  background-color: #28a745; /* Green for liked */
+  color: white;
+  border-color: #28a745; /* Optional: Match border color */
+}
+
+/* Dislike button - red when disliked */
+.btn-disliked {
+  background-color: #dc3545; /* Red for disliked */
+  color: white;
+  border-color: #dc3545; /* Optional: Match border color */
 }
 
 @keyframes bubbleAnimation {

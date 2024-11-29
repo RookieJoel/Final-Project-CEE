@@ -125,29 +125,8 @@ async function logout() {
 }
 
 // Update the navbar on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    await updateNavbar();
+document.addEventListener('DOMContentLoaded', () => {
+    checkAuthentication();
+    updateNavbar();
 });
-
-async function logout() {
-    try {
-        const response = await fetch('http://54.211.108.140:3222/api/auth/logout', {
-            method: 'POST',
-            credentials: 'include',
-        });
-
-        if (response.ok) {
-            alert('Logout successful');
-            localStorage.removeItem('userId');
-            localStorage.removeItem('username');
-
-            // Update the navbar to reflect the logged-out state
-            await updateNavbar();
-        } else {
-            console.error('Logout failed');
-        }
-    } catch (error) {
-        console.error('Error during logout:', error);
-    }
-}
 

@@ -3,12 +3,10 @@ body {
   background-color: #ffffff;
   color: #e0e0e0; 
 }
-  
-/* Navbar adjustments */
-.navbar-brand {
-  font-weight: bold;
-}
 
+* {
+  box-sizing: border-box;
+}
 .p-4 {
   padding: 2rem !important;
 }
@@ -18,7 +16,9 @@ footer {
   font-size: 0.9rem;
 }
 
-/* // nav bar */
+/* =======================
+   Navbar Styles
+======================== */
 .navbar {
   background-color: #212529;
   padding: 1rem 0;
@@ -196,6 +196,17 @@ footer {
 .btn-outline-light:hover {
   background-color: #333;
   color: #ffd700;
+}
+/* btn logout */
+.btn.btn-outline-light.me-2{
+  font-family:'Poppins',sans-serif;
+  padding-top:5px!important;
+  padding-right:1rem;
+  padding-bottom:0.5rem;
+  padding-left:1rem;
+  margin-right:0px !important;
+  color:white;
+  border-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1)) !important;
 }
 
 /*Explor*/

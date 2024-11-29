@@ -1,5 +1,3 @@
-// handler.js
-
 // Function to update the navbar based on user authentication
 export async function updateNavbar() {
     try {
@@ -13,8 +11,11 @@ export async function updateNavbar() {
         if (data.loggedIn) {
             navbarSection.innerHTML = `
                 <span class="text-warning me-2">Welcome, ${data.username}</span>
-                <button class="btn btn-outline-light me-2" onclick="logout()">Log Out</button>
+                <button id="logoutButton" class="btn btn-outline-light me-2">Log Out</button>
             `;
+
+            // Attach an event listener to the logout button
+            document.getElementById('logoutButton').addEventListener('click', logout);
         } else {
             navbarSection.innerHTML = `
                 <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
@@ -29,6 +30,7 @@ export async function updateNavbar() {
 // Function to log out the user
 export async function logout() {
     try {
+        console.log('Logging out...');
         const response = await fetch('http://54.211.108.140:3222/api/auth/logout', {
             method: 'POST',
             credentials: 'include',
@@ -55,6 +57,7 @@ export async function logout() {
 // Function to check user authentication
 export async function checkAuthentication() {
     try {
+        console.log('Checking authentication...');
         const response = await fetch('http://54.211.108.140:3222/api/auth/session', {
             credentials: 'include',
         });
