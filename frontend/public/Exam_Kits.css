@@ -198,8 +198,10 @@ footer {
   color: #ffd700;
 }
 /* btn logout */
+
 .btn.btn-outline-light.me-2{
   font-family:'Poppins',sans-serif;
+  font-weight: bold;
   padding-top:5px!important;
   padding-right:1rem;
   padding-bottom:5px!important;
@@ -209,6 +211,12 @@ footer {
   border-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1)) !important;
 }
 
+.btn.btn-outline-light.me-2:hover{
+  background-color: #ffffff;
+  font-weight: bold;
+  border-color: #ffffff;
+  color:black;
+}
 /*Explor*/
 
 /* Card Colors */
