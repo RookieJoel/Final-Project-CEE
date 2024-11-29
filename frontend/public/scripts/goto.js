@@ -163,6 +163,7 @@ async function fetchComments(threadId) {
 async function submitComment() {
   const threadId = document.getElementById('thread-id').textContent; // Get thread ID from the view
   const commentText = document.getElementById('comment-input').value.trim();
+  // const user = document.get
 
   if (!commentText) {
     alert('Please enter a comment.');

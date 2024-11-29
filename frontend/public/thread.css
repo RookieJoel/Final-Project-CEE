@@ -1,116 +1,270 @@
-* {
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
-
+/* General Body Styling */
 body {
-  font-family: Arial, sans-serif !important;
-  background-color: #f8f9fa !important;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #ffffff; /* Font color changed to white */
+  margin: 0;
+  padding: 0;
 }
 
-/* Modal Background */
+/* Navbar Styling */
+header {
+  background: linear-gradient(90deg, #343a40, #212529);
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header .nav-link {
+  color: #ffffff;
+  transition: color 0.3s;
+}
+
+header .nav-link:hover {
+  color: #ffd700;
+}
+
+header .btn-warning {
+  background-color: #ffc107;
+  border: none;
+}
+
+header .btn-warning:hover {
+  background-color: #e0a800;
+}
+
+header .btn-outline-light:hover {
+  background-color: #333;
+  color: #ffd700;
+}
+
+/* Thread List Section */
+#thread-list {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+#threads-container .thread {
+  background-color: #212529;
+  border: 1px solid #333;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+#threads-container .thread:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+#threads-container .thread .thread-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Font color changed to white */
+  transition: color 0.3s;
+}
+
+#threads-container .thread .thread-title:hover {
+  color: #e0a800;
+}
+
+#threads-container .thread .thread-description {
+  color: #ffffff; /* Font color changed to white */
+  font-size: 1rem;
+}
+
+#threads-container .thread-footer {
+  background-color: #333;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #ffd700;
+}
+
+/* Thread View Section */
+#thread-view {
+  padding: 2rem;
+  background-color: #212529;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#thread-title-view {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #ffffff; /* Font color changed to white */
+}
+
+#thread-comments .comment {
+  background-color: #333;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+  color: #ffffff; /* Font color changed to white */
+}
+
+/* Buttons */
+button {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+.btn-outline-light {
+  border-color: #ffc107;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+/* Modals */
 .modal-content {
-  background-color: #212529 !important;
-  color: #e0e0e0 !important;
-  border-radius: 10px !important;
+  background-color: #212529;
+  color: #ffffff; /* Font color changed to white */
+  border-radius: 10px;
 }
 
-/* Header และ Footer ของ Modal */
+.modal-header {
+  background-color: #333;
+  color: #ffd700;
+  border-bottom: 1px solid #555;
+}
+
 .modal-footer {
-  background-color: #333 !important;
-  border-bottom: none !important;
-  border-top: none !important;
+  background-color: #333;
+  border-top: 1px solid #555;
 }
 
-.modal-header .modal-title {
-  color: #ffd700 !important;
+.modal-footer .btn-primary {
+  background-color: #ffc107;
+  border-color: #ffc107;
 }
 
-.btn-close {
-  background-color: #ffd700 !important;
-  border-radius: 50% !important;
-}
-
-/* ปุ่มที่ใช้ในฟอร์ม */
-.modal .btn-primary,
-.modal .btn-success {
-  background-color: #ffc107 !important;
-  border-color: #ffc107 !important;
-  color: #212529 !important;
-  font-weight: bold !important;
-  transition: background-color 0.3s ease !important;
-}
-
-.modal .btn-primary:hover,
-.modal .btn-success:hover {
-  background-color: #e0a800 !important;
-  border-color: #e0a800 !important;
-  color: #ffffff !important;
-}
-
-/* สีของ Label และ Input */
-.modal-body label {
-  color: #ffd700 !important;
-  font-weight: bold !important;
+.modal-footer .btn-primary:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
 }
 
 .modal-body input {
-  background-color: #333 !important;
-  color: #e0e0e0 !important;
-  border: 1px solid #555 !important;
+  background-color: #333;
+  border: 1px solid #555;
+  color: #ffffff; /* Font color changed to white */
 }
 
 .modal-body input:focus {
-  background-color: #444 !important;
-  border-color: #ffc107 !important;
-  color: #ffd700 !important;
+  background-color: #444;
+  border-color: #ffd700;
 }
 
-/* Tabs Styling */
-.nav-tabs .nav-link {
-  background-color: #333 !important;
-  color: #e0e0e0 !important;
-  border: none !important;
-  font-weight: bold !important;
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-top: 1.5rem;
 }
 
-.nav-tabs .nav-link.active {
-  background-color: #212529 !important;
-  color: #ffd700 !important;
-  border-bottom: 2px solid #ffd700 !important;
+.pagination a {
+  color: #ffd700;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #555;
+  margin: 0 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-/* Thread Styling */
-#threads-container {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important;
+.pagination a:hover {
+  background-color: #ffd700;
+  color: #212529;
 }
 
-.thread-box {
-  background-color: #343a40 !important;
-  color: #f8f9fa !important;
-  padding: 20px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-  transition: transform 0.3s, box-shadow 0.3s !important;
+/* Input Styling */
+input[type="text"],
+textarea {
+  background-color: #333;
+  color: #ffffff; /* Font color changed to white */
+  border: 1px solid #555;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-.thread-box h4 {
-  color: #ffc107 !important;
-  font-size: 1.5rem !important;
+input[type="text"]:focus,
+textarea:focus {
+  background-color: #444;
+  border-color: #ffd700;
+  outline: none;
 }
 
-.thread-box p {
-  font-size: 1rem !important;
-  color: #adb5bd !important;
+/* Study Section Styling */
+.study-section {
+  background-color: #212529;
+  padding: 2rem 1rem;
+  border-radius: 10px;
 }
 
-.thread-box:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3) !important;
+.study-section h2 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 2rem;
 }
 
-/* Remaining Styles */
-/* Apply !important in similar fashion */
+.study-card {
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.study-card h3 {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-weight: 600;
+  color: #ffd700;
+}
+
+.study-card p {
+  color: #ffffff; /* Font color changed to white */
+}
+
+.study-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.study-card img {
+  border: 2px solid #ffd700;
+  border-radius: 50%;
+}

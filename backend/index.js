@@ -290,6 +290,35 @@ connectDB();
 // Use Auth Routes
 app.use('/api/auth', authRoutes);
 
+// Log Out Endpoint
+app.post('/api/auth/logout', (req, res) => {
+  if (req.session) {
+      req.session.destroy(err => {
+          if (err) {
+              return res.status(500).json({ message: 'Failed to log out' });
+          }
+          res.status(200).json({ message: 'Logged out successfully' });
+      });
+  } else {
+      res.status(200).json({ message: 'No active session' });
+  }
+});
+
+// Include user information in session check
+app.get('/api/auth/session', (req, res) => {
+  if (req.session && req.session.userId) {
+      User.findById(req.session.userId, 'username', (err, user) => {
+          if (err || !user) {
+              return res.status(500).json({ loggedIn: false });
+          }
+          res.status(200).json({ loggedIn: true, username: user.username });
+      });
+  } else {
+      res.status(200).json({ loggedIn: false });
+  }
+});
+
+
 
 // Listen on port
 app.listen(3222, () => {
