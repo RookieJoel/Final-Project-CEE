@@ -34,6 +34,7 @@ const threadSchema = new mongoose.Schema({
   id: String,
   title: String,
   description: String,
+  username: { type: String, required: true },
   likes: [String],
   dislikes: [String],
   comments: [
@@ -73,6 +74,7 @@ app.post('/api/threads', async (req, res) => {
       res.status(201).json({
         title: newThread.title,
         description: newThread.description,
+        username: newThread.username,
         likes: newThread.likes,
         dislikes: newThread.dislikes,
         comments: newThread.comments,
@@ -355,14 +357,13 @@ app.post('/api/auth/logout', (req, res) => {
 // Include user information in session check
 app.get('/api/auth/session', (req, res) => {
   if (req.session && req.session.userId) {
-      User.findById(req.session.userId, 'username', (err, user) => {
-          if (err || !user) {
-              return res.status(500).json({ loggedIn: false });
-          }
-          res.status(200).json({ loggedIn: true, username: user.username });
-      });
+    res.status(200).json({
+      loggedIn: true,
+      username: req.session.username,
+      userId: req.session.userId,
+    });
   } else {
-      res.status(200).json({ loggedIn: false });
+    res.status(200).json({ loggedIn: false });
   }
 });
 
@@ -373,9 +374,3 @@ connectDB();
 app.listen(3222, () => {
   console.log('Server is running');
 });
-
-
-
-
-
-

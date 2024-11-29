@@ -21,11 +21,15 @@
           <span class="ms-2">MyCourseMate</span>
         </a>
 
+
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="home.html" class="nav-link px-2 text-secondary">Home</a></li>
           <li><a href="thread.html" class="nav-link px-2 text-white">Threads Discussion</a></li>
           <li><a href="Exam_Kits.html" class="nav-link px-2 text-white">Exam Kits</a></li>
         </ul>
+                <!--Update Navbar-->
+                <div class="text-end" id="navbar-user-section">
+                </div> 
       </div>
 
       
@@ -209,6 +213,16 @@
   </footer>
 
   <!-- Bootstrap JS Bundle -->
+  <script type="module">
+    import { updateNavbar, checkAuthentication } from './handler.js';
+
+    // Run the authentication check and update the navbar on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuthentication();
+        updateNavbar();
+    });
+</script>
+
    <script>
     let bg = document.getElementById("bg");
     let moon = document.getElementById("moon");

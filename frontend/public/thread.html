@@ -21,7 +21,7 @@
           </svg>
           <span class="ms-2">MyCourseMate</span>
         </a>
-
+        
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a href="home.html" class="nav-link px-2 text-white ">Home</a></li>
           <li><a href="thread.html" class="nav-link px-2 text-secondary">Threads Discussion</a></li>
@@ -145,6 +145,16 @@
       </div>
     </div>
   </div>
+
+  <script type="module">
+    import { updateNavbar, checkAuthentication } from './handler.js';
+
+    // Run the authentication check and update the navbar on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        checkAuthentication();
+        updateNavbar();
+    });
+</script>
 
   <!-- Include JavaScript Files -->
   <script src="scripts/goto.js"></script>

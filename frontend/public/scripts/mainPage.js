@@ -293,25 +293,22 @@ async function updateNavbar() {
 // Run the navbar update function when the page loads
 document.addEventListener('DOMContentLoaded', updateNavbar);
 
-
 async function updateNavbar() {
   try {
-    // Fetch session data
     const response = await fetch('http://54.211.108.140:3222/api/auth/session', {
-      credentials: 'include',
+      credentials: 'include', // Ensure cookies are sent
     });
 
     const data = await response.json();
+
     const navbarSection = document.getElementById('navbar-user-section');
 
     if (data.loggedIn) {
-      // Update navbar for logged-in state
       navbarSection.innerHTML = `
         <span class="text-warning me-2">Welcome, ${data.username}</span>
         <button class="btn btn-outline-light me-2" onclick="logout()">Log Out</button>
       `;
     } else {
-      // Update navbar for logged-out state
       navbarSection.innerHTML = `
         <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal">Sign-up</button>
@@ -322,31 +319,56 @@ async function updateNavbar() {
   }
 }
 
-// Call updateNavbar on page load
-document.addEventListener('DOMContentLoaded', updateNavbar);
 
-// Logout function
 async function logout() {
   try {
-    const response = await fetch('http://54.211.108.140:3222/api/auth/logout', {
-      method: 'POST',
-      credentials: 'include',
-    });
+      const response = await fetch('http://54.211.108.140:3222/api/auth/logout', {
+          method: 'POST',
+          credentials: 'include',
+      });
 
-    if (response.ok) {
-      // Clear user-related data from local storage
-      localStorage.removeItem('userId');
-      localStorage.removeItem('username');
+      if (response.ok) {
+          alert('Logout successful');
+          localStorage.removeItem('userId');
+          localStorage.removeItem('username');
 
-      // Redirect to login page or update the navbar
-      updateNavbar();
-    } else {
-      console.error('Failed to log out');
-    }
+          // Update the navbar to reflect logged-out state
+          await updateNavbar();
+
+          // Redirect to the login page
+          window.location.href = '/';
+      } else {
+          console.error('Logout failed');
+      }
   } catch (error) {
-    console.error('Error during logout:', error);
+      console.error('Error during logout:', error);
   }
 }
+
+async function checkAuthentication() {
+  try {
+      const response = await fetch('http://54.211.108.140:3222/api/auth/session', {
+          credentials: 'include', // Include cookies for session-based auth
+      });
+
+      const data = await response.json();
+
+      if (!data.loggedIn) {
+          // If not logged in, redirect to the login page
+          alert("ฮั่นแน่~ เรายังไม่รู้จักเลยน้า Log-in ก่อนค้าบ");
+          window.location.href = '/';
+      }
+  } catch (error) {
+      console.error('Error checking authentication:', error);
+      // Redirect to the login page in case of an error
+      window.location.href = '/';
+  }
+}
+
+// Run the authentication check on page load
+document.addEventListener('DOMContentLoaded', checkAuthentication);
+
+
 
 
 

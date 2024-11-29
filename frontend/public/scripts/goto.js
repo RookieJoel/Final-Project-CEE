@@ -2,8 +2,10 @@
 let threads = [];
 
 // Fetch and display all threads
+// Fetch and display all threads
 async function displayThreads(initialLoad = true) {
   const userId = localStorage.getItem('userId'); // Get current user ID
+  const username = localStorage.getItem('username') || 'Anonymous'; // Get the current user's username
   const threadContainer = document.getElementById('threads-container');
 
   if (initialLoad) {
@@ -26,16 +28,20 @@ async function displayThreads(initialLoad = true) {
       const newThreadElement = document.createElement('div');
       newThreadElement.classList.add('thread', 'shadow-lg', 'mb-4', 'rounded-lg');
       newThreadElement.dataset.threadId = thread._id;
+      
+      // Conditionally render the delete button
+      const isUserThreadOwner = thread.username === username;
+
       newThreadElement.innerHTML = `
         <div class="thread-header p-3">
           <div class="position-relative">
-            <button class="btn btn-sm btn-delete-x text-white" onclick="deleteThread('${thread._id}')">X</button>
             <h3>
               <a href="#" class="thread-title text-decoration-none text-white" onclick="goToThread('${thread._id}')">${thread.title}</a>
+              ${isUserThreadOwner ? `<button class="btn btn-sm btn-delete-x text-white" onclick="deleteThread('${thread._id}')">X</button>` : ''}
             </h3>
-            <p class="text-muted">Posted by: ${thread.user}</p> <!-- Display username -->
           </div>
           <div class="thread-body p-3">
+            <span class="thread-posted-by text-muted">Posted by: ${thread.username}</span>
             <p class="thread-description text-muted text-white">${thread.description}</p>
           </div>
           <div class="thread-footer d-flex justify-content-between align-items-center p-3">
@@ -54,6 +60,7 @@ async function displayThreads(initialLoad = true) {
           </div>
         </div>
       `;
+
       threadContainer.appendChild(newThreadElement);
     } else {
       // Update existing thread element
@@ -71,20 +78,18 @@ async function displayThreads(initialLoad = true) {
 }
 
 
-
-
 // Create a new thread
 async function createNewThread() {
   const title = document.getElementById('thread-title').value.trim();
   const description = document.getElementById('thread-description').value.trim();
-  const username = localStorage.getItem('username') || 'Anonymous'; // Get the username
+  const username = localStorage.getItem('username') || 'Anonymous'; // Get username
 
   if (title && description) {
     try {
       const response = await fetch('http://54.211.108.140:3222/api/threads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description, user: username }), // Include username
+        body: JSON.stringify({ title, description, username }), // Include username when creating thread
       });
 
       if (response.ok) {
@@ -277,5 +282,28 @@ function goBackToThreads() {
 
 // Initialize the thread list
 displayThreads();
+
+async function checkAuthentication() {
+  try {
+      const response = await fetch('http://54.211.108.140:3222/api/auth/session', {
+          credentials: 'include', // Include cookies for session-based auth
+      });
+
+      const data = await response.json();
+
+      if (!data.loggedIn) {
+          // If not logged in, redirect to the login page
+          alert("ฮั่นแน่~ เรายังไม่รู้จักเลยน้า Log-in ก่อนค้าบ");
+          window.location.href = '/';
+      }
+  } catch (error) {
+      console.error('Error checking authentication:', error);
+      // Redirect to the login page in case of an error
+      window.location.href = '/';
+  }
+}
+
+// Run the authentication check on page load
+document.addEventListener('DOMContentLoaded', checkAuthentication);
 
 
