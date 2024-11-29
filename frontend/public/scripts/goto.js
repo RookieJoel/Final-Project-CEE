@@ -20,6 +20,11 @@ async function displayThreads(initialLoad = true) {
       return;
     }
   }
+  threads.sort((a, b) => {
+    const aLikesDislikesCount = a.likes.length + a.dislikes.length;
+    const bLikesDislikesCount = b.likes.length + b.dislikes.length;
+    return bLikesDislikesCount - aLikesDislikesCount; // Sort in descending order
+  });
 
   threads.forEach(thread => {
     const threadElement = document.querySelector(`[data-thread-id="${thread._id}"]`);
@@ -192,7 +197,7 @@ async function updateLikes(threadId, action) {
     const likeButton = threadElement.querySelector('.btn-like');
     const dislikeButton = threadElement.querySelector('.btn-dislike');
 
-    likeButton.classList.toggle('btn-liked', updatedThread.likes.includes(userId));
+     likeButton.classList.toggle('btn-liked', updatedThread.likes.includes(userId));
     dislikeButton.classList.toggle('btn-disliked', updatedThread.dislikes.includes(userId));
 
     // If the user likes, ensure the dislike button is not in the disliked state

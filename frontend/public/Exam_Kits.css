@@ -202,7 +202,7 @@ footer {
   font-family:'Poppins',sans-serif;
   padding-top:5px!important;
   padding-right:1rem;
-  padding-bottom:0.5rem;
+  padding-bottom:5px!important;
   padding-left:1rem;
   margin-right:0px !important;
   color:white;

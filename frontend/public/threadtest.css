@@ -172,7 +172,8 @@ body {
 
 .btn.btn-outline-light.me-2 {
   font-family: 'Poppins', sans-serif;
-  padding-top: 5px !important;
+  padding-top: 3px !important;
+  padding-bottom:5px!important;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
