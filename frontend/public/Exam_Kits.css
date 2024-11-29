@@ -18,6 +18,47 @@ footer {
   font-size: 0.9rem;
 }
 
+/* // nav bar */
+.navbar {
+  background-color: #212529;
+  padding: 1rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffc107; /* Yellow color on hover */
+}
+
+.nav-link.active {
+  color: #6c757d; /* Secondary color for active link */
+}
+
+
 /* Carousel styling */
 .carousel-container {
   max-width: 700px;
@@ -309,72 +350,9 @@ footer {
 }
 
 
-/* Modal Background */
-.modal-content {
-  background-color: #212529; /* สีเข้ม */
-  color: #e0e0e0; /* สีตัวอักษร */
-  border-radius: 10px;
-}
-
-/* Header และ Footer ของ Modal */
-.modal-header, .modal-footer {
-  background-color: #333;
-  border-bottom: none;
-  border-top: none;
-}
-
-.modal-header .modal-title {
-  color: #ffd700; /* สีทอง */
-}
 
 .btn-close {
   background-color: #ffd700;
   border-radius: 50%;
 }
 
-/* ปุ่มที่ใช้ในฟอร์ม */
-.modal .btn-primary, .modal .btn-success {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: #212529;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.modal .btn-primary:hover, .modal .btn-success:hover {
-  background-color: #e0a800;
-  border-color: #e0a800;
-  color: #ffffff;
-}
-
-/* สีของ Label และ Input */
-.modal-body label {
-  color: #ffd700; /* สีทอง */
-  font-weight: bold;
-}
-
-.modal-body input {
-  background-color: #333;
-  color: #e0e0e0;
-  border: 1px solid #555;
-}
-
-.modal-body input:focus {
-  background-color: #444;
-  border-color: #ffc107;
-  color: #ffd700;
-}
-
-/* Tabs Styling */
-.nav-tabs .nav-link {
-  background-color: #333;
-  color: #e0e0e0;
-  border: none;
-  font-weight: bold;
-}
-
-.nav-tabs .nav-link.active {
-  background-color: #212529;
-  color: #ffd700;
-  border-bottom: 2px solid #ffd700;
-}

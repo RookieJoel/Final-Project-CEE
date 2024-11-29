@@ -45,12 +45,12 @@ export const logIn = async (req, res) => {
         if (!isPasswordValid) {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
-  
-        //req.session.userId = user._id; // Save session
         res.status(200).json({ 
             message: 'Login successful', 
-            userId: user._id, 
-            username: user.username || 'Anonymous' // Include username in response
+            username: user.username, // Include username in response
+            userId: user._id
+             
+           
         });
     } catch (err) {
         res.status(500).json({ message: 'Error logging in', error: err.message });

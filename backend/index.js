@@ -27,7 +27,6 @@ app.use(cors(corsOptions));
 
 
 // Middleware
-// app.use(cors());
 app.use(bodyParser.json());
 
 // Thread Schema
@@ -35,8 +34,8 @@ const threadSchema = new mongoose.Schema({
   id: String,
   title: String,
   description: String,
-  likes: { type: Number, default: 0 },
-  dislikes: { type: Number, default: 0 },
+  likes: [String],
+  dislikes: [String],
   comments: [
     {
       user: String,
@@ -109,6 +108,52 @@ app.delete('/api/threads/:id', async (req, res) => {
   }
 });
 
+app.patch('/api/threads/:id/likes', async (req, res) => {
+  const { userId, action } = req.body; // Expecting action to be 'like', 'dislike', 'unlike', or 'undislike'
+  
+  if (!userId || !action) {
+    return res.status(400).json({ error: 'userId and action are required' });
+  }
+  
+  try {
+    const thread = await Thread.findById(req.params.id);
+    if (!thread) {
+      return res.status(404).json({ error: 'Thread not found' });
+    }
+
+    // Handle like action
+    if (action === 'like') {
+      // If user has already liked, remove like (unlike)
+      if (thread.likes.includes(userId)) {
+        thread.likes = thread.likes.filter(id => id !== userId);
+      } else {
+        thread.likes.push(userId); // Add like if not already liked
+        thread.dislikes = thread.dislikes.filter(id => id !== userId); // Remove from dislikes if previously disliked
+      }
+    }
+    // Handle dislike action
+    else if (action === 'dislike') {
+      // If user has already disliked, remove dislike (undislike)
+      if (thread.dislikes.includes(userId)) {
+        thread.dislikes = thread.dislikes.filter(id => id !== userId);
+      } else {
+        thread.dislikes.push(userId); // Add dislike if not already disliked
+        thread.likes = thread.likes.filter(id => id !== userId); // Remove from likes if previously liked
+      }
+    } else {
+      return res.status(400).json({ error: 'Invalid action. Must be "like" or "dislike".' });
+    }
+
+    // Save the updated thread
+    await thread.save();
+    res.status(200).json(thread); // Return updated thread with new like/dislike counts
+  } catch (err) {
+    console.error('Error processing like/dislike:', err);
+    res.status(500).json({ error: 'Error updating thread', message: err.message });
+  }
+});
+
+
 // POST a comment to a thread
 app.post('/api/threads/:id/comments', async (req, res) => {
   const { user, text } = req.body;
@@ -162,23 +207,27 @@ app.delete('/api/threads/:threadId/comments/:commentId', async (req, res) => {
 });
 
 app.patch('/api/threads/:id', async (req, res) => {
-  const { likes, dislikes } = req.body;
+  const { userId, action } = req.body;
   try {
     const thread = await Thread.findById(req.params.id);
     if (!thread) {
       return res.status(404).json({ error: 'Thread not found' });
     }
 
-    // Update likes and dislikes if provided
-    if (likes !== undefined) thread.likes = likes;
-    if (dislikes !== undefined) thread.dislikes = dislikes;
+    if (!['like', 'dislike'].includes(action)) {
+      return res.status(400).json({ error: 'Invalid action' });
+    }
 
-    await thread.save();
-    res.status(200).json(thread); // Return updated thread
+    // Check for action logic here...
+
+    await thread.save(); // Ensure the thread is saved properly
+    res.status(200).json(thread);
   } catch (err) {
+    console.error('Error occurred while updating thread:', err); // Log the error
     res.status(500).json({ error: 'Error updating thread', message: err.message });
   }
 });
+
 
 // LIKE a comment
 app.post('/api/threads/:threadId/comments/:commentId/like', async (req, res) => {
@@ -284,8 +333,7 @@ app.use(session({
     cookie: { secure: false },
 }));
 
-// Connect to MongoDB
-connectDB();
+
 
 // Use Auth Routes
 app.use('/api/auth', authRoutes);
@@ -318,7 +366,8 @@ app.get('/api/auth/session', (req, res) => {
   }
 });
 
-
+// Connect to MongoDB
+connectDB();
 
 // Listen on port
 app.listen(3222, () => {

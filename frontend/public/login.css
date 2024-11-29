@@ -47,8 +47,7 @@ body{
 }
 
 .container button{
-    background-color: #ffc107;
-    background: linear-gradient(to top, #000000, #000000);
+    background: rgba(0, 0, 0, 0.5);
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -99,11 +98,6 @@ body{
     width: 50%;
     z-index: 2;
 }
-
-.signup-btn:hover {
-    background-color: #45a049; /* Darker green on hover */
-}
-
 
 .container.active .sign-in{
     transform: translateX(100%);
@@ -169,7 +163,7 @@ body{
 .toggle{
     background-color: #512da8;
     height: 100%;
-    background: linear-gradient(to right, #ffc107, #000000);
+    background: linear-gradient(135deg, #FF7A50, #E54E8A, #8A3FFC);
     color: #fff;
     position: relative;
     left: -100%;
@@ -218,3 +212,98 @@ body{
 .hidden#register{
     margin-top: 34px;
 }
+
+.form-container button {
+    background-color: #512da8;
+    color: #fff;
+    font-size: 14px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #8a3ffc;
+    box-shadow: 0 8px 15px rgba(138, 63, 252, 0.3);
+    transform: scale(1.05);
+}
+
+
+/* ิbackground */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FF7A50, #F3A850, #8A3FFC);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ฟองสบู่ */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bubbles span {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2); /* เพิ่มความตัดกับพื้นหลัง */
+    border-radius: 50%;
+    animation: bubbleAnimation 15s infinite ease-in-out;
+    bottom: -50px;
+}
+
+.bubbles span:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.bubbles span:nth-child(3) {
+    width: 70px;
+    height: 70px;
+    left: 70%;
+    animation-delay: 6s;
+}
+
+@keyframes bubbleAnimation {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-1000px) scale(0.3);
+        opacity: 0;
+    }
+}
+

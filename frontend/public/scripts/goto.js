@@ -2,37 +2,51 @@
 let threads = [];
 
 // Fetch and display all threads
-async function displayThreads() {
+async function displayThreads(initialLoad = true) {
+  const userId = localStorage.getItem('userId'); // Get current user ID
   const threadContainer = document.getElementById('threads-container');
-  threadContainer.innerHTML = ''; // Clear existing threads
 
-  try {
-    const response = await fetch('http://54.211.108.140:3222/api/threads');
-    if (!response.ok) throw new Error('Failed to fetch threads');
-    threads = await response.json();
+  if (initialLoad) {
+    threadContainer.innerHTML = '';
 
-    threads.sort((a, b) => (b.likes - b.dislikes) - (a.likes - a.dislikes));
-    threads.forEach(thread => {
-      const threadElement = document.createElement('div');
-      threadElement.classList.add('thread', 'shadow-lg', 'mb-4', 'rounded-lg');
-      threadElement.innerHTML = `
+    try {
+      const response = await fetch('http://54.211.108.140:3222/api/threads');
+      if (!response.ok) throw new Error('Failed to fetch threads');
+      threads = await response.json();
+    } catch (err) {
+      console.error('Error fetching threads:', err);
+      return;
+    }
+  }
+
+  threads.forEach(thread => {
+    const threadElement = document.querySelector(`[data-thread-id="${thread._id}"]`);
+    if (!threadElement) {
+      // Create a new thread element
+      const newThreadElement = document.createElement('div');
+      newThreadElement.classList.add('thread', 'shadow-lg', 'mb-4', 'rounded-lg');
+      newThreadElement.dataset.threadId = thread._id;
+      newThreadElement.innerHTML = `
         <div class="thread-header p-3">
           <div class="position-relative">
             <button class="btn btn-sm btn-delete-x text-white" onclick="deleteThread('${thread._id}')">X</button>
             <h3>
               <a href="#" class="thread-title text-decoration-none text-white" onclick="goToThread('${thread._id}')">${thread.title}</a>
             </h3>
+            <p class="text-muted">Posted by: ${thread.user}</p> <!-- Display username -->
           </div>
           <div class="thread-body p-3">
             <p class="thread-description text-muted text-white">${thread.description}</p>
           </div>
           <div class="thread-footer d-flex justify-content-between align-items-center p-3">
             <div class="btn-group">
-              <button class="btn btn-outline-success btn-sm" onclick="updateLikes('${thread._id}', 'like')">
-                Like (${thread.likes})
+              <button class="btn btn-outline-success btn-sm btn-like ${thread.likes.includes(userId) ? 'btn-liked' : ''}" 
+                onclick="updateLikes('${thread._id}', 'like')">
+                Like (${thread.likes.length})
               </button>
-              <button class="btn btn-outline-danger btn-sm" onclick="updateLikes('${thread._id}', 'dislike')">
-                Dislike (${thread.dislikes})
+              <button class="btn btn-outline-danger btn-sm btn-dislike ${thread.dislikes.includes(userId) ? 'btn-liked' : ''}" 
+                onclick="updateLikes('${thread._id}', 'dislike')">
+                Dislike (${thread.dislikes.length})
               </button>
             </div>
             <span class="thread-replies text-muted">${thread.comments.length} replies</span>
@@ -40,25 +54,37 @@ async function displayThreads() {
           </div>
         </div>
       `;
-      threadContainer.appendChild(threadElement);
-    });
-    
-  } catch (err) {
-    console.error('Error fetching threads:', err);
-  }
+      threadContainer.appendChild(newThreadElement);
+    } else {
+      // Update existing thread element
+      const likeButton = threadElement.querySelector('.btn-like');
+      const dislikeButton = threadElement.querySelector('.btn-dislike');
+
+      likeButton.innerHTML = `Like (${thread.likes.length})`;
+      dislikeButton.innerHTML = `Dislike (${thread.dislikes.length})`;
+
+      // Toggle the `btn-liked` class for buttons
+      likeButton.classList.toggle('btn-liked', thread.likes.includes(userId));
+      dislikeButton.classList.toggle('btn-liked', thread.dislikes.includes(userId));
+    }
+  });
 }
+
+
+
 
 // Create a new thread
 async function createNewThread() {
   const title = document.getElementById('thread-title').value.trim();
   const description = document.getElementById('thread-description').value.trim();
+  const username = localStorage.getItem('username') || 'Anonymous'; // Get the username
 
   if (title && description) {
     try {
       const response = await fetch('http://54.211.108.140:3222/api/threads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify({ title, description, user: username }), // Include username
       });
 
       if (response.ok) {
@@ -75,6 +101,7 @@ async function createNewThread() {
     alert('Please fill in both title and description.');
   }
 }
+
 
 // Delete a thread
 async function deleteThread(threadId) {
@@ -93,41 +120,6 @@ async function deleteThread(threadId) {
   }
 }
 
-// Update likes or dislikes for a thread
-async function updateLikes(threadId, action) {
-  try {
-    const thread = threads.find(t => t._id === threadId);
-    if (!thread) throw new Error('Thread not found');
-
-    // Toggle like or dislike
-    if (action === 'like') {
-      thread.likes++;
-    } else if (action === 'dislike') {
-      thread.dislikes++;
-    } else if (action === 'unlike') {
-      thread.likes = Math.max(thread.likes - 1, 0); // Prevent negative counts
-    } else if (action === 'undislike') {
-      thread.dislikes = Math.max(thread.dislikes - 1, 0); // Prevent negative counts
-    }
-    
-    // Save changes to the server
-    const response = await fetch(`http://54.211.108.140:3222/api/threads/${threadId}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ likes: thread.likes, dislikes: thread.dislikes }),
-    });
-
-    if (response.ok) {
-      const updatedThread = await response.json();
-      threads = threads.map(t => (t._id === threadId ? updatedThread : t)); // Sync updated thread
-      displayThreads(); // Refresh UI
-    } else {
-      alert('Error updating likes/dislikes.');
-    }
-  } catch (err) {
-    console.error('Error updating likes/dislikes:', err);
-  }
-}
 // View thread details and comments
 async function goToThread(threadId) {
   try {
@@ -147,6 +139,67 @@ async function goToThread(threadId) {
   }
 }
 
+async function fetchThreadDetails(threadId) {
+  try {
+      const response = await fetch(`http://54.211.108.140:3222/api/threads/${threadId}`);
+      const thread = await response.json();
+      const userId = localStorage.getItem('userId');
+
+      if (thread.likedBy.includes(userId)) {
+          document.getElementById('like-button').disabled = true;  // Disable like button
+      }
+      if (thread.dislikedBy.includes(userId)) {
+          document.getElementById('dislike-button').disabled = true;  // Disable dislike button
+      }
+      
+      // Update UI with the thread data
+      // ...
+  } catch (err) {
+      console.error('Error fetching thread details:', err);
+  }
+}
+
+async function updateLikes(threadId, action) {
+  const userId = localStorage.getItem('userId');
+  if (!userId) {
+    alert('You must be logged in to like or dislike a thread.');
+    return;
+  }
+
+  try {
+    const response = await fetch(`http://54.211.108.140:3222/api/threads/${threadId}/likes`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ userId, action }),
+    });
+
+    if (!response.ok) throw new Error('Failed to update likes/dislikes');
+    const updatedThread = await response.json();
+
+    // Update the thread locally
+    const threadIndex = threads.findIndex(t => t._id === threadId);
+    if (threadIndex !== -1) threads[threadIndex] = updatedThread;
+
+    // Refresh the specific thread UI
+    displayThreads(false);
+  } catch (err) {
+    console.error('Error updating likes/dislikes:', err);
+  }
+}
+
+
+
+// Handle like button click (toggle like/unlike)
+async function handleLike(threadId) {
+  await updateLikes(threadId, 'like'); // Call updateLikes with 'like' action
+}
+
+// Handle dislike button click (toggle dislike/undislike)
+async function handleDislike(threadId) {
+  await updateLikes(threadId, 'dislike'); // Call updateLikes with 'dislike' action
+}
+
+
 // Fetch comments for a specific thread
 async function fetchComments(threadId) {
   try {
@@ -163,6 +216,7 @@ async function fetchComments(threadId) {
 async function submitComment() {
   const threadId = document.getElementById('thread-id').textContent; // Get thread ID from the view
   const commentText = document.getElementById('comment-input').value.trim();
+  const username = localStorage.getItem('username') || 'Anonymous';
 
   if (!commentText) {
     alert('Please enter a comment.');
@@ -175,7 +229,7 @@ async function submitComment() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         text: commentText,
-        user: 'Anonymous', // Replace with logged-in user if authentication exists
+        user: username // Replace with logged-in user if authentication exists
       }),
     });
 

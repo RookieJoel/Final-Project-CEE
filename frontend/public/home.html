@@ -26,16 +26,19 @@
           <li><a href="thread.html" class="nav-link px-2 text-white">Threads Discussion</a></li>
           <li><a href="Exam_Kits.html" class="nav-link px-2 text-white">Exam Kits</a></li>
         </ul>
+      </div>
 
-        <div class="text-end ms-auto">
-          <!-- Navbar content will be updated dynamically -->
-      </div>
-      </div>
+      
     </div>
   </header>
 
+  <section>
+    <img src="/IMG/sky.jpg" id="bg">
+    <img src="/IMG/moon.png" id="moon">
+    <img src="/IMG/mountain.png" id="mountain">
+    <h2 id="text">MyCourseMate</h2>
+  </section>
   <!-- Main Content -->
-  <main class="container mt-5">
 
 
     <!-- Announcements Section -->
@@ -206,6 +209,19 @@
   </footer>
 
   <!-- Bootstrap JS Bundle -->
+   <script>
+    let bg = document.getElementById("bg");
+    let moon = document.getElementById("moon");
+    let mountain = document.getElementById("mountain");
+
+    window.addEventListener('scroll',function(){
+      var val = window.scrollY;
+      bg.style.top = val*0.5 +'px';
+      moon.style.left = -val*0.5+'px';
+      mountain.style.top = -val*0.15+'px';
+
+    })
+    </script>
   <script src="scripts\mainPage.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

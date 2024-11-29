@@ -2,6 +2,7 @@
 document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    
     const usernameOrEmail = document.querySelector('#usernameForLogin').value;
     const password = document.querySelector('#passwordForLogin').value;
 
@@ -15,7 +16,8 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
         const data = await response.json();
         if (response.ok) {
             alert(data.message);
-            localStorage.setItem('userId', data.userId); // Save user ID
+            localStorage.setItem('userId', data.userId);
+            localStorage.setItem('username', data.username); // Save user ID
             window.location.href = '/home.html';
         } else {
             alert(data.message);

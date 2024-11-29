@@ -294,5 +294,60 @@ async function updateNavbar() {
 document.addEventListener('DOMContentLoaded', updateNavbar);
 
 
+async function updateNavbar() {
+  try {
+    // Fetch session data
+    const response = await fetch('http://54.211.108.140:3222/api/auth/session', {
+      credentials: 'include',
+    });
+
+    const data = await response.json();
+    const navbarSection = document.getElementById('navbar-user-section');
+
+    if (data.loggedIn) {
+      // Update navbar for logged-in state
+      navbarSection.innerHTML = `
+        <span class="text-warning me-2">Welcome, ${data.username}</span>
+        <button class="btn btn-outline-light me-2" onclick="logout()">Log Out</button>
+      `;
+    } else {
+      // Update navbar for logged-out state
+      navbarSection.innerHTML = `
+        <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal">Sign-up</button>
+      `;
+    }
+  } catch (error) {
+    console.error('Error updating navbar:', error);
+  }
+}
+
+// Call updateNavbar on page load
+document.addEventListener('DOMContentLoaded', updateNavbar);
+
+// Logout function
+async function logout() {
+  try {
+    const response = await fetch('http://54.211.108.140:3222/api/auth/logout', {
+      method: 'POST',
+      credentials: 'include',
+    });
+
+    if (response.ok) {
+      // Clear user-related data from local storage
+      localStorage.removeItem('userId');
+      localStorage.removeItem('username');
+
+      // Redirect to login page or update the navbar
+      updateNavbar();
+    } else {
+      console.error('Failed to log out');
+    }
+  } catch (error) {
+    console.error('Error during logout:', error);
+  }
+}
+
+
 
 

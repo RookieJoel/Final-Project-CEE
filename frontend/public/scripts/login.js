@@ -1,6 +1,6 @@
-let globalData; // Declare globally
 document.querySelector('#loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const usernameOrEmail = document.querySelector('#usernameOrEmail').value;
     const password = document.querySelector('#password').value;
 
@@ -12,16 +12,13 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
         });
 
         const data = await response.json();
-        globalData = data; // Assign to global variable
-        console.log(data); // Log for verification
-
         if (response.ok) {
             alert(data.message);
-            localStorage.setItem('userId', data.userId);
-            localStorage.setItem('username', data.username);
-            window.location.href = '/home.html';
+            localStorage.setItem('userId', data.userId); // Save user ID
+            localStorage.setItem('username', data.username); // Save username
+            window.location.href = '/home.html'; // Redirect after login
         } else {
-            alert(data.message);
+            alert(data.message); // Show error message
         }
     } catch (error) {
         console.error('Error during login:', error);
