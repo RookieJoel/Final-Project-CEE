@@ -12,20 +12,19 @@ async function displayThreads() {
     threads = await response.json();
 
     threads.sort((a, b) => (b.likes - b.dislikes) - (a.likes - a.dislikes));
-
     threads.forEach(thread => {
       const threadElement = document.createElement('div');
       threadElement.classList.add('thread', 'shadow-lg', 'mb-4', 'rounded-lg');
       threadElement.innerHTML = `
         <div class="thread-header p-3">
           <div class="position-relative">
-            <button class="btn btn-sm btn-delete-x" onclick="deleteThread('${thread._id}')">x</button>
+            <button class="btn btn-sm btn-delete-x text-white" onclick="deleteThread('${thread._id}')">X</button>
             <h3>
-              <a href="#" class="thread-title text-decoration-none text-dark" onclick="goToThread('${thread._id}')">${thread.title}</a>
+              <a href="#" class="thread-title text-decoration-none text-white" onclick="goToThread('${thread._id}')">${thread.title}</a>
             </h3>
           </div>
           <div class="thread-body p-3">
-            <p class="thread-description text-muted">${thread.description}</p>
+            <p class="thread-description text-muted text-white">${thread.description}</p>
           </div>
           <div class="thread-footer d-flex justify-content-between align-items-center p-3">
             <div class="btn-group">
@@ -43,6 +42,7 @@ async function displayThreads() {
       `;
       threadContainer.appendChild(threadElement);
     });
+    
   } catch (err) {
     console.error('Error fetching threads:', err);
   }
@@ -163,7 +163,6 @@ async function fetchComments(threadId) {
 async function submitComment() {
   const threadId = document.getElementById('thread-id').textContent; // Get thread ID from the view
   const commentText = document.getElementById('comment-input').value.trim();
-  // const user = document.get
 
   if (!commentText) {
     alert('Please enter a comment.');
@@ -224,3 +223,5 @@ function goBackToThreads() {
 
 // Initialize the thread list
 displayThreads();
+
+

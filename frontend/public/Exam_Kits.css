@@ -94,7 +94,7 @@ footer {
 
 /* Disable shadow on hover for Sam specifically */
 .sam-image:hover {
-  transform: scale(1.03); /* Optional: Keep or remove scale effect */
+  transform: scale(2); /* Optional: Keep or remove scale effect */
   box-shadow: none; /* Removes the shadow */
 }
 

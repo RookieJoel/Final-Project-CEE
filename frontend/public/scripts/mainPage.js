@@ -100,18 +100,18 @@ updateCalendar();
 
 // ************************************** To-Do List Functionality
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Button event listeners
-  const addButton = document.getElementById("add-newrow");
-  addButton.addEventListener("click", () => {
-    handleCreateItem();
-  });
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Button event listeners
+//   const addButton = document.getElementById("add-newrow");
+//   addButton.addEventListener("click", () => {
+//     handleCreateItem();
+//   });
 
-  const filterButton = document.getElementById("filter-button");
-  filterButton.addEventListener("click", () => {
-    handleFilterItem();
-  });
-});
+//   const filterButton = document.getElementById("filter-button");
+//   filterButton.addEventListener("click", () => {
+//     handleFilterItem();
+//   });
+// });
 
 /**
  * Function to create a new item in the to-do list

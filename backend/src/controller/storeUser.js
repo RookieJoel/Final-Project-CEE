@@ -31,27 +31,32 @@ export const signUp = async (req, res) => {
 
 // Log In
 export const logIn = async (req, res) => {
-  const { usernameOrEmail, password } = req.body; // Accept username or email
-  try {
-      // Find user by username or email
-      const user = await User.findOne({
-          $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }],
-      });
-      if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-      }
-
-      const isPasswordValid = await bcrypt.compare(password, user.password); // Compare hashed password
-      if (!isPasswordValid) {
-          return res.status(401).json({ message: 'Invalid credentials' });
-      }
-
-      req.session.userId = user._id; // Save session
-      res.status(200).json({ message: 'Login successful', userId: user._id });
-  } catch (err) {
-      res.status(500).json({ message: 'Error logging in', error: err.message });
-  }
-};
+    const { usernameOrEmail, password } = req.body; // Accept username or email
+    try {
+        // Find user by username or email
+        const user = await User.findOne({
+            $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }],
+        });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        console.log(user);
+        const isPasswordValid = await bcrypt.compare(password, user.password); // Compare hashed password
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+  
+        //req.session.userId = user._id; // Save session
+        res.status(200).json({ 
+            message: 'Login successful', 
+            userId: user._id, 
+            username: user.username || 'Anonymous' // Include username in response
+        });
+    } catch (err) {
+        res.status(500).json({ message: 'Error logging in', error: err.message });
+    }
+  };
+  
 
 
 

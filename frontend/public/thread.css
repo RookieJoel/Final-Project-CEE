@@ -47,11 +47,11 @@ header .btn-outline-light:hover {
 }
 
 #threads-container .thread {
-  background-color: #212529;
-  border: 1px solid #333;
+  background-color: #323335;
+  border: 8px solid #e0a800;
   padding: 1.5rem;
   margin-bottom: 1rem;
-  border-radius: 10px;
+  border-radius: 48px;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
@@ -92,7 +92,6 @@ header .btn-outline-light:hover {
 #thread-view {
   padding: 2rem;
   background-color: #212529;
-  border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -268,3 +267,76 @@ textarea:focus {
   border: 2px solid #ffd700;
   border-radius: 50%;
 }
+
+/* Thread Footer Buttons and Text */
+#threads-container .thread-footer {
+  background-color: #333; /* Dark background for contrast */
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: right;
+  font-size: 0.9rem;
+  color: #ffffff; /* White text color */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#threads-container .thread-footer .btn {
+  font-size: 0.85rem;
+  color: #ffffff; /* Ensure buttons have white text */
+  border-radius: 6px;
+}
+
+#threads-container .thread-footer .btn-outline-success {
+  border-color: #28a745; /* Green border for like button */
+  background-color: transparent;
+}
+
+#threads-container .thread-footer .btn-outline-success:hover {
+  background-color: #28a745; /* Green fill on hover */
+  color: #ffffff;
+}
+
+#threads-container .thread-footer .btn-outline-danger {
+  border-color: #dc3545; /* Red border for dislike button */
+  background-color: transparent;
+}
+
+#threads-container .thread-footer .btn-outline-danger:hover {
+  background-color: #dc3545; /* Red fill on hover */
+  color: #ffffff;
+}
+
+#threads-container .thread-footer .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #ffffff; /* White text for "View Thread" button */
+}
+
+#threads-container .thread-footer .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Adjust Like and Dislike counts */
+#threads-container .thread-footer span {
+  color: #ffffff; /* White text for replies count */
+  margin-right: auto;
+}
+
+/* Style for Grader Text */
+#threads-container .thread-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ffffff; /* Set text color to white */
+}
+
+#threads-container .thread-title:hover {
+  color: #e0a800; /* Optional: Hover effect color */
+}
+
+.text-white {
+  color: #ffffff !important; /* Ensure the text is white */
+}
+
+
