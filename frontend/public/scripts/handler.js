@@ -10,7 +10,7 @@ export async function updateNavbar() {
 
         if (data.loggedIn) {
             navbarSection.innerHTML = `
-                <span class="text-warning me-2">Welcome, ${data.username}</span>
+                <div class="text-warning me-2">Welcome, ${data.username}</div>
                 <button id="logoutButton" class="btn btn-outline-light me-2">Log Out</button>
             `;
 

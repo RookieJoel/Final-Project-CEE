@@ -22,7 +22,7 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
             // Update the navbar dynamically
             await updateNavbar();
 
-            window.location.href = '/home3.html';
+            window.location.href = '/home.html';
         } else {
             alert(data.message);
         }
@@ -84,10 +84,12 @@ async function updateNavbar() {
 
         if (data.loggedIn) {
             navbarSection.innerHTML = `
-                <span class="text-warning me-2">Welcome, ${data.username}</span>
+                <div class="text-warning me-2">Welcome, ${data.username}</div>
                 <button id="logoutButton" class="btn btn-outline-light me-2">Log Out</button>
             `;
 
+        
+        
             // Bind the logout function to the button
             document.getElementById('logoutButton').addEventListener('click', logout);
         } else {

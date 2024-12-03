@@ -3,7 +3,7 @@
 ======================= */
 
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -11,6 +11,35 @@ body {
   background: linear-gradient(to right, rgb(255, 104, 10), #ffde08);
   font-family: Arial, sans-serif;
   color: #333;
+} */
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FF7A50, #F3A850, #8A3FFC);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* =======================
@@ -47,11 +76,27 @@ body {
 }
 
 .nav-link:hover {
-  color: #ffc107; /* Yellow on hover */
+  color: #ffc107;
+  /* Yellow on hover */
 }
 
 .nav-link.active {
-  color: #6c757d; /* Secondary color for active link */
+  color: #6c757d;
+  /* Secondary color for active link */
+}
+
+.text-warning.me-2 {
+  font-family: Arial, sans-serif;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-user-section {
+  display: flex !important;
+  /* Makes the container a flexbox */
+  align-items: center;
+  /* Vertically aligns items */
+  justify-content: flex-start;
+  /* Aligns items to the left */
 }
 
 /* =======================
@@ -72,17 +117,21 @@ body {
 }
 
 .thread-title {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   font-weight: bold;
   color: #333;
   text-decoration: none;
 }
 
-.thread-title.text-decoration-none.text-white{
-  color:black!important;
+.thread-title.text-decoration-none.text-white {
+  color: black !important;
 }
 
 .thread-title:hover {
-  color: #a03c64; /* Accent color */
+  color: #a03c64;
+  /* Accent color */
 }
 
 .thread-posted-by {
@@ -103,7 +152,7 @@ body {
   padding: 0.5rem 1rem;
 }
 
-.position-relative-inthread{
+.position-relative-inthread {
   padding-top: 15px;
   background-color: var(--bs-body-bg);
   background-clip: padding-box;
@@ -111,13 +160,19 @@ body {
   border-radius: var(--bs-border-radius);
 }
 
-.text-dark{
+.text-dark {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   margin-top: 10px;
-  font-size:30px!important;
+  font-size: 30px !important;
   font-weight: bolder;
 }
 
-.text-muted{
+.text-muted {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   margin-left: 20px;
 
 }
@@ -133,6 +188,16 @@ body {
   font-weight: bold;
   border: none;
   transition: all 0.3s ease;
+}
+
+.btn-secondary {
+  margin-bottom: 20px;
+}
+
+.btn-3 {
+  background: linear-gradient(to right, #e9da66, #ffb570);
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .btn-primary {
@@ -193,12 +258,28 @@ body {
   background-color: #a03c64;
 }
 
+.btn.btn-outline-success.btn-sm.btn-like {
+  margin-right: 10px !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+.btn.btn-outline-danger.btn-sm.btn-dislike {
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
 .btn.btn-sm.btn-delete-x.text-white {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 10px; /* เพิ่มระยะห่างเล็กน้อยจากขอบ */
-  color: #ff4d4d!important;
+  margin: 10px;
+  /* เพิ่มระยะห่างเล็กน้อยจากขอบ */
+  color: #ff4d4d !important;
 }
 
 .btn.btn-sm.btn-delete-x.text-white:hover {
@@ -214,6 +295,9 @@ body {
 }
 
 h2 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   text-align: center;
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -228,8 +312,10 @@ h2 {
   }
 
   .nav {
-    flex-direction: column;
-    align-items: center;
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
   }
 
   .thread {
@@ -246,6 +332,7 @@ h2 {
 
 /* Adjust layout for tablets (768px and below) */
 @media (max-width: 768px) {
+
   /* Navbar */
   .navbar-content {
     flex-wrap: wrap;
@@ -285,8 +372,10 @@ h2 {
     padding: 0.4rem;
   }
 }
+
 /* Adjust layout for mobile screens (480px and below) */
 @media (max-width: 480px) {
+
   /* Navbar */
   .nav {
     flex-direction: column;
@@ -314,11 +403,20 @@ h2 {
     padding: 0.3rem 0.6rem;
   }
 
-  .btn-like,
-  .btn-dislike {
+  .btn-liked {
+    background: linear-gradient(135deg, #008442, #027a81);
+    color: #fff;
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
   }
+
+  .btn-disliked {
+    background: linear-gradient(135deg, #c6203c, #d02f72);
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
 
   /* Comment Section */
   #comment-input {
@@ -342,6 +440,7 @@ h2 {
 
 /* Adjust layout for small mobile screens (320px and below) */
 @media (max-width: 320px) {
+
   /* Navbar */
   .nav-link {
     font-size: 0.8rem;
@@ -364,11 +463,20 @@ h2 {
     padding: 0.2rem;
   }
 
-  .btn-like,
-  .btn-dislike {
+  .btn-liked {
+    background: linear-gradient(135deg, #008442, #027a81);
+    color: #fff;
     font-size: 0.7rem;
     padding: 0.2rem 0.4rem;
   }
+
+  .btn-disliked {
+    background: linear-gradient(135deg, #c6203c, #d02f72);
+    color: #fff;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
 
   /* Modal */
   .modal-dialog {
@@ -405,7 +513,3 @@ h2 {
   align-items: center;
   margin-top: 15px;
 }
-
-
-
-

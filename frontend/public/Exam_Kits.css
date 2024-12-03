@@ -1,12 +1,13 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;
-  color: #e0e0e0; 
+  color: #e0e0e0;
 }
 
 * {
   box-sizing: border-box;
 }
+
 .p-4 {
   padding: 2rem !important;
 }
@@ -51,13 +52,29 @@ footer {
 }
 
 .nav-link:hover {
-  color: #ffc107; /* Yellow color on hover */
+  color: #ffc107;
+  /* Yellow color on hover */
 }
 
 .nav-link.active {
-  color: #6c757d; /* Secondary color for active link */
+  color: #6c757d;
+  /* Secondary color for active link */
 }
 
+.text-warning.me-2 {
+  font-family: Arial, sans-serif;
+  padding: 0.5rem 1rem;
+  margin-right:0px!important;
+}
+
+.navbar-user-section {
+  display: flex !important;
+  /* Makes the container a flexbox */
+  align-items: center;
+  /* Vertically aligns items */
+  justify-content: flex-start;
+  /* Aligns items to the left */
+}
 
 /* Carousel styling */
 .carousel-container {
@@ -70,7 +87,7 @@ footer {
   height: 300px;
   object-fit: cover;
   border-radius: 15px;
-  border: 3px solid #333; 
+  border: 3px solid #333;
 }
 
 .carousel-content {
@@ -93,9 +110,9 @@ footer {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 60%; 
+  width: 60%;
   background: rgba(0, 0, 0, 0.8);
-  color: #ffd700; 
+  color: #ffd700;
   padding: 25px;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -122,7 +139,7 @@ footer {
 
 /* Card styling */
 .card {
-  background-color: #212529; 
+  background-color: #212529;
   border: 1px solid #333;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
@@ -130,13 +147,16 @@ footer {
 
 /* Add a unique class for Sam's image */
 .sam-image {
-  transition: transform 0.3s ease; /* keep the transform effect if desired */
+  transition: transform 0.3s ease;
+  /* keep the transform effect if desired */
 }
 
 /* Disable shadow on hover for Sam specifically */
 .sam-image:hover {
-  transform: scale(2); /* Optional: Keep or remove scale effect */
-  box-shadow: none; /* Removes the shadow */
+  transform: scale(2);
+  /* Optional: Keep or remove scale effect */
+  box-shadow: none;
+  /* Removes the shadow */
 }
 
 
@@ -149,8 +169,9 @@ footer {
 
 
 
-.card-text, .card-title {
-  color: #efd27d; 
+.card-text,
+.card-title {
+  color: #efd27d;
 }
 
 .bai-jamjuree-bold-italic {
@@ -167,10 +188,11 @@ footer {
 }
 
 /* Super image sizing */
-.bright-side-super, .dark-side-super {
+.bright-side-super,
+.dark-side-super {
   height: 427px;
   width: 211.467px;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 5px;
 }
 
@@ -183,7 +205,7 @@ footer {
 
 /* Card section text color */
 .card-text {
-  color: #ffd700; 
+  color: #ffd700;
 }
 
 /* Button adjustments */
@@ -197,33 +219,46 @@ footer {
   background-color: #333;
   color: #ffd700;
 }
+
 /* btn logout */
 
-.btn.btn-outline-light.me-2{
-  font-family:'Poppins',sans-serif;
+.btn.btn-outline-light.me-2 {
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  padding-top:5px!important;
-  padding-right:1rem;
-  padding-bottom:5px!important;
-  padding-left:1rem;
-  margin-right:0px !important;
-  color:white;
-  border-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1)) !important;
+  padding-top: 5px !important;
+  padding-right: 1rem;
+  padding-bottom: 5px !important;
+  padding-left: 1rem;
+  margin-right: 0px !important;
+  color: white;
+  border-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
-.btn.btn-outline-light.me-2:hover{
+.btn.btn-outline-light.me-2:hover {
   background-color: #ffffff;
   font-weight: bold;
   border-color: #ffffff;
-  color:black;
+  color: black;
 }
+
 /*Explor*/
 
 /* Card Colors */
-.bg-lightblue { background-color: #4d79ff; }
-.bg-lightorange { background-color: #ffc266; }
-.bg-lightgreen { background-color: #66cc66; }
-.bg-lightblue-dark { background-color: #5a9aff; }
+.bg-lightblue {
+  background-color: #4d79ff;
+}
+
+.bg-lightorange {
+  background-color: #ffc266;
+}
+
+.bg-lightgreen {
+  background-color: #66cc66;
+}
+
+.bg-lightblue-dark {
+  background-color: #5a9aff;
+}
 
 /* Study Section Styling */
 .study-section h2 {
@@ -231,6 +266,7 @@ footer {
   font-weight: 700;
   color: #333;
 }
+
 /* Study Card Styling */
 .study-card {
   background-color: var(--secondary-light);
@@ -263,27 +299,36 @@ footer {
 
 /* Card Hover Effect */
 .study-card:hover {
-  background-color: var(--primary-accent); /* Change background color on hover to theme yellow */
-  color: var(--primary-dark); /* Adjust text color for contrast */
+  background-color: var(--primary-accent);
+  /* Change background color on hover to theme yellow */
+  color: var(--primary-dark);
+  /* Adjust text color for contrast */
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .study-card:hover h3,
 .study-card:hover p {
-  color: var(--primary-dark); /* Adjust text color on hover for better readability */
+  color: var(--primary-dark);
+  /* Adjust text color on hover for better readability */
 }
 
 .study-card .content img:hover {
-  border-color: var(--primary-dark); /* Change border color on image hover */
+  border-color: var(--primary-dark);
+  /* Change border color on image hover */
 }
 
 /* Theme Colors */
 :root {
-  --primary-dark: #333; /* สีพื้นหลังเข้ม */
-  --primary-accent: #ffc107; /* สีไฮไลต์ที่ใช้ในส่วนอื่น ๆ */
-  --secondary-light: #212529; /* สีพื้นหลังรอง */
-  --text-light: #e0e0e0; /* สีข้อความอ่อน */
-  --background-light: #aba8a8; /* สีพื้นหลังหลัก */
+  --primary-dark: #333;
+  /* สีพื้นหลังเข้ม */
+  --primary-accent: #ffc107;
+  /* สีไฮไลต์ที่ใช้ในส่วนอื่น ๆ */
+  --secondary-light: #212529;
+  /* สีพื้นหลังรอง */
+  --text-light: #e0e0e0;
+  /* สีข้อความอ่อน */
+  --background-light: #aba8a8;
+  /* สีพื้นหลังหลัก */
 }
 
 /* Study Section Styling */
@@ -328,7 +373,8 @@ footer {
 }
 
 /* Adjusted Navigation Button Styling */
-.prev-btn, .next-btn {
+.prev-btn,
+.next-btn {
   background-color: var(--primary-accent);
   border: none;
   color: var(--primary-dark);
@@ -339,32 +385,37 @@ footer {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.3s ease;
-  z-index: 10; /* Ensures buttons are on top */
+  z-index: 10;
+  /* Ensures buttons are on top */
 }
 
 /* Separate hover effect for buttons */
-.prev-btn:hover, .next-btn:hover {
+.prev-btn:hover,
+.next-btn:hover {
   transform: scale(1.1);
 }
 
 /* Positioning for Buttons */
 .prev-btn {
   position: absolute;
-  left: -50px; /* Move the button further to the left to avoid overlap */
+  left: -50px;
+  /* Move the button further to the left to avoid overlap */
   top: 50%;
   transform: translateY(-50%);
 }
 
 .next-btn {
   position: absolute;
-  right: -50px; /* Move the button further to the right to avoid overlap */
+  right: -50px;
+  /* Move the button further to the right to avoid overlap */
   top: 50%;
   transform: translateY(-50%);
 }
 
 /* Optional: If you want more space around the container */
 .study-tools-container {
-  padding: 0 60px; /* Adds space around the sides for the buttons */
+  padding: 0 60px;
+  /* Adds space around the sides for the buttons */
   position: relative;
 }
 
@@ -377,20 +428,25 @@ footer {
 
 /* Responsive Design for Phones (480px Width) */
 @media screen and (max-width: 480px) {
+
   /* General body adjustments */
   body {
     font-size: 14px;
-    background-color: #f4f4f4; /* Lighten background for smaller screens */
+    background-color: #f4f4f4;
+    /* Lighten background for smaller screens */
   }
 
   /* Navbar adjustments */
   .navbar {
     padding: 0.5rem 1rem;
   }
+
   .nav {
-    flex-direction: column; /* Stack nav items vertically */
+    flex-direction: column;
+    /* Stack nav items vertically */
     align-items: center;
   }
+
   .nav-link {
     font-size: 0.9rem;
     padding: 0.3rem 0.5rem;
@@ -398,13 +454,16 @@ footer {
 
   /* Header featured section */
   .p-4.p-md-5 {
-    flex-direction: column; /* Stack text and image vertically */
+    flex-direction: column;
+    /* Stack text and image vertically */
     text-align: center;
   }
+
   .p-4.p-md-5 img {
     max-width: 200px;
     margin: 1rem auto;
   }
+
   .p-4.p-md-5 h1 {
     font-size: 1.5rem;
   }
@@ -413,17 +472,21 @@ footer {
   .study-section {
     padding: 1rem;
   }
+
   .study-section h2 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
+
   .study-card {
     padding: 1rem;
     font-size: 0.9rem;
     margin-bottom: 1rem;
   }
+
   .study-card .content img {
-    width: 80px; /* Smaller icons for flashcards */
+    width: 80px;
+    /* Smaller icons for flashcards */
     height: 80px;
   }
 
@@ -434,25 +497,31 @@ footer {
     height: 30px;
     font-size: 1.2rem;
   }
+
   .prev-btn {
     left: -40px;
   }
+
   .next-btn {
     right: -40px;
   }
 
   /* Cards Section */
   .card {
-    flex-direction: column; /* Stack card content */
+    flex-direction: column;
+    /* Stack card content */
     text-align: center;
   }
+
   .card img {
     width: 100px;
     margin: 0 auto;
   }
+
   .card-title {
     font-size: 1.2rem;
   }
+
   .card-text {
     font-size: 0.9rem;
   }
@@ -461,14 +530,18 @@ footer {
   .carousel-container {
     max-width: 100%;
   }
+
   .carousel-img {
-    height: 200px; /* Adjust height for smaller screens */
+    height: 200px;
+    /* Adjust height for smaller screens */
   }
+
   .carousel-overlay {
     width: 100%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
+
   .carousel-overlay h3 {
     font-size: 1rem;
   }
@@ -479,24 +552,203 @@ footer {
   }
 }
 
-Suggested Tools Image Styling
-.study-card .content img {
-  width: 100%; /* Makes the image take the full width of the container */
-  height: auto; /* Ensures aspect ratio is maintained */
-  max-height: 150px; /* Prevents the image from being too tall */
-  object-fit: cover; /* Ensures the image scales and crops appropriately to fit the container */
-  border-radius: 10px; /* Optional: Add rounded corners */
-  display: block; /* Ensures the image behaves properly as a block element */
-  margin: 0 auto; /* Centers the image horizontally within its container */
+Suggested Tools Image Styling .study-card .content img {
+  width: 100%;
+  /* Makes the image take the full width of the container */
+  height: auto;
+  /* Ensures aspect ratio is maintained */
+  max-height: 150px;
+  /* Prevents the image from being too tall */
+  object-fit: cover;
+  /* Ensures the image scales and crops appropriately to fit the container */
+  border-radius: 10px;
+  /* Optional: Add rounded corners */
+  display: block;
+  /* Ensures the image behaves properly as a block element */
+  margin: 0 auto;
+  /* Centers the image horizontally within its container */
 }
 
-/* Media Query for Small Screens (Phones) */
-@media screen and (max-width: 480px) {
+/* General Media Query for iPhone 15 (Screen Width: ~390px) */
+@media only screen and (max-width: 390px) {
+
+  /* General body adjustments */
+  body {
+    font-size: 14px;
+    /* Adjust base font size */
+    background-color: #f4f4f4;
+    /* Lighter background for better visibility */
+  }
+
+  /* Navbar adjustments */
+  .navbar {
+    padding: 0.5rem 1rem;
+    /* Compact padding */
+  }
+
+  .nav {
+    flex-direction: column;
+    /* Stack nav items vertically */
+    align-items: center;
+    /* Center nav items */
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    /* Smaller font size */
+    padding: 0.3rem 0.5rem;
+    /* Compact padding */
+  }
+
+  /* Header section adjustments */
+  .p-4.p-md-5 {
+    flex-direction: column;
+    /* Stack text and image vertically */
+    text-align: center;
+    /* Center align text */
+  }
+
+  .p-4.p-md-5 img {
+    max-width: 200px;
+    /* Reduce image size */
+    margin: 1rem auto;
+  }
+
+  .p-4.p-md-5 h1 {
+    font-size: 1.5rem;
+    /* Adjust header font size */
+  }
+
+  /* Study Tools Section */
+  .study-section {
+    padding: 1rem;
+    /* Reduce padding */
+  }
+
+  .study-section h2 {
+    font-size: 1.2rem;
+    /* Adjust heading size */
+    margin-bottom: 1rem;
+  }
+
+  .study-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    /* Add space between cards */
+  }
+
   .study-card .content img {
-    max-height: 100px; /* Reduce the image height for smaller screens */
-    object-fit: contain; /* Ensures the entire image is visible within the container */
+    width: 80px;
+    /* Smaller icons */
+    height: 80px;
+  }
+
+  /* Navigation buttons adjustments */
+  .prev-btn,
+  .next-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .prev-btn {
+    left: -40px;
+    /* Adjust position */
+  }
+
+  .next-btn {
+    right: -40px;
+    /* Adjust position */
+  }
+
+  /* Cards Section */
+  .card {
+    flex-direction: column;
+    /* Stack card content */
+    text-align: center;
+    /* Center align text */
+  }
+
+  .card img {
+    width: 100px;
+    /* Smaller image size */
+    margin: 0 auto;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+    /* Adjust title font size */
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    /* Adjust text size */
+  }
+
+  /* Carousel Section */
+  .carousel-container {
+    max-width: 100%;
+    /* Full width for smaller screens */
+  }
+
+  .carousel-img {
+    height: 200px;
+    /* Reduce image height */
+  }
+
+  .carousel-overlay {
+    width: 100%;
+    /* Full overlay width */
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .carousel-overlay h3 {
+    font-size: 1rem;
+    /* Adjust overlay text size */
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.8rem;
+    /* Reduce footer font size */
+  }
+
+  /* Adjust button sizes */
+  button {
+    font-size: 0.9rem;
+    /* Smaller button font size */
+    padding: 0.5rem 1rem;
+    /* Compact padding */
+  }
+
+  /* Adjust logo */
+  header .navbar-brand img {
+    max-height: 40px;
+    /* Reduce logo size */
   }
 }
 
 
 
+
+body {
+  background: linear-gradient(135deg, #FF7A50, #F3A850, #8A3FFC);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

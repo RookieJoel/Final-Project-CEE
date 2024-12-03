@@ -21,11 +21,11 @@ async function displayThreads(initialLoad = true) {
     }
   }
   threads.sort((a, b) => {
-    const aLikesDislikesCount = a.likes.length + a.dislikes.length;
-    const bLikesDislikesCount = b.likes.length + b.dislikes.length;
+    const aLikesDislikesCount = (a.likes).length - (a.dislikes).length;
+    const bLikesDislikesCount = (b.likes).length - (b.dislikes).length;
     return bLikesDislikesCount - aLikesDislikesCount; // Sort in descending order
   });
-
+  
   threads.forEach(thread => {
     const threadElement = document.querySelector(`[data-thread-id="${thread._id}"]`);
     if (!threadElement) {
@@ -288,7 +288,8 @@ function renderComments(comments) {
     commentElement.classList.add('comment', 'mb-3');
     commentElement.innerHTML = `
       <div class="position-relative-inthread">
-        <strong style="padding-left: 20px;font-size: 22px;">${comment.user}</strong>: <p style="margin-left: 40px;font-size: 20px;">${comment.text}</p>
+        <strong style="padding-left: 20px;font-size: 22px;">${comment.user}</strong>: <p style="margin-left: 40px;margin-right: 20px;font-size: 20px;word-wrap: break-word;
+        overflow-wrap: break-word;white-space: normal;">${comment.text}</p>
       </div>
     `;
     commentSection.appendChild(commentElement);

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - MyCourseMate</title>
+  <title>MyCourseMate</title>
+  <link rel="icon" type="image/png" href="IMG/logo.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="home.css">
 </head>
 
 <body>
-
+  
   <!-- Navbar -->
   <header class="p-3 text-bg-dark">
     <div class="container">
@@ -39,203 +41,60 @@
       </div>
   </header>
 
-  <section>
-    <img src="/IMG/sky.jpg" id="bg">
-    <img src="/IMG/moon.png" id="moon">
-    <img src="/IMG/mountain.png" id="mountain">
-    <h2 id="text">MyCourseMate</h2>
-  </section>
-  <!-- Main Content -->
+  <div class="banner">
+    <div class="bg bg-1"></div>
+    <div class="bg bg-2"></div>
+    <div class="bg bg-3"></div>
+    <h1>MyCourseMate!</h1>
+    <div class="bg bg-4"></div>
+    <div class="bg bg-5"></div>
+    <div class="bg bg-6"></div>
+    <div class="bg bg-7"></div>
+    <div class="bg bg-8"></div>
+    <div class="bg bg-9"></div>
+  </div>
 
+  <div class="tab intro">
+    <h2 class="animation-show">Welcome to MyCourseMate Krub Nongๆ</h2>
+    <p class="animation-show">
+      สวัสดี เพื่อนๆ พี่น้องผองมิตรทั้งหลายครับ ยินดีต้อนรับสู่ MyCourseMate เว็บสุดเจ๋งที่จะช่วยให้เหล่ามิตรสหายชาว CP
+      ได้มาแบ่งปันความคิดเห็นต่างๆ รวมถึงเป็นคลังความรู้ ที่ (อาจ) จะช่วยให้คุณเอาชีวิตรอดจาก
+      เหล่าวิชาสุดโหดร้าย และ ทารุณไปได้! ขอให้ทุกท่านเพลิดเพลินกับเว็บนี้ครับผม เย้! </p>
 
-  <!-- Announcements Section -->
-  <div class="row">
-    <div class="col-md-8">
-      <!-- ส่วนของประกาศที่ต้องการเปลี่ยน -->
-      <!-- ///////////////////////////1st page///////////////////// -->
-      <div class="announcement-box p-3 mb-3" id="announcement1">
-        <strong>การอบรมเกี่ยวกับเทคโนโลยี AI</strong>
-        <p>
-          "ขอเชิญนักศึกษา Computer Engineering
-          ทุกท่านเข้าร่วมการอบรมเกี่ยวกับเทคโนโลยี AI
-          ซึ่งจะช่วยเสริมทักษะด้านปัญญาประดิษฐ์ และการใช้งานเครื่องมือใหม่ๆ
-          ในการพัฒนาโปรแกรมและแอปพลิเคชัน"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement2">
-        <strong>ประกาศกิจกรรม Hackathon</strong>
-        <p>
-          "เตรียมตัวให้พร้อมสำหรับ Hackathon สุดมันส์!
-          กิจกรรมนี้จะเป็นโอกาสที่ดีในการทดสอบทักษะการเขียนโปรแกรมของคุณและสร้างนวัตกรรมใหม่ๆ
-          ร่วมกับเพื่อนๆ นักศึกษาในสาขา Computer Engineering"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement3">
-        <strong>การสัมมนาเกี่ยวกับ Blockchain</strong>
-        <p>
-          "อย่าพลาด! เข้าร่วมการสัมมนาเกี่ยวกับ Blockchain โดยผู้เชี่ยวชาญ
-          เพื่อเรียนรู้เกี่ยวกับการใช้งานและศักยภาพของเทคโนโลยีนี้ในอุตสาหกรรมต่างๆ"
-        </p>
-      </div>
-      <!-- ///////////////////////////2nd page///////////////////// -->
-      <div class="announcement-box p-3 mb-3" id="announcement4">
-        <strong>การทดสอบโครงการวิจัยด้าน IoT</strong>
-        <p>
-          "นักศึกษาที่สนใจเทคโนโลยี IoT (Internet of Things)
-          สามารถสมัครเข้าร่วมโครงการวิจัยเพื่อพัฒนาอุปกรณ์ IoT
-          ในโปรเจกต์ของตนเอง"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement5">
-        <strong>ค่ายฝึกอบรม C++ และ Python</strong>
-        <p>
-          "นักศึกษาที่สนใจในการพัฒนาทักษะการเขียนโปรแกรม
-          ขอเชิญเข้าร่วมค่ายฝึกอบรม C++ และ Python
-          ซึ่งจะช่วยให้คุณพัฒนาทักษะการเขียนโปรแกรมระดับมืออาชีพ"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement6">
-        <strong>โครงการฝึกงานภาคฤดูร้อน</strong>
-        <p>
-          "นักศึกษาที่ต้องการฝึกงานในบริษัทเทคโนโลยีชั้นนำสามารถสมัครเข้าร่วมโครงการฝึกงานภาคฤดูร้อน
-          เพื่อเสริมสร้างประสบการณ์จริงในสายงาน"
-        </p>
-      </div>
-      <!-- ///////////////////////////3rd page///////////////////// -->
-      <div class="announcement-box p-3 mb-3" id="announcement7">
-        <strong>การแข่งขันออกแบบแอปพลิเคชัน</strong>
-        <p>
-          "นักศึกษาทุกท่านสามารถเข้าร่วมการแข่งขันออกแบบแอปพลิเคชันที่มีเงินรางวัลรวมถึงทุนการศึกษารออยู่
-          อย่าพลาดโอกาสในการสร้างแอปที่ดีที่สุด!"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement8">
-        <strong>การบรรยายพิเศษเกี่ยวกับ Cloud Computing</strong>
-        <p>
-          "ขอเชิญเข้าร่วมการบรรยายพิเศษเกี่ยวกับ Cloud Computing
-          โดยผู้เชี่ยวชาญจาก Google Cloud
-          ที่จะมาพูดถึงการใช้คลาวด์ในการพัฒนาระบบที่มีประสิทธิภาพสูง"
-        </p>
-      </div>
-      <div class="announcement-box p-3 mb-3" id="announcement9">
-        <strong>ประกาศสำหรับการสมัครเข้าร่วมโครงการ Startup</strong>
-        <p>
-          "นักศึกษาที่มีไอเดียสร้างสรรค์และต้องการเริ่มต้นธุรกิจด้านเทคโนโลยี
-          สามารถสมัครเข้าร่วมโครงการสนับสนุน Startup ของมหาวิทยาลัย
-          เพื่อพัฒนาผลิตภัณฑ์และแผนธุรกิจของตน"
-        </p>
-      </div>
+    <img src="IMG/logo.png" alt="" class="animation-show">
+  </div>
 
-      <!-- More announcements can be added similarly -->
-      <div class="pagination">
-        <a href="#" class="text-warning" data-page="1">1</a>
-        <a href="#" class="text-warning active" data-page="2">2</a>
-        <a href="#" class="text-warning" data-page="3">3</a>
-      </div>
-
-      <!-- To-Do List Box -->
-      <div class="todo-list-box p-3 mb-3">
-        <h4 class="textwarn">Todo List</h4>
-        <div class="d-flex align-items-center">
-          <input type="text" class="form-control me-2" id="taskInput" placeholder="Enter a task..." />
-          <select class="form-select me-2" id="categorySelect">
-            <option value="Work">Work</option>
-            <option value="Personal">Personal</option>
-            <option value="Urgent">Urgent</option>
-          </select>
-          <button type="button" class="btn btn-warning" id="add-newrow">
-            ADD
-          </button>
-        </div>
-        <ul id="taskList" class="todo-list mt-3"></ul>
-        <!-- Filter Section -->
-
-        <div class="todo-filter-box p-3 mb-3">
-          <!-- <h5>Filter Tasks</h5>
-            <div class="d-flex gap-3">
-              <select id="categoryFilterSelect" class="form-select">
-                <option value="">All Categories</option>
-                <option value="Work">Work</option>
-                <option value="Personal">Personal</option>
-                <option value="Urgent">Urgent</option>
-              </select>
-              <button
-                type="button"
-                class="btn btn-warning"
-                id="filter-button"
-              >
-                Filter
-              </button>
-            </div> -->
-        </div>
-      </div>
+  <div class="tab todo-section">
+    <h2>To-Do List</h2>
+    <div>
+      <label for="filter-genre">Filter by Genre:</label>
+      <input type="text" id="filter-genre" placeholder="Enter genre" />
+      <button id="filter-button">Filter</button>
     </div>
-
-    <div class="col-md-4">
-      <!-- Calendar and Clock -->
-      <div class="calendar-container">
-        <div class="month">
-          <ul>
-            <li class="prev" onclick="navigateMonth(-1)">&#10094;</li>
-            <li class="next" onclick="navigateMonth(1)">&#10095;</li>
-            <li>August<br><span style="font-size: 18px">2024</span></li>
-          </ul>
-        </div>
-        <ul class="weekdays">
-          <li>Mo</li>
-          <li>Tu</li>
-          <li>We</li>
-          <li>Th</li>
-          <li>Fr</li>
-          <li>Sa</li>
-          <li>Su</li>
-        </ul>
-        <ul class="days">
-          <li>1</li>
-          <li>2</li>
-          <!-- More days -->
-          <li>31</li>
-        </ul>
-      </div>
-      <div class="clock-container mt-3">
-        <h3 id="clock">12:00:00</h3>
-        <p id="date">10/11/2024</p>
-      </div>
+    <div id="todo-container">
+      <ul id="todo-list"></ul>
+    </div>
+    <div class="todo-form">
+      <input type="text" id="todo-task" placeholder="Task Description" />
+      <input type="text" id="todo-genre" placeholder="Genre of Work" />
+      <button id="add-todo">Add Task</button>
     </div>
   </div>
-  </main>
 
-  <!-- Footer -->
-  <footer class="text-center py-3 bg-dark text-white">
-    <p>&copy; 2024 MyCourseMate. All rights reserved.</p>
-  </footer>
 
-  <!-- Bootstrap JS Bundle -->
+
+
   <script type="module">
-    import { updateNavbar, checkAuthentication } from './handler.js';
+    import { updateNavbar, checkAuthentication } from './scripts/handler.js';
 
     // Run the authentication check and update the navbar on page load
     document.addEventListener('DOMContentLoaded', () => {
       checkAuthentication();
       updateNavbar();
+      loadTodoList();
     });
   </script>
-
-  <script>
-    let bg = document.getElementById("bg");
-    let moon = document.getElementById("moon");
-    let mountain = document.getElementById("mountain");
-
-    window.addEventListener('scroll', function () {
-      var val = window.scrollY;
-      bg.style.top = val * 0.5 + 'px';
-      moon.style.left = -val * 0.5 + 'px';
-      mountain.style.top = -val * 0.15 + 'px';
-
-    })
-  </script>
-  <script src="scripts\mainPage.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/home.js"></script>
 </body>
 
 </html>

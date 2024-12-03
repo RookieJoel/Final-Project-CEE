@@ -1,661 +1,399 @@
-/* =======================
-   Basic Reset
-======================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins',sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    margin: 0;
+    background-color: #210002;
+    font-family: Arial, sans-serif;
 }
 
-/* =======================
-   Body and Global Styles
-======================== */
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  background: url('/IMG/sky.jpg') no-repeat center center fixed;
-  background-size: cover;
-  font-family: 'Poppins', sans-serif;
+.banner {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
 }
+
+.banner .bg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto 100%;
+    background-position: center bottom;
+    transition: 0.1s;
+}
+
+.banner .bg-1 {
+    background-image: url('IMG/0.png');
+}
+
+.banner .bg-2 {
+    background-image: url('IMG/1.png');
+}
+
+.banner .bg-3 {
+    background-image: url('IMG/2.png');
+}
+
+.banner .bg-4 {
+    background-image: url('IMG/3.png');
+}
+
+.banner .bg-5 {
+    background-image: url('IMG/4.png');
+}
+
+.banner .bg-6 {
+    background-image: url('IMG/5.png');
+}
+
+.banner .bg-7 {
+    background-image: url('IMG/6.png');
+}
+
+.banner .bg-8 {
+    background-image: url('IMG/7.png');
+}
+
+.banner .bg-9 {
+    background-image: url('IMG/8.png');
+}
+
+.banner h1 {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+}
+
+.intro {
+    min-height: 50vh;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+.intro p {
+    width: 700px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.intro button {
+    background-color: #FD0003;
+    padding: 10px 50px;
+    border: 1px solid #591F1D;
+    border-radius: 5px;
+    color: #fff;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.animation-show {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 0.7s;
+}
+
+.active .animation-show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.animation-show:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.animation-show:nth-child(3) {
+    transition-delay: 0.6s;
+}
+
+.animation-show:nth-child(4) {
+    transition-delay: 0.9s;
+}
+
+.library {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    color: #fff;
+}
+
+.library img {
+    width: 90%;
+    height: 500px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .banner h1 {
+        font-size: 3rem;
+    }
+
+    .library {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .library img {
+        height: 300px;
+    }
+}
+
 
 /* =======================
    Navbar Styles
 ======================== */
+
 .navbar {
-  background-color: #212529;
-  padding: 1rem 0;
+    background-color: #212529;
+    padding: 1rem 0;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
+
 .navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .nav {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-  margin: 0;
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+
 }
 
 .nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-  color: #ffc107; /* Yellow color on hover */
+    color: #ffc107;
+    /* Yellow on hover */
 }
 
 .nav-link.active {
-  color: #6c757d; /* Secondary color for active link */
+    color: #6c757d;
+    /* Secondary color for active link */
 }
 
-/* =======================
-   Search Form Styles
-======================== */
-.search-form {
-  flex-grow: 1;
-  margin: 0 1rem;
+.btn.btn-outline-light.me-2 {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-transform: capitalize;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
 }
 
-.search-input {
-  width: 100%;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #343a40;
-  color: white;
+.text-warning.me-2 {
+    font-family: Arial, sans-serif;
+    padding: 0.5rem 1rem;
 }
 
-.search-input::placeholder {
-  color: #dacece;
-}
-
-/* =======================
-   Auth Buttons Styles
-======================== */
-.auth-buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.login-btn {
-  color: white;
-  background-color: transparent;
-  border: 1px solid #ced4da;
-}
-
-.signup-btn {
-  color: #212529;
-  background-color: #ffc107;
-}
-
-/* =======================
-   Date & Time Section
-======================== */
-.date-time-section {
-  display: flex;
-  justify-content: space-around;
-  margin: 20px 0;
-  padding: 20px;
-  background-color: #333333;
-  border-radius: 8px;
-  color: #ffeb3b;
-}
-
-.date-time-section h3 {
-  margin-bottom: 10px;
-  color: #ffeb3b;
-}
-
-.clock,
-.calendar {
-  text-align: center;
-}
-
-#clock-time,
-#calendar-date {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
-}
-/* =======================
-   Announcement Box Styles
-======================== */
-.announcement-box {
-  border: 5px solid #000000; /* Black border */
-  background-color: #343a40; /* Dark gray background */
-  color: #ffdd76; /* Yellow text */
-  font-size: 1.2rem; /* Larger text size */
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
-  display: none;
-}
-
-.announcement-box strong {
-  font-size: 1.3rem; /* Larger font for headings */
-  color: #ffc107;
-}
-
-/* =======================
-   Calendar Styles
-======================== */
-
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffc107;
-}
-
-.month {
-  padding-top: 20px;
-  padding-bottom: 100px;
-  padding-left: 25px;
-  padding-right: 25px;
-  width: 100%;
-  background: #343a40;
-  text-align: center;
-  max-height: 50px;
-}
-
-.month ul {
-  margin: 0;
-  padding: 10px;
-}
-
-.month ul li {
-  padding-top: 10px;
-}
-
-/* Style for Prev and Next buttons */
-.prev, .next {
-  cursor: pointer;
-  padding-right: 20px;
-  padding-bottom: 5px;
-  padding-left: 20px;
-  transition: color 0.3s, transform 0.3s;
-}
-
-.prev:hover, .next:hover {
-  color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.2); /* Slight zoom effect */
-}
-
-li {
-  list-style-type: none; /* ลบสัญลักษณ์ของจุด */
-}
-
-
-.weekdays {
-  margin-bottom: 15px;
-  padding: 10px ;
-  background-color: #6c757d;
-  border: 5px solid #000000;
-  border-radius: 10px;
-}
-
-.weekdays li {
-  display: inline-block;
-  color: #ffc107;
-  font-weight: bold;
-  border-radius: 10px;
-}
-
-.days {
-  border: 5px solid #000000;
-  border-radius: 10px;
-  padding: 10px 10px;
-  background: #9ca4aa;
-  margin: 0;
-}
-
-.days li {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: bold;
-  color: #000000;
-  border-radius: 10px;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #ffc107;
-  color: white !important;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-/* Navbar Styles */
-.nav-link {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  transition: color 0.3s;
-}
-
-.nav-link:hover {
-  color: #ffc107;
-}
-
-.nav-link.active {
-  color: #6c757d;
-}
-
-.footer a {
-  color: #ffc107;
-}
-
-.footer a:hover {
-  color: #ffc107;
-}
-
-/* Calendar Styles */
-
-.calendar-container {
-  background-color: #343a40;
-  border: 10px solid #000000;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
-  padding: 15px;
-  border-radius: 30px;
-}
-
-.calendar-container .month ul {
-  margin: 0;
-  padding: 0;
-}
-/* /// */
-.calendar-container .month li {
-  color: #ffc107;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  max-width: 800px;
-}
-
-.calendar-container .next {
-  float: right;
-  padding-top: 10px;
-  background: none; /* เอาพื้นหลังออก */
-  box-shadow: none; /* เอาเงาออก */
-}
-.calendar-container .prev { 
-  float: left;
-  padding-top: 10px;
-  background: none; /* เอาพื้นหลังออก */
-  box-shadow: none; /* เอาเงาออก */
-}
-
-
-.weekdays,
-.days {
-  display: flex;
-  flex-wrap: wrap;
-  
-}
-
-.weekdays li,
-.days li {
-  width: calc(100% / 8); /* ทำให้แต่ละวันกว้าง 1/7 ของพื้นที่ */
-  text-align: center;
-  list-style-type: none;
-  padding: 6px;
-  border: 1px solid #1e1e1e; /* เส้นกรอบรอบแต่ละวัน (ถ้าต้องการ) */
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-}
-
-.days .empty {
-  visibility: hidden;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #ffc107;
-  color: white;
-}
-
-/* Clock Styles */
-.clock-container {
-  background-color: #343a40;
-  padding: 15px;
-  border-radius: 8px;
-
-  text-align: center;
-  color: #ffc107;
-}
-
-#clock-time {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-#calendar-date {
-  font-size: 1rem;
-  color: #ffffff;
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width: 720px) {
-  .weekdays li,
-  .days li {
-    width: 13.1%;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .weekdays li,
-  .days li {
-    width: 12.5%;
-  }
-  .days li .active {
-    padding: 2px;
-  }
-}
-
-/* Highlight today's date */
-.today {
-  background-color: #ffdd76; /* Yellow background */
-  color: #000; /* Black text */
-  border-radius: 0; /* Circle highlight */
-  padding: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional shadow */
-}
-
-
-
-
-/* Styling for the todo list container */
-
-/* Styling for the todo list container */
-.todo-list-box {
-  border: 7px solid #000000;
-  background-color: #343a40 !important; /* Dark background */
-  border-radius: 8px !important;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5) !important;
-  color: #ffc107 !important;
-  padding: 10px !important;
-  max-height: 300px !important;
-  overflow-y: auto !important;
-  height: 300px !important;
-  margin-top: 10px;
-}
-
-.todo-list-box h4 {
-  color: #ffc107;
-  margin-bottom: 8px;
-}
-
-.todo-list-box .form-control,
-.todo-list-box .form-select {
-  background-color: #555;
-  color: #ffc107;
-  border: 1px solid #444;
-  margin-right: 5px;
-}
-
-#taskInput::placeholder {
-  color: #c3c3c3; /* Example: Reddish orange */
-  font-style: italic; /* Optional customization */
-}
-
-
-.todo-list-box .btn-warning {
-  background-color: #ffc107;
-  color: #333;
-  font-weight: bold;
-}
-
-.todo-list {
-  max-height: none; /* ลบขีดจำกัดความสูง */
-  overflow-y: visible; /* ไม่ให้มี scroll */
-  padding-left: 1rem;
-}
-
-.todo-item {
-  background-color: #444;
-  color: #fff;
-  padding: 5px;
-  border-bottom: 1px solid #555;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-/* ปรับสไตล์ให้ task text อยู่ด้านหน้า */
-.task-text {
-  flex-grow: 1; /* ขยายให้ข้อความยาวๆ ใช้พื้นที่ที่เหลือ */
-  overflow: hidden;
-  text-overflow: ellipsis; /* เพิ่ม "..." หากข้อความยาวเกินไป */
-  white-space: nowrap; /* ไม่ให้ข้อความถูกตัดบรรทัด */
-  padding: 10px;
-}
-
-.task-details {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  border: 1px solid #ffc107;
-  border-radius: 4px;
-  background-color: #555;
-  max-width: 633.983px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.task-text {
-  margin-right: 10px; /* Optional: space between text and category */
-  word-wrap: break-word; /* Wraps long words to the next line */
-  white-space: normal; 
-}
-
-.category-text {
-  font-style: italic; /* Optional: add styling to category */
-  text-align: center;
-  vertical-align: middle;
-  margin-left: 10px; /* ปรับหมวดหมู่ให้อยู่ด้านหลัง */
-  margin-right: 10px;  
-  padding-top: 10px;
-  text-align: center;
-}
-
-
-
-  
-/* Custom style for the delete button */
-.btn-danger {
-  background-color: #dc3545; /* Red color */
-  border-color: #dc3545; /* Matching red border */
-  color: white; /* White text */
-  padding: 5px 10px; /* Adjust padding */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 14px; /* Slightly smaller font size */
-  transition: background-color 0.3s, transform 0.2s ease; /* Smooth hover effects */
-  margin-top: 4px;
-  margin-bottom: 4px;
-  margin-left: 16px;
-  margin-right: 4px;
-}
-
-.btn-danger:hover {
-  background-color: #c82333; /* Darker red on hover */
-  border-color: #bd2130; /* Darker red border on hover */
-  cursor: pointer; /* Pointer cursor on hover */
-  transform: scale(1.05); /* Slightly enlarge on hover */
-}
-
-/* Add spacing between button and task text */
-.ms-3 {
-  margin-left: 1rem; /* Bootstrap's margin-left */
-}
-
-
-/* เพิ่ม box-sizing เพื่อให้การคำนวณขนาดกล่องแม่นยำ */
-* {
-  box-sizing: border-box;
-}
-/* /////////////////////////////////////////////ดรสะำพ ///////////////////////////// */
-.todo-filter-box {
-  background-color: #343a40;
-  border-radius: 8px;
-  padding: 10px;
-  margin-top: 60px;
-  margin-bottom: 10px!important;
-}
-
-.todo-filter-box h5 {
-  color: #ffc107;
-  margin-bottom: 10px;
-}
-
-.pagination {
-  display: flex;
-  justify-content: center; /* Centers the pagination links horizontally */
-  gap: 10px; /* Optional, adds space between pagination links */
-  list-style-type: none; /* Removes default list styling */
-  padding: 0; /* Removes default padding */
-  margin: 0; /* Removes default margin */
-  font-size: 20px!important ;
-  color: #000000!important;
-}
-
-.pagination .active {
-  color: #000000!important ;
-  font-weight: bolder;
-}
-
-section{
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-section img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none;
-}
-
-section:before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background: linear-gradient(to top,darkblue, transparent);
-  z-index: 99999; 
-  mix-blend-mode: color;
-}
-
-#text{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: whitesmoke;
-  font-size: 5em;
-  text-align: center;
-}
-
-.btn.btn-outline-light.me-2{
-  font-family:'Poppins',sans-serif;
-  padding-top:5px!important;
-  padding-bottom:5px!important;
-}
-
-@media screen and (max-width: 768px) {
-  section {
-    height: 80vh; /* Slightly reduce the height on smaller screens */
-  }
-
-  #moon {
-    width: 35%; /* Increase moon size for better visibility */
-    top: 15%; /* Adjust top position */
-  }
-
-  #mountain {
-    width: 120%; /* Slightly enlarge mountain to fill screen */
-  }
-}
-
-
-@media screen and (max-width: 480px) {
-  section {
-    height: 70vh; /* Further reduce height for very small screens */
-  }
-
-  #moon {
-    width: 40%; /* Increase moon size */
-    top: 20%; /* Adjust position */
-  }
-
-  #mountain {
-    width: 130%; /* Ensure it still fills the width */
-  }
-}
-
-
-@media screen and (max-width: 480px) {
-
-  #text {
-    font-size: 4em;
-  }
-
-  .announcement-box {
-    font-size: 0.9rem;
-    padding: 10px;
-  }
-
-  .calendar-container .month ul {
-    flex-direction: column;
+.navbar-user-section {
+    display: flex !important;
+    /* Makes the container a flexbox */
     align-items: center;
-  }
-
-  .weekdays li, .days li {
-    flex: 1 1 12%;
-    padding: 5px;
-  }
+    /* Vertically aligns items */
+    justify-content: flex-start;
+    /* Aligns items to the left */
 }
 
 
+/* To-Do List Section */
+.todo-section {
+    padding: 20px;
+    background-color: #210002;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    margin: 5px auto;
+    max-width: 800px;
+}
 
+/* To-Do List Title */
+.todo-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffc107;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 10px;
+}
 
+/* Filter Section Styling */
+#filter-genre {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    margin-right: 10px;
+    width: 250px;
+}
 
+#filter-button {
+    background-color: #ffc107;
+    border: none;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
+#filter-button:hover {
+    background-color: #e0a800;
+}
 
+/* Task Items */
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.todo-item.completed {
+    background-color: #28a745;
+    /* Green for completed tasks */
+    transform: scale(1.02);
+    /* Slight enlargement for emphasis */
+}
+
+.todo-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.task-description {
+    flex: 1;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: #f8f9fa;
+    font-size: 1rem;
+}
+
+.task-genre {
+    margin-right: 10px;
+    color: #ffc107;
+    font-weight: bold;
+    background-color: #2a2a2a;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.todo-item button {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.todo-item button:hover {
+    background-color: #b02a37;
+}
+
+/* Form Section */
+.todo-form {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.todo-form input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+.todo-form button {
+    background-color: #17a2b8;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.todo-form button:hover {
+    background-color: #138496;
+}
+
+#todo-container {
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-description {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    .task-genre {
+        text-align: left;
+        margin-top: 5px;
+        font-size: 0.9rem;
+    }
+
+    .todo-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #filter-genre {
+        width: 100%;
+    }
+}
