@@ -61,15 +61,22 @@
 
     <div class="tab todo-section">
         <h2>To-Do List</h2>
+        <div>
+            <label for="filter-genre">Filter by Genre:</label>
+            <input type="text" id="filter-genre" placeholder="Enter genre" />
+            <button id="filter-button">Filter</button>
+        </div>
         <div id="todo-container">
-          <ul id="todo-list"></ul>
+            <ul id="todo-list"></ul>
         </div>
         <div class="todo-form">
-          <input type="text" id="todo-task" placeholder="Task Description" />
-          <input type="text" id="todo-genre" placeholder="Genre of Work" />
-          <button id="add-todo">Add Task</button>
+            <input type="text" id="todo-task" placeholder="Task Description" />
+            <input type="text" id="todo-genre" placeholder="Genre of Work" />
+            <button id="add-todo">Add Task</button>
         </div>
-      </div>
+    </div>
+    
+      
       
 
     <script type="module">
@@ -79,6 +86,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             checkAuthentication();
             updateNavbar();
+            loadTodoList();
         });
       </script>
     <script src="scripts/home2.js"></script>

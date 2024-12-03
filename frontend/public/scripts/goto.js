@@ -55,7 +55,7 @@ async function displayThreads(initialLoad = true) {
                 onclick="updateLikes('${thread._id}', 'like')">
                 Like (${thread.likes.length})
               </button>
-              <button class="btn btn-outline-danger btn-sm btn-dislike ${thread.dislikes.includes(userId) ? 'btn-liked' : ''}" 
+              <button class="btn btn-outline-danger btn-sm btn-dislike ${thread.dislikes.includes(userId) ? 'btn-disliked' : ''}" 
                 onclick="updateLikes('${thread._id}', 'dislike')">
                 Dislike (${thread.dislikes.length})
               </button>

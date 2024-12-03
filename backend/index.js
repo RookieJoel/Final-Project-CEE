@@ -6,7 +6,10 @@ import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/auth.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import todoRoutes from './src/routes/todoRoutes.js'; // Import todo routes
+import Todo from './src/models/Todo.js'; // Import Todo model
 import Thread from './src/models/Thread.js';
+
 
 // Update the CORS options
 const corsOptions = {
@@ -23,7 +26,12 @@ const app = express();
 app.use(cors(corsOptions));
 
 
-
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
+}));
 
 // Middleware
 app.use(bodyParser.json());
@@ -256,6 +264,8 @@ app.post('/api/threads/:threadId/comments/:commentId/dislike', async (req, res) 
   }
 });
 
+app.use('/api/todos', todoRoutes); // Use the todoRoutes for /api/todos
+
 
 // GET all to-do items
 app.get('/api/todos', async (req, res) => {
@@ -268,17 +278,18 @@ app.get('/api/todos', async (req, res) => {
 });
 
 // POST a new to-do item
+// Ensure this part of your index.js matches the correct fields
 app.post('/api/todos', async (req, res) => {
-  const { task, topic } = req.body;
+  const { task, genre } = req.body; // Changed `topic` to `genre`
+  if (!task || !genre) {
+    return res.status(400).json({ error: 'Task and Genre are required' });
+  }
 
   try {
-    if (!task || !topic) {
-      return res.status(400).json({ error: 'Task and Topic are required' });
-    }
-
     const newTodo = new Todo({
       task,
-      topic,
+      genre,
+      userId: req.session.userId, // Ensure session exists
     });
 
     await newTodo.save();
@@ -287,6 +298,7 @@ app.post('/api/todos', async (req, res) => {
     res.status(500).json({ error: 'Error creating to-do item', message: err.message });
   }
 });
+
 
 // DELETE a to-do item
 app.delete('/api/todos/:id', async (req, res) => {
@@ -307,12 +319,7 @@ dotenv.config();
 
 app.use(cors({ origin: 'http://54.211.108.140:3221', credentials: true }));
 app.use(express.json());
-app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-}));
+
 
 
 
@@ -346,8 +353,15 @@ app.get('/api/auth/session', (req, res) => {
   }
 });
 
+app.use((req, res, next) => {
+  console.log('Session data:', req.session);
+  next();
+});
+
+
 // Connect to MongoDB
 connectDB();
+
 
 // Listen on port
 app.listen(3222, () => {

@@ -136,7 +136,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #fff4a2, #ffb570);
+  background: linear-gradient(to right, #e9da66, #ffb570);
   color: #fff;
 }
 
@@ -146,32 +146,32 @@ body {
 }
 
 .btn-like {
-  background: linear-gradient(135deg, #aaf3f7, #87e8b7);
+  background: linear-gradient(135deg, #94dfc4, #87e8b7);
   color: #fff;
 }
 
 .btn-like:hover {
-  background: linear-gradient(135deg, #87e8b7, #aaf3f7);
+  background: linear-gradient(135deg, #87e8b7, #94dfc4);
   transform: scale(1.05);
 }
 
 .btn-dislike {
-  background: linear-gradient(135deg, #ff8a9d, #ffa0c8);
+  background: linear-gradient(135deg, #f6a6b3, #fa8d93);
   color: #fff;
 }
 
 .btn-dislike:hover {
-  background: linear-gradient(135deg, #ffa0c8, #ff8a9d);
+  background: linear-gradient(135deg, #ffa0c8, #f6a6b3);
   transform: scale(1.05);
 }
 
 .btn-liked {
-  background: linear-gradient(135deg, #42e695, #3bb2b8);
+  background: linear-gradient(135deg, #008442, #027a81);
   color: #fff;
 }
 
 .btn-disliked {
-  background: linear-gradient(135deg, #ff4867, #ff7eb3);
+  background: linear-gradient(135deg, #c6203c, #d02f72);
   color: #fff;
 }
 

@@ -60,7 +60,30 @@ export const logIn = async (req, res) => {
     }
   };
   
+  export const logout = (req, res) => {
+    if (req.session) {
+      req.session.destroy((err) => {
+        if (err) {
+          return res.status(500).json({ error: 'Failed to log out' });
+        }
+        res.status(200).json({ message: 'Logged out successfully' });
+      });
+    } else {
+      res.status(200).json({ message: 'No active session' });
+    }
+  };
   
+  export const sessionCheck = (req, res) => {
+    if (req.session && req.session.userId) {
+      res.status(200).json({
+        loggedIn: true,
+        username: req.session.username,
+        userId: req.session.userId,
+      });
+    } else {
+      res.status(200).json({ loggedIn: false });
+    }
+  };
 
 
 
