@@ -22,7 +22,7 @@ document.querySelector('#loginForm').addEventListener('submit', async (e) => {
             // Update the navbar dynamically
             await updateNavbar();
 
-            window.location.href = '/home.html';
+            window.location.href = '/home3.html';
         } else {
             alert(data.message);
         }

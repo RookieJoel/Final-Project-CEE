@@ -26,7 +26,7 @@ app.get('/home', (req, res) => {
   // Check if the user is "authenticated" (using a placeholder logic for now)
   const isAuthenticated = true; // Replace this with actual authentication logic
   if (isAuthenticated) {
-    res.sendFile(path.join(__dirname, 'public', 'home2.html'));
+    res.sendFile(path.join(__dirname, 'public', 'home3.html'));
   } else {
     res.redirect('/'); // Redirect to login if not authenticated
   }

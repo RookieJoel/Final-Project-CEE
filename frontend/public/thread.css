@@ -1,25 +1,21 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
 /* =======================
-     Body and Global Styles
-  ======================== */
+     Global Styles
+======================= */
+
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, rgb(255, 25, 221), #ffd0e7);
+  background: linear-gradient(to right, rgb(255, 104, 10), #ffde08);
   font-family: Arial, sans-serif;
+  color: #333;
 }
 
 /* =======================
    Navbar Styles
-======================== */
+======================= */
 .navbar {
   background-color: #212529;
   padding: 1rem 0;
@@ -41,107 +37,147 @@ body {
   display: flex;
   list-style: none;
   gap: 1rem;
-  margin: 0;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  transition: color 0.3s;
+  transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-  color: #ffc107;
-  /* Yellow color on hover */
+  color: #ffc107; /* Yellow on hover */
 }
 
 .nav-link.active {
-  color: #6c757d;
-  /* Secondary color for active link */
+  color: #6c757d; /* Secondary color for active link */
 }
 
-
-/* การ์ด */
-.thread-body.p-3 {
-  padding: 10px !important;
-}
-
-.thread.shadow-lg.mb-4.rounded-lg {
-  background: linear-gradient(to right, #b7d9ff, #ff98f6);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-
-.thread-item {
-  border: none;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  /* เงาเพิ่มความลึก */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* =======================
+     Threads Styles
+======================= */
+.thread {
+  background: linear-gradient(to top, #ffffff, #ffffff);
+  border-radius: 30px;
   margin-bottom: 1.5rem;
-  /* ระยะห่างระหว่างการ์ด */
+  padding: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.thread-item:hover {
+.thread:hover {
   transform: scale(1.03);
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  /* เงาตอบสนอง */
 }
 
-.thread-item h4 {
-  font-size: 1.5rem;
+.thread-title {
   font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.thread-title.text-decoration-none.text-white{
+  color:black!important;
+}
+
+.thread-title:hover {
+  color: #a03c64; /* Accent color */
+}
+
+.thread-posted-by {
+  font-weight: bold;
+  color: #555;
   margin-bottom: 0.5rem;
-  color: #a03c64;
-  /* สีเด่น */
 }
 
-.thread-item p {
+.thread-body {
+  padding: 1rem;
   color: #666;
-  /* สีตัวอักษรอ่อน */
-  margin: 0.5rem 0;
 }
 
-.thread-title.text-decoration-none.text-white {
-  color: black !important;
-  font-weight: bolder !important;
+.thread-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
 }
 
-.thread-posted-by.text-muted {
-  color: black !important;
-  font-weight: bold !important;
+.position-relative-inthread{
+  padding-top: 15px;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
 }
 
-/* ปุ่ม */
+.text-dark{
+  margin-top: 10px;
+  font-size:30px!important;
+  font-weight: bolder;
+}
+
+.text-muted{
+  margin-left: 20px;
+
+}
+
+/* =======================
+     Buttons Styles
+======================= */
 .btn {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   text-transform: capitalize;
   font-weight: bold;
-  color: white;
+  border: none;
+  transition: all 0.3s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(to right, #ffbdf3, #ffffff);
-  border-color: #fff;
-  color: rgb(238, 10, 238);
+  background: linear-gradient(to right, #fff4a2, #ffb570);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to left, #ff47ff, #f965ad);
+  background: linear-gradient(to left, #ff7b00, #ffe100);
+  color: #fff;
+}
+
+.btn-like {
+  background: linear-gradient(135deg, #aaf3f7, #87e8b7);
+  color: #fff;
+}
+
+.btn-like:hover {
+  background: linear-gradient(135deg, #87e8b7, #aaf3f7);
+  transform: scale(1.05);
+}
+
+.btn-dislike {
+  background: linear-gradient(135deg, #ff8a9d, #ffa0c8);
+  color: #fff;
+}
+
+.btn-dislike:hover {
+  background: linear-gradient(135deg, #ffa0c8, #ff8a9d);
+  transform: scale(1.05);
+}
+
+.btn-liked {
+  background: linear-gradient(135deg, #42e695, #3bb2b8);
+  color: #fff;
+}
+
+.btn-disliked {
+  background: linear-gradient(135deg, #ff4867, #ff7eb3);
   color: #fff;
 }
 
 .btn-danger {
   background-color: #dc3545;
-  /* ปุ่มแดง */
   color: white;
-  border: none;
 }
 
 .btn-danger:hover {
@@ -150,9 +186,7 @@ body {
 
 .btn-view {
   background-color: #b23a48;
-  /* ปุ่มชมพูเข้ม */
   color: white;
-  border: none;
 }
 
 .btn-view:hover {
@@ -161,25 +195,23 @@ body {
 
 .btn.btn-sm.btn-delete-x.text-white {
   position: absolute;
-  /* Enables positioning */
   top: 0;
-  /* Moves the element to the top */
   right: 0;
-  /* Moves the element to the left */
-  color: red !important;
-  /* Retain your existing color style */
+  margin: 10px; /* เพิ่มระยะห่างเล็กน้อยจากขอบ */
+  color: #ff4d4d!important;
 }
 
-.btn.btn-outline-light.me-2 {
-  font-family: 'Poppins', sans-serif;
-  padding-top: 5px !important;
-  padding-bottom: 5px !important;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  border-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
+.btn.btn-sm.btn-delete-x.text-white:hover {
+  background-color: #a03c64;
 }
 
+/* =======================
+     Miscellaneous
+======================= */
+.thread-replies {
+  text-align: center;
+  color: #555;
+}
 
 h2 {
   text-align: center;
@@ -188,45 +220,192 @@ h2 {
   color: #333;
 }
 
-/* .btn-like {
-    background: linear-gradient(135deg, #42e695, #3bb2b8);
-    color: #fff;
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .thread {
+    padding: 1rem;
+  }
+
+  .thread-footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
-.btn-like:hover {
-    background: linear-gradient(135deg, #3bb2b8, #42e695);
-    transform: scale(1.05);
-} */
+/* Responsive Styles */
 
-/* .btn-dislike {
-    background: linear-gradient(135deg, #ff4867, #ff7eb3);
-    color: #fff;
+/* Adjust layout for tablets (768px and below) */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Thread List */
+  .container {
+    padding: 0 10px;
+  }
+
+  .thread-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Thread Title */
+  .thread-item h4 {
+    font-size: 1.2rem;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  /* Comment Section */
+  #comment-input {
+    font-size: 0.9rem;
+    padding: 0.4rem;
+  }
+}
+/* Adjust layout for mobile screens (480px and below) */
+@media (max-width: 480px) {
+  /* Navbar */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  /* Thread Item */
+  .thread-item {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .thread-item h4 {
+    font-size: 1rem;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .btn-like,
+  .btn-dislike {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Comment Section */
+  #comment-input {
+    font-size: 0.8rem;
+    padding: 0.3rem;
+  }
+
+  /* Thread Replies */
+  .thread-replies {
+    margin-right: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  /* Modal */
+  .modal-dialog {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
-.btn-dislike:hover {
-    background: linear-gradient(135deg, #ff7eb3, #ff4867);
-    transform: scale(1.05);
-} */
+/* Adjust layout for small mobile screens (320px and below) */
+@media (max-width: 320px) {
+  /* Navbar */
+  .nav-link {
+    font-size: 0.8rem;
+  }
 
+  /* Thread Title */
+  .thread-item h4 {
+    font-size: 0.9rem;
+  }
+
+  /* Buttons */
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  /* Comment Section */
+  #comment-input {
+    font-size: 0.7rem;
+    padding: 0.2rem;
+  }
+
+  .btn-like,
+  .btn-dislike {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  /* Modal */
+  .modal-dialog {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* General Adjustments */
+.thread-item {
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+/* Flexbox for Thread Items */
+.thread-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ensure buttons and content stack nicely */
+.thread-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Flexbox for thread replies */
 .thread-replies {
-  text-align: center;
-  margin-right: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
 }
 
-/* Like button - green when liked */
-.btn-liked {
-  background-color: #28a745;
-  /* Green for liked */
-  color: white;
-  border-color: #28a745;
-  /* Optional: Match border color */
-}
 
-/* Dislike button - red when disliked */
-.btn-disliked {
-  background-color: #dc3545;
-  /* Red for disliked */
-  color: white;
-  border-color: #dc3545;
-  /* Optional: Match border color */
-}
+
+

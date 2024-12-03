@@ -599,6 +599,61 @@ section:before {
   padding-bottom:5px!important;
 }
 
+@media screen and (max-width: 768px) {
+  section {
+    height: 80vh; /* Slightly reduce the height on smaller screens */
+  }
+
+  #moon {
+    width: 35%; /* Increase moon size for better visibility */
+    top: 15%; /* Adjust top position */
+  }
+
+  #mountain {
+    width: 120%; /* Slightly enlarge mountain to fill screen */
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  section {
+    height: 70vh; /* Further reduce height for very small screens */
+  }
+
+  #moon {
+    width: 40%; /* Increase moon size */
+    top: 20%; /* Adjust position */
+  }
+
+  #mountain {
+    width: 130%; /* Ensure it still fills the width */
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  #text {
+    font-size: 4em;
+  }
+
+  .announcement-box {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .calendar-container .month ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .weekdays li, .days li {
+    flex: 1 1 12%;
+    padding: 5px;
+  }
+}
+
+
 
 
 

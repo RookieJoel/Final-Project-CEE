@@ -287,8 +287,8 @@ function renderComments(comments) {
     const commentElement = document.createElement('div');
     commentElement.classList.add('comment', 'mb-3');
     commentElement.innerHTML = `
-      <div class="position-relative">
-        <strong>${comment.user}</strong>: <p>${comment.text}</p>
+      <div class="position-relative-inthread">
+        <strong style="padding-left: 20px;font-size: 22px;">${comment.user}</strong>: <p style="margin-left: 40px;font-size: 20px;">${comment.text}</p>
       </div>
     `;
     commentSection.appendChild(commentElement);

@@ -1,13 +1,12 @@
 // index.js (Backend)
-
 import express from 'express';
 import dotenv from 'dotenv';
 import session from 'express-session';
 import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/auth.js';
-import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import Thread from './src/models/Thread.js';
 
 // Update the CORS options
 const corsOptions = {
@@ -28,26 +27,6 @@ app.use(cors(corsOptions));
 
 // Middleware
 app.use(bodyParser.json());
-
-// Thread Schema
-const threadSchema = new mongoose.Schema({
-  id: String,
-  title: String,
-  description: String,
-  username: { type: String, required: true },
-  likes: [String],
-  dislikes: [String],
-  comments: [
-    {
-      user: String,
-      text: String,
-      likes: { type: Number, default: 0 },
-      dislikes: { type: Number, default: 0 }
-    }
-  ]
-});
-
-const Thread = mongoose.model('Thread', threadSchema);
 
 // API routes
 
@@ -187,7 +166,7 @@ app.post('/api/threads/:id/comments', async (req, res) => {
 });
 
 // DELETE a comment from a thread
-app.delete('/api/threads/:threadId/comments/:commentId', async (req, res) => {
+app.delete('/api/threads/:id/comments/:commentId', async (req, res) => {
   try {
     const thread = await Thread.findById(req.params.threadId);
     if (!thread) {

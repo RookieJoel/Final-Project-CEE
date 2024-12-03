@@ -1,11 +1,22 @@
 import express from 'express';
-import { getAllThreads, createThread, deleteThread, updateLikes } from '../controller/threadController.js';
+import {
+  getAllThreads,
+  createThread,
+  getThreadComments,
+  deleteThread,
+  likeDislikeThread,
+  addComment,
+  deleteComment,
+} from '../controllers/threadController.js';
 
 const router = express.Router();
 
-router.get('/threads', getAllThreads);
-router.post('/threads', createThread);
-router.delete('/threads/:id', deleteThread);
-router.patch('/:threadId/likes', updateLikes);
+router.get('/', getAllThreads);
+router.post('/', createThread);
+router.get('/:id/comments', getThreadComments);
+router.delete('/:id', deleteThread);
+router.patch('/:id/likes', likeDislikeThread);
+router.post('/:id/comments', addComment);
+router.delete('/:threadId/comments/:commentId', deleteComment);
 
 export default router;

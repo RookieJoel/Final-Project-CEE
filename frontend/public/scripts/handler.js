@@ -18,8 +18,8 @@ export async function updateNavbar() {
             document.getElementById('logoutButton').addEventListener('click', logout);
         } else {
             navbarSection.innerHTML = `
-                <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal">Login</button>
-                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal">Sign-up</button>
+                <button type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#authModal" id="loginForm">Login</button>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#authModal" id="signupForm">Sign-up</button>
             `;
         }
     } catch (error) {

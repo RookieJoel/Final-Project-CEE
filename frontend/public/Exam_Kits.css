@@ -375,3 +375,128 @@ footer {
   border-radius: 50%;
 }
 
+/* Responsive Design for Phones (480px Width) */
+@media screen and (max-width: 480px) {
+  /* General body adjustments */
+  body {
+    font-size: 14px;
+    background-color: #f4f4f4; /* Lighten background for smaller screens */
+  }
+
+  /* Navbar adjustments */
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .nav {
+    flex-direction: column; /* Stack nav items vertically */
+    align-items: center;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  /* Header featured section */
+  .p-4.p-md-5 {
+    flex-direction: column; /* Stack text and image vertically */
+    text-align: center;
+  }
+  .p-4.p-md-5 img {
+    max-width: 200px;
+    margin: 1rem auto;
+  }
+  .p-4.p-md-5 h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Study Tools Section */
+  .study-section {
+    padding: 1rem;
+  }
+  .study-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .study-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  .study-card .content img {
+    width: 80px; /* Smaller icons for flashcards */
+    height: 80px;
+  }
+
+  /* Adjust navigation buttons */
+  .prev-btn,
+  .next-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+  .prev-btn {
+    left: -40px;
+  }
+  .next-btn {
+    right: -40px;
+  }
+
+  /* Cards Section */
+  .card {
+    flex-direction: column; /* Stack card content */
+    text-align: center;
+  }
+  .card img {
+    width: 100px;
+    margin: 0 auto;
+  }
+  .card-title {
+    font-size: 1.2rem;
+  }
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  /* Carousel Section */
+  .carousel-container {
+    max-width: 100%;
+  }
+  .carousel-img {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+  .carousel-overlay {
+    width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .carousel-overlay h3 {
+    font-size: 1rem;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+Suggested Tools Image Styling
+.study-card .content img {
+  width: 100%; /* Makes the image take the full width of the container */
+  height: auto; /* Ensures aspect ratio is maintained */
+  max-height: 150px; /* Prevents the image from being too tall */
+  object-fit: cover; /* Ensures the image scales and crops appropriately to fit the container */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  display: block; /* Ensures the image behaves properly as a block element */
+  margin: 0 auto; /* Centers the image horizontally within its container */
+}
+
+/* Media Query for Small Screens (Phones) */
+@media screen and (max-width: 480px) {
+  .study-card .content img {
+    max-height: 100px; /* Reduce the image height for smaller screens */
+    object-fit: contain; /* Ensures the entire image is visible within the container */
+  }
+}
+
+
+
