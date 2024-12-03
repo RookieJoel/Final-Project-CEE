@@ -37,7 +37,6 @@ export async function logout() {
         });
 
         if (response.ok) {
-            alert('Logout successful');
             localStorage.removeItem('userId');
             localStorage.removeItem('username');
 

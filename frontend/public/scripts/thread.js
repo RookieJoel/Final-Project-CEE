@@ -2,8 +2,7 @@
 let threads = [];
 
 // Fetch and display all threads
-// Fetch and display all threads
-async function displayThreads(initialLoad = true) {
+async function displayThreads(initialLoad = true ,filter) {
   const userId = localStorage.getItem('userId'); // Get current user ID
   const username = localStorage.getItem('username') || 'Anonymous'; // Get the current user's username
   const threadContainer = document.getElementById('threads-container');
@@ -12,7 +11,7 @@ async function displayThreads(initialLoad = true) {
     threadContainer.innerHTML = '';
 
     try {
-      const response = await fetch('http://54.211.108.140:3222/api/threads');
+      const response = await fetch(`http://54.211.108.140:3222/api/threads?filter=${filter}&userId=${username}`)
       if (!response.ok) throw new Error('Failed to fetch threads');
       threads = await response.json();
     } catch (err) {
@@ -304,7 +303,7 @@ function goBackToThreads() {
 }
 
 // Initialize the thread list
-displayThreads();
+//displayThreads();
 
 async function checkAuthentication() {
   try {
@@ -326,7 +325,31 @@ async function checkAuthentication() {
   }
 }
 
+// async function fetchThreads(filter) {
+//   const userId = localStorage.getItem('username'); // Replace with the actual logged-in user ID
+
+//   // Fetch threads from the backend based on the selected filter
+//   const response = await fetch(`http://54.211.108.140:3222/api/threads?filter=${filter}&userId=${userId}`, {
+//     method: 'GET',
+//     credentials: 'include', // Send credentials (cookies) with the request
+//   });
+
+//   if (response.ok) {
+//     const threads = await response.json();
+//     displayThreads(threads); // Function to display threads on the page
+//   } else {
+//     console.error('Error fetching threads:', await response.text());
+//   }
+// }
+
+document.getElementById('filterDropdown').addEventListener('change', (event) => {
+  const selectedFilter = event.target.value;
+  displayThreads(true,selectedFilter);
+});
+
 // Run the authentication check on page load
-document.addEventListener('DOMContentLoaded', checkAuthentication);
+document.addEventListener('DOMContentLoaded', () => {
+  displayThreads(true,'all'); // Fetch all threads by default
+});
 
 

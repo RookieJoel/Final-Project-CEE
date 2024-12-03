@@ -38,15 +38,30 @@ app.use(bodyParser.json());
 
 // API routes
 
-// GET all threads
+// GET all threads or filtered threads (user-specific or liked threads)
 app.get('/api/threads', async (req, res) => {
+  const { filter, userId } = req.query; // Extract filter and userId from query parameters
+
   try {
-    const threads = await Thread.find();
+    let threads = [];
+
+    if (filter === 'user' && userId) {
+      // Fetch threads created by a specific user
+      threads = await Thread.find({ username: userId });
+    } else if (filter === 'liked' && userId) {
+      // Fetch threads liked by a specific user
+      threads = await Thread.find({ likes: userId });
+    } else {
+      // Default to fetching all threads
+      threads = await Thread.find();
+    }
+
     res.json(threads);
   } catch (err) {
     res.status(500).send(err);
   }
 });
+
 
 // POST a new thread
 app.post('/api/threads', async (req, res) => {
@@ -261,6 +276,28 @@ app.post('/api/threads/:threadId/comments/:commentId/dislike', async (req, res) 
     res.status(200).json(comment); // Return the updated comment
   } catch (err) {
     res.status(500).json({ error: 'Error disliking comment', message: err.message });
+  }
+});
+
+// Get threads created by the logged-in user
+app.get('/api/threads/user/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const userThreads = await Thread.find({ username: userId });
+    res.status(200).json(userThreads);
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching user threads', message: err.message });
+  }
+});
+
+// Get threads liked by the logged-in user
+app.get('/api/threads/liked/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const likedThreads = await Thread.find({ likes: userId });
+    res.status(200).json(likedThreads);
+  } catch (err) {
+    res.status(500).json({ error: 'Error fetching liked threads', message: err.message });
   }
 });
 
