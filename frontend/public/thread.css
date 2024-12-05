@@ -278,7 +278,7 @@ body {
   top: 0;
   right: 0;
   margin: 10px;
-  /* เพิ่มระยะห่างเล็กน้อยจากขอบ */
+  
   color: #ff4d4d !important;
 }
 
@@ -326,6 +326,17 @@ h2 {
     flex-direction: column;
     gap: 0.5rem;
   }
+
+  .btn.btn-sm.btn-delete-x.text-white{
+    margin-right: -20px;
+    margin-top: 0px;
+  }
+
+  .text-end {
+    text-align: center !important;
+  }
+
+
 }
 
 /* Responsive Styles */

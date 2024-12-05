@@ -100,25 +100,3 @@ export const addComment = async (req, res) => {
     res.status(500).json({ error: 'Failed to add comment', message: err.message });
   }
 };
-
-// Delete a comment
-export const deleteComment = async (req, res) => {
-  try {
-    const thread = await Thread.findById(req.params.threadId);
-    if (!thread) {
-      return res.status(404).send('Thread not found');
-    }
-
-    const commentIndex = thread.comments.findIndex((c) => c._id.toString() === req.params.commentId);
-    if (commentIndex === -1) {
-      return res.status(404).send('Comment not found');
-    }
-
-    thread.comments.splice(commentIndex, 1);
-    await thread.save();
-
-    res.status(200).send('Comment deleted');
-  } catch (err) {
-    res.status(500).send(err);
-  }
-};

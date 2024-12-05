@@ -550,6 +550,10 @@ footer {
   footer {
     font-size: 0.8rem;
   }
+
+  .text-end {
+    text-align: center !important;
+  }
 }
 
 Suggested Tools Image Styling .study-card .content img {
@@ -751,4 +755,76 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+.study-tools-container {
+  display: flex;
+  flex-wrap: nowrap; /* Keep items in one row for horizontal scrolling */
+  justify-content: center; /* Center the cards */
+  align-items: center; /* Align vertically in the middle */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 1rem; /* Space between cards */
+  padding: 0 1rem; /* Add padding for better look */
+  scrollbar-width: thin; /* Firefox - Thin scrollbar */
+  scrollbar-color: #ffc107 transparent; /* Color customization for scrollbar */
+}
+
+.study-tools-container::-webkit-scrollbar {
+  height: 10px; /* Custom height for horizontal scrollbar */
+}
+
+.study-tools-container::-webkit-scrollbar-thumb {
+  background: #ffc107; /* Customize scrollbar color */
+  border-radius: 5px;
+}
+
+.study-tools-container::-webkit-scrollbar-track {
+  background: transparent; /* Transparent background for scrollbar */
+}
+
+/* Study Cards */
+.study-card {
+  flex: 0 0 250px; /* Fixed width for each card */
+  max-width: 250px;
+  text-align: center;
+  background-color: var(--secondary-light);
+  border: 1px solid var(--primary-dark);
+  color: var(--text-light);
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 0; /* Ensure no additional margin left */
+}
+
+/* Hover Effect */
+.study-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+/* Scroll Buttons */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--primary-accent);
+  border: none;
+  color: var(--primary-dark);
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.scroll-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.prev {
+  left: -20px;
+}
+
+.scroll-btn.next {
+  right: -20px;
 }

@@ -11,7 +11,8 @@ async function displayThreads(initialLoad = true ,filter) {
     threadContainer.innerHTML = '';
 
     try {
-      const response = await fetch(`http://54.211.108.140:3222/api/threads?filter=${filter}&userId=${username}`)
+      let user = (filter === 'user') ? username : userId;
+      const response = await fetch(`http://54.211.108.140:3222/api/threads?filter=${filter}&userId=${user}`)
       if (!response.ok) throw new Error('Failed to fetch threads');
       threads = await response.json();
     } catch (err) {

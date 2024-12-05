@@ -6,8 +6,8 @@ import connectDB from './src/config/db.js';
 import authRoutes from './src/routes/auth.js';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import todoRoutes from './src/routes/todoRoutes.js'; // Import todo routes
-import Todo from './src/models/Todo.js'; // Import Todo model
+import todoRoutes from './src/routes/todoRoutes.js'; 
+import Todo from './src/models/Todo.js'; 
 import Thread from './src/models/Thread.js';
 
 
@@ -38,30 +38,15 @@ app.use(bodyParser.json());
 
 // API routes
 
-// GET all threads or filtered threads (user-specific or liked threads)
+// GET all threads
 app.get('/api/threads', async (req, res) => {
-  const { filter, userId } = req.query; // Extract filter and userId from query parameters
-
   try {
-    let threads = [];
-
-    if (filter === 'user' && userId) {
-      // Fetch threads created by a specific user
-      threads = await Thread.find({ username: userId });
-    } else if (filter === 'liked' && userId) {
-      // Fetch threads liked by a specific user
-      threads = await Thread.find({ likes: userId });
-    } else {
-      // Default to fetching all threads
-      threads = await Thread.find();
-    }
-
+    const threads = await Thread.find();
     res.json(threads);
   } catch (err) {
     res.status(500).send(err);
   }
 });
-
 
 // POST a new thread
 app.post('/api/threads', async (req, res) => {
@@ -279,76 +264,7 @@ app.post('/api/threads/:threadId/comments/:commentId/dislike', async (req, res) 
   }
 });
 
-// Get threads created by the logged-in user
-app.get('/api/threads/user/:userId', async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const userThreads = await Thread.find({ username: userId });
-    res.status(200).json(userThreads);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching user threads', message: err.message });
-  }
-});
-
-// Get threads liked by the logged-in user
-app.get('/api/threads/liked/:userId', async (req, res) => {
-  try {
-    const { userId } = req.params;
-    const likedThreads = await Thread.find({ likes: userId });
-    res.status(200).json(likedThreads);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching liked threads', message: err.message });
-  }
-});
-
 app.use('/api/todos', todoRoutes); // Use the todoRoutes for /api/todos
-
-
-// GET all to-do items
-app.get('/api/todos', async (req, res) => {
-  try {
-    const todos = await Todo.find();
-    res.json(todos);
-  } catch (err) {
-    res.status(500).json({ error: 'Error fetching to-do list', message: err.message });
-  }
-});
-
-// POST a new to-do item
-// Ensure this part of your index.js matches the correct fields
-app.post('/api/todos', async (req, res) => {
-  const { task, genre } = req.body; // Changed `topic` to `genre`
-  if (!task || !genre) {
-    return res.status(400).json({ error: 'Task and Genre are required' });
-  }
-
-  try {
-    const newTodo = new Todo({
-      task,
-      genre,
-      userId: req.session.userId, // Ensure session exists
-    });
-
-    await newTodo.save();
-    res.status(201).json(newTodo);
-  } catch (err) {
-    res.status(500).json({ error: 'Error creating to-do item', message: err.message });
-  }
-});
-
-
-// DELETE a to-do item
-app.delete('/api/todos/:id', async (req, res) => {
-  try {
-    const todo = await Todo.findByIdAndDelete(req.params.id);
-    if (!todo) {
-      return res.status(404).json({ error: 'To-Do item not found' });
-    }
-    res.status(200).send('To-Do item deleted');
-  } catch (err) {
-    res.status(500).json({ error: 'Error deleting to-do item', message: err.message });
-  }
-});
 
 //log in & sign up Part 
 

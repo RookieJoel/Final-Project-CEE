@@ -17,6 +17,5 @@ router.get('/:id/comments', getThreadComments);
 router.delete('/:id', deleteThread);
 router.patch('/:id/likes', likeDislikeThread);
 router.post('/:id/comments', addComment);
-router.delete('/:threadId/comments/:commentId', deleteComment);
 
 export default router;
